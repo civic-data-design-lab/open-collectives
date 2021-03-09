@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Ashley Louie, Alina Nazmeeva">
+    <title>Open Collectives</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/starter-template/">
+
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/nav.css">
+
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand navbar-dark fixed-top">
+        <div class="container-fluid dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-target="#dropdownMenu"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="navTrigger">
+                    <i></i><i></i><i></i>
+                </div>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" id="dropdownMenu" aria-labelledby="dropdownMenu">
+                <li><a class="dropdown-item active" aria-current="page" href="#">Home</a></li>
+                <li><a class="dropdown-item" href="#">About</a></li>
+                <li><a class="dropdown-item" href="#">Collective Voices</a></li>
+                <li><a class="dropdown-item" href="#">Collective Dimensions</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="vidSection" class="container-fluid section d-flex">
+            <!-- <div id="player"></div> -->
+            <iframe class="align-self-center" id="vidTrailer" width="560" height="315" src="https://www.youtube.com/embed/GW3JPYkjeo0?rel=0&modestbranding=1&autohide=1&controls=0&autoplay=1&mute=1&playlist=GW3JPYkjeo0&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+        <section class="container-fluid section">
+            <div class="row align-items-end" id="oc">
+                <div class="col-10 offset-2">
+                    <h1 class="h1 text-uppercase">Open Collectives</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 offset-8 mt-4">
+                    <p>Open Collectives is an immersive installation featuring digital and urban architectural platforms seeking to leverage the power of solidarity to strengthen economic sovereignty, housing affordability, communal self-determination, and mutual aid.</p>
+                    <p>Open Collectives offers new perspectives on timely contemporary issues — the future of work, reputational economy, elder boom, and the climate refugee crisis, to name a few. Featured architecture projects engage with four specific themes.</p>
+                </div>
+            </div>
+            <img class="img img-center" id="img-oc" src="./img/installation.svg" alt="Open Collectives Installation">
+        </section>
+        <section class="container-fluid section">
+            <div class="align-items-middle">
+            <div class="row">
+                <div class="col-3 offset-4" id="p-labor">
+                    <h2 class="h4 text-uppercase">Labor</h2>
+                    <p>Addresses labor-based communities and organizations that use shared spaces to make labor more efficient, sustainable and fulfilling</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 offset-9 mt-3">
+                    <h2 class="h4 text-uppercase">Market</h2>
+                    <p>Exploring physical and digital marketplaces empowering members of a low-income local communities</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 offset-1" id="p-care">
+                    <h2 class="h4 text-uppercase">Care</h2>
+                    <p>This theme focuses on intergenerational care-based collective living  where caregivers live with and care for the older adults and disabled people</p>
+                </div>
+                <div class="col-3 offset-4" id="p-living">
+                    <h2 class="h4 text-uppercase">Living</h2>
+                    <p>Focusing on collective living in retrofitted abandoned buildings and on the new constructed block-scale coliving models</p>
+                </div>
+            </div>
+            <img class="img" id="img-labor" src="./img/labor.svg" alt="Labor">
+            <img class="img" id="img-market" src="./img/market.svg" alt="Market">
+            <img class="img" id="img-care" src="./img/care.svg" alt="Care">
+            <img class="img" id="img-living" src="./img/living.svg" alt="Living">
+        </div>
+        </section>
+        <section class="container-fluid section d-flex">
+            <div class="row align-items-center">
+                <div class="col-8 offset-2">
+                    <h2 class="h1 text-uppercase text-center">To Share or Not To Share?</h2>
+                </div>
+                <div class="col-2">
+                    <p>enter collective voices to contribute and learn what others think</p>
+                </div>
+            </div>
+            <img class="img img-center" id="img-voices" src="./img/voices.svg" alt="Collective Voices">
+        </section>
+        <section class="container-fluid section d-flex" id="cd">
+            <div class="row w-100 align-self-center">
+                <div class="col align-self-center">
+                    <h2 class="h1 text-uppercase text-center top">Explore Collectives</h2>
+                    <h2 class="h1 text-uppercase text-center bottom">Around the World</h2>
+                </div>
+                <div class="col-2 offset-5" id="more">
+                    <p>learn more about contemporary and historical collectives in collective archive</p>
+                </div>
+            </div>
+            <div class="W-100 img-row">
+                <marquee behavior="scroll" direction="left" scrollamount="15">
+                    <img class="img img-cd" id="" src="./img/cd-1.svg" alt="Collective Dimensions 1">
+                    <img class="img img-cd" id="" src="./img/cd-2.svg" alt="Collective Dimensions 2">
+                    <img class="img img-cd" id="" src="./img/cd-3.svg" alt="Collective Dimensions 3">
+                    <img class="img img-cd" id="" src="./img/cd-4.svg" alt="Collective Dimensions 4">
+                    <img class="img img-cd" id="" src="./img/cd-5.svg" alt="Collective Dimensions 5">
+                    <img class="img img-cd" id="" src="./img/cd-6.svg" alt="Collective Dimensions 6">
+                    <img class="img img-cd" id="" src="./img/cd-7.svg" alt="Collective Dimensions 7">
+                    <img class="img img-cd" id="" src="./img/cd-8.svg" alt="Collective Dimensions 8">
+                </marquee>
+            </div>
+        </section>
+    </main><!-- /.container -->
+
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+</body>
+
+</html>
