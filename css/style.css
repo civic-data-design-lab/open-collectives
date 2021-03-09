@@ -29,7 +29,7 @@ body {
 .section {
     position: relative;
     min-height: 100vh;
-    /* border-bottom: solid 1px; */
+    border-bottom: solid 1px;
 }
 
 .h1 {
@@ -59,6 +59,10 @@ p {
     -moz-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     z-index: -1;
+}
+.arrow-lf {
+    position: absolute;
+    height: 20px;
 }
 
 /* nav menu dropdown */
@@ -106,8 +110,37 @@ div.ytp-chrome-top {
 #oc .h1 {
     margin-top: 20%;
 }
-#cd #more {
+#oc .arrow-lf {
+    margin-left: 20px;
+    margin-top: 0.375rem;
+}
+#p-labor {
+    margin-top: 10%;
+}
+#p-care {
+    margin-top: 10%;
+}
+#p-living {
+    margin-top: 7%;
+}
+#cv #cv-enter {
     position: absolute;
+    margin-top: 24rem;
+}
+#cv .arrow-lf, #cd .arrow-lf {
+    position: absolute;
+    top: 22%;
+    left: 100%;
+}
+#cd .h1.top {
+    margin-bottom: 5.5rem;
+}
+#cd .h1.bottom {
+    margin-top: 5.5rem;
+}
+#cd #cd-more {
+    position: absolute;
+    margin-top: 18rem;
 }
 
 .img-center {
@@ -124,21 +157,22 @@ div.ytp-chrome-top {
 }
 #img-labor {
     top: 5%;
-    left: 15%;
+    left: 5%;
     width: 30%;
 }
 #img-market {
-    top: 0%;
-    left: 65%;
+    top: 25%;
+    left: 15%;
     width: 25%;
 }
 #img-care {
     top: 50%;
+    left: 0%;
     width: 35%;
 }
 #img-living {
-    top: 55%;
-    left: 45%;
+    top: 75%;
+    left: 10%;
     width: 25%;
 }
 #img-voices {
@@ -151,20 +185,16 @@ div.ytp-chrome-top {
     margin-left: 1.25rem;
 }
 
-#p-labor {
-    margin-top: 10%;
-}
-#p-care {
-    margin-top: 10%;
-}
-#p-living {
-    margin-top: 7%;
-}
-
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
     .h1 {
         font-size: 2.5rem;
+    }
+    #oc .arrow-lf {
+        margin-top: 0.875rem;
+    }
+    #cv #cv-enter {
+        margin-top: 23rem;
     }
     .img-cd {
         height: 5rem;
@@ -175,7 +205,7 @@ div.ytp-chrome-top {
     #cd .h1.bottom {
         margin-top: 5.5rem;
     }
-    #cd #more {
+    #cd #cd-more {
         margin-top: 17.5rem;
     }
 }
@@ -183,6 +213,12 @@ div.ytp-chrome-top {
 @media (min-width: 768px) {
     .h1 {
         font-size: 2.8rem;
+    }
+    #oc .arrow-lf {
+        margin-top: 1rem;
+    }
+    #cv #cv-enter {
+        margin-top: 24rem;
     }
     .img-cd {
         height: 5.5rem;
@@ -193,14 +229,40 @@ div.ytp-chrome-top {
     #cd .h1.bottom {
         margin-top: 6rem;
     }
-    #cd #more {
+    #cd #cd-more {
         margin-top: 18rem;
+    }
+    #img-labor {
+        top: 5%;
+        left: 15%;
+    }
+    #img-market {
+        top: 0%;
+        left: 65%;
+    }
+    #img-care {
+        top: 50%;
+        left: 0%;
+    }
+    #img-living {
+        top: 55%;
+        left: 45%;
     }
 }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .h1 {
         font-size: 4.25rem;
+    }
+    #oc .arrow-lf {
+        margin-top: 1.75rem;
+    }
+    #cv #cv-enter {
+        position: relative;
+        margin-top: 0rem;
+    }
+    #cv .arrow-lf {
+        left: 90%;
     }
     .img-cd {
         height: 6rem;
@@ -211,10 +273,16 @@ div.ytp-chrome-top {
     #cd .h1.bottom {
         margin-top: 6.5rem;
     }
-    #cd #more {
+    #cd #cd-more {
         margin-top: 19.5rem;
     }
     .container {
         max-width: 960px;
+    }
+}
+
+@media (max-width: 718px) {
+    #cd .h1 {
+        height: 2em;
     }
 }
