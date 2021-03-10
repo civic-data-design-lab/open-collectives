@@ -20,8 +20,6 @@ body {
     font-family: 'Acumin';
     font-weight: 300;
     font-variation-settings: 'wght' 300;
-    color: #fff;
-    background-color: #000;
 }
 .container {
     max-width: calc(100% - 120px);
@@ -29,7 +27,7 @@ body {
 .section {
     position: relative;
     min-height: 100vh;
-    border-bottom: solid 1px;
+    /* border-bottom: solid 1px; */
 }
 
 .h1 {
@@ -42,6 +40,14 @@ body {
 p {
     font-size: 0.9rem;
     line-height: 1.2em;
+}
+b {
+    font-weight: 600;
+    font-variation-settings: 'wght' 600;
+    letter-spacing: 0.5px;
+}
+.red {
+    color: #FF0000;
 }
 
 .img {
@@ -64,6 +70,9 @@ p {
     position: absolute;
     height: 20px;
 }
+.arrow-dn {
+    height: 1em;
+}
 
 /* nav menu dropdown */
 .dropdown-toggle::after {
@@ -72,17 +81,54 @@ p {
 .dropdown-menu {
     border-radius: 0px;
 }
+.dropdown-menu .dropdown-item.active {
+    color: #FF0000;
+    font-weight: 600;
+    font-variation-settings: 'wght' 600;
+    letter-spacing: 0.5px;
+}
+.dropdown-menu > li > a:hover {
+    text-decoration: underline;
+}
+
+/* light background styles (about) */
+body#about {
+    color: #000;
+    background-color: #FDF4C4;
+}
+#about i {
+    background-color: #000;
+}
+.dropdown-menu {
+    border-color: rgba(253,244,196,0.8);
+}
+.dropdown-menu, .dropdown-menu .dropdown-item {
+    color: #000;
+    background-color: rgba(253,244,196,0.8);
+}
+.dropdown-menu .dropdown-item.active {
+    background-color: rgba(253,244,196,0.8);
+}
+.dropdown-menu > li > a:hover {
+    background-color: rgba(253,244,196,0.8)!important;
+}
+
+/* dark background styles (home) */
+body#home {
+    color: #fff;
+    background-color: #000;
+}
+.dropdown-menu-dark {
+    border-color: rgba(0,0,0,0.5);
+}
 .dropdown-menu-dark, .dropdown-menu-dark .dropdown-item {
     color: #fff;
     background-color: rgba(0,0,0,0.5);
 }
-.dropdown-menu .dropdown-item.active {
-    color: #FF0000;
+.dropdown-menu-dark .dropdown-item.active {
     background-color: rgba(0,0,0,0.5);
 }
 .dropdown-menu-dark > li > a:hover {
-    text-decoration: underline;
-    background-image: none!important;
     background-color: rgba(0,0,0,0.5)!important;
 }
 
@@ -183,6 +229,21 @@ div.ytp-chrome-top {
     /* min-height: 100px; */
     width: 10%;
     margin-left: 1.25rem;
+}
+
+/* About Page */
+#what-are {
+    margin-top: 15%;
+}
+#featured {
+    position: absolute;
+    top: 22%;
+}
+
+#img-about {
+    width: 65%;
+    top: 15%;
+    left: 24%;
 }
 
 /* Small devices (landscape phones, 576px and up) */
