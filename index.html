@@ -29,57 +29,74 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" id="dropdownMenu" aria-labelledby="dropdownMenu">
                 <li><a class="dropdown-item active" aria-current="page" href="./index.html">Open Collectives</a></li>
-                <li><a class="dropdown-item" href="./about.html">About</a></li>
-                <li><a class="dropdown-item" href="#">Collective Voices</a></li>
+                <li><a class="dropdown-item" href="./film.html">Film</a></li>
+                <li><a class="dropdown-item" href="./about.html">About</a>
+                    <!-- <div class="arrow-dn"></div> -->
+                    <!-- <ul class="" id="dropdownAbout" aria-labelledby="dropdownAbout" aria-expanded="false">
+                        <li><a class="dropdown-item" href="./labor.html">Labor</a></li>
+                        <li><a class="dropdown-item" href="./market.html">Market</a></li>
+                        <li><a class="dropdown-item" href="./care.html">Care</a></li>
+                        <li><a class="dropdown-item" href="./living.html">Living</a></li>
+                    </ul> -->
+                </li>
+                <li><a class="dropdown-item" href="./voices.html">Collective Voices</a></li>
                 <li><a class="dropdown-item" href="http://ec2-3-94-170-100.compute-1.amazonaws.com/">Collective Dimensions</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="container">
-        <section id="vidSection" class="container-fluid section d-flex">
+        <section id="sect-video" class="container-fluid section d-flex">
             <!-- <div id="player"></div> -->
             <iframe class="align-self-center" id="vidTrailer" width="560" height="315" src="https://www.youtube.com/embed/GW3JPYkjeo0?rel=0&modestbranding=1&autohide=1&controls=0&autoplay=1&mute=1&playlist=GW3JPYkjeo0&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </section>
         <section class="container-fluid section">
             <div class="row align-items-end" id="oc">
                 <div class="col col-md-10 offset-md-2">
-                    <h1 class="h1 text-uppercase">Open Collectives 
-                        <img class="arrow-lf" src="./img/arrow-lf.svg" alt="Read more about Open Collectives">
-                    </h1>
+                    <a class="link-white" href="./about.html"><h1 class="h1 text-uppercase position-relative before-arrow">Open Collectives
+                        <div class="arrow"><div class="head"></div></div>
+                    </h1></a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-10 offset-2 col-md-6 offset-md-6 col-lg-4 offset-lg-8 mt-4">
                     <p>Open Collectives is an immersive installation featuring digital and urban architectural platforms seeking to leverage the power of solidarity to strengthen economic sovereignty, housing affordability, communal self-determination, and mutual aid.</p>
-                    <p>Open Collectives offers new perspectives on timely contemporary issues — the future of work, reputational economy, elder boom, and the climate refugee crisis, to name a few. Featured architecture projects engage with four specific themes. 
+                    <p>Open Collectives offers new perspectives on timely contemporary issues — the future of work, reputational economy, elder boom, and the climate refugee crisis, to name a few. Featured architecture projects engage with four specific themes.
                         <img class="arrow-dn" src="./img/arrow-dn.svg" alt="Read about Open Collective Themes">
                     </p>
                 </div>
             </div>
             <img class="img img-center" id="img-oc" src="./img/installation.svg" alt="Open Collectives Installation">
         </section>
-        <section class="container-fluid section">
+        <section id="sect-themes" class="container-fluid section">
             <div class="align-items-middle">
             <div class="row">
                 <div class="col-8 offset-2 col-md-4 offset-md-4 col-lg-3" id="p-labor">
-                    <h2 class="h4 text-uppercase">Labor</h2>
+                    <a class="link-white" href="./labor.html"><h2 class="h4 text-uppercase position-relative">Labor
+                        <div class="arrow"><div class="head"></div></div>
+                    </h2></a>
                     <p>Addresses labor-based communities and organizations that use shared spaces to make labor more efficient, sustainable and fulfilling</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-7 offset-5 col-md-4 offset-md-9 col-lg-3 mt-3">
-                    <h2 class="h4 text-uppercase">Market</h2>
+                    <a class="link-white" href="./market.html"><h2 class="h4 text-uppercase position-relative">Market
+                        <div class="arrow"><div class="head"></div></div>
+                    </h2></a>
                     <p>Exploring physical and digital marketplaces empowering members of a low-income local communities</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-9 offset-3 col-md-4 offset-md-1 col-lg-3" id="p-care">
-                    <h2 class="h4 text-uppercase">Care</h2>
+                    <a class="link-white" href="./care.html"><h2 class="h4 text-uppercase position-relative">Care
+                        <div class="arrow"><div class="head"></div></div>
+                    </h2></a>
                     <p>This theme focuses on intergenerational care-based collective living  where caregivers live with and care for the older adults and disabled people</p>
                 </div>
                 <div class="col-7 offset-4 col-md-4 offset-md-3 col-lg-3 offset-lg-4" id="p-living">
-                    <h2 class="h4 text-uppercase">Living</h2>
+                    <a class="link-white" href="./living.html"><h2 class="h4 text-uppercase position-relative">Living
+                        <div class="arrow"><div class="head"></div></div>
+                    </h2></a>
                     <p>Focusing on collective living in retrofitted abandoned buildings and on the new constructed block-scale coliving models</p>
                 </div>
             </div>
@@ -90,13 +107,17 @@
         </div>
         </section>
         <section class="container-fluid section d-flex" id="cv">
-            <div class="row align-items-center">
-                <div class="col-8 offset-2">
-                    <h2 class="h1 text-uppercase text-center">To Share or Not To Share?</h2>
+            <div class="row w-100 align-items-center">
+                <div class="col-6 offset-3">
+                    <h2 class="h1 text-uppercase text-center mb-0">To Share</h2>
+                    <h2 class="h1 text-uppercase text-center mt-0 mb-0">or Not</h2>
+                    <h2 class="h1 text-uppercase text-center mt-0">To Share?</h2>
                 </div>
-                <div class="col-8 offset-2 col-md-4 offset-md-8 col-lg-2 offset-lg-0" id="cv-enter">
-                    <p>enter collective voices to contribute your opinion and learn what others think</p>
-                    <img class="arrow-lf" src="./img/arrow-lf.svg" alt="Enter Collective Voices">
+                <div class="col-8 offset-2 col-md-5 offset-md-7 col-lg-4 offset-lg-8" id="cv-enter">
+                    <a class="link-white" href="./voices.html">
+                        <p class="mb-0 before-arrow">enter collective voices to contribute your opinion and learn what others think</p>
+                        <div class="arrow"><div class="head"></div></div>
+                    </a>
                 </div>
             </div>
             <img class="img img-center" id="img-voices" src="./img/voices.svg" alt="Collective Voices">
@@ -107,9 +128,11 @@
                     <h2 class="h1 text-uppercase text-center top">Explore Collectives</h2>
                     <h2 class="h1 text-uppercase text-center bottom">Around the World</h2>
                 </div>
-                <div class="col-8 offset-2 col-md-4 offset-md-4 col-lg-2 offset-lg-5" id="cd-more">
-                    <p>learn more about contemporary and historical collectives in the collective dimensions archive</p>
-                    <img class="arrow-lf" src="./img/arrow-lf.svg" alt="View Collective Dimensions Archive">
+                <div class="col-8 offset-2 col-md-5 offset-md-7 col-lg-4 offset-lg-8" id="cd-more">
+                    <a class="link-white" href="http://ec2-3-94-170-100.compute-1.amazonaws.com/">
+                        <p class="mb-0 before-arrow">learn more about contemporary and historical collectives in the dimensions archive</p>
+                        <div class="arrow"><div class="head"></div></div>
+                    </a>
                 </div>
             </div>
             <div class="W-100 img-row">
