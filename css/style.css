@@ -46,7 +46,13 @@ b {
     font-variation-settings: 'wght' 600;
     letter-spacing: 0.5px;
 }
-.red {
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+.red, a.red, a.red:hover {
     color: #FF0000;
 }
 
@@ -328,9 +334,6 @@ div.ytp-chrome-top {
     .h1 {
         font-size: 2.5rem;
     }
-    /* #cv #cv-enter {
-        margin-top: 23rem;
-    } */
     .img-cd {
         height: 5rem;
     }
@@ -387,12 +390,8 @@ div.ytp-chrome-top {
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .h1 {
-        font-size: 4.25rem;
+        font-size: 4rem;
     }
-    /* #cv #cv-enter {
-        position: relative;
-        margin-top: 0rem;
-    } */
     .img-cd {
         height: 6rem;
     }
