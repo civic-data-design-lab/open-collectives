@@ -52,8 +52,24 @@ a {
 a:hover {
     text-decoration: underline;
 }
-.red, a.red, a.red:hover {
+.text-red, a.text-red, a.text-red:hover {
     color: #FF0000;
+}
+.text-pink {
+    color: #F8C5D7;
+}
+.text-yellow {
+    color: #FDF4C4;
+}
+.text-black {
+    color: #000;
+}
+.text-white {
+    color: #FFF;
+}
+a.link-white {
+    text-decoration: none;
+    color: #fff;
 }
 
 .img {
@@ -63,6 +79,19 @@ a:hover {
 .img-row {
     position: absolute;
     width: 90vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    z-index: -1;
+}
+.img-theme {
+    position: fixed;
+    max-width: 90vw;
+    max-height: 90vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -98,7 +127,7 @@ body {
     color: #000;
     background-color: #FFF;
 }
-body#about i, body#voices i {
+body#about i, body#voices i, body#labor i, body#market i, body#care i, body#living i {
     background-color: #000;
 }
 .dropdown-menu {
@@ -132,6 +161,40 @@ body.yellow .dropdown-menu > li > a:hover {
     background-color: rgba(253,244,196,0.7)!important;
 }
 
+/* pink background styles (living) */
+body.pink {
+    background-color: #F8C5D7;
+}
+body.pink .dropdown-menu {
+    border-color: rgba(248,197,215,0.7);
+}
+body.pink .dropdown-menu, body.pink .dropdown-menu .dropdown-item {
+    background-color: rgba(248,197,215,0.7);
+}
+body.pink .dropdown-menu .dropdown-item.active {
+    background-color: rgba(248,197,215,0.7);
+}
+body.pink .dropdown-menu > li > a:hover {
+    background-color: rgba(248,197,215,0.7)!important;
+}
+
+/* red background styles (labor) */
+body.red {
+    background-color: #FF6666;
+}
+body.red .dropdown-menu {
+    border-color: rgba(255,102,102,0.7);
+}
+body.red .dropdown-menu, body.red .dropdown-menu .dropdown-item {
+    background-color: rgba(255,102,102,0.7);
+}
+body.red .dropdown-menu .dropdown-item.active {
+    background-color: rgba(255,102,102,0.7);
+}
+body.red .dropdown-menu > li > a:hover {
+    background-color: rgba(255,102,102,0.7)!important;
+}
+
 /* dark background styles (home, film) */
 body#home, body#film {
     color: #fff;
@@ -153,14 +216,13 @@ body#home i, body#film i {
 .dropdown-menu-dark > li > a:hover {
     background-color: rgba(0,0,0,0.5)!important;
 }
+body.black .arrow, body.black .arrow .head, body.black .arrow .head:after {
+    background-color: #FFF;
+}
 
 /* arrow extend */
 .before-arrow {
     padding-right: 4rem;
-}
-a.link-white {
-    text-decoration: none;
-    color: #fff;
 }
 a .arrow {
     width: 4rem;
@@ -177,13 +239,13 @@ a:hover .arrow {
     /* margin-top: 1rem;
     margin-right: 2rem; */
     height: 1px;
-    background-color: #fff;
+    background-color: #000;
 }
 .arrow .head, .arrow .head:after {
     position: absolute;
     width: 1rem;
     height: 1px;
-    background-color: #fff;
+    background-color: #000;
     border-radius: 1px;
 }
 .arrow .head {
@@ -327,6 +389,43 @@ div.ytp-chrome-top {
 }
 .img-logo {
     width: 100%;
+}
+
+/* Collective Voices Page */
+#select {
+    position: absolute;
+    top: 100px;
+    left: 40px;
+}
+.tile {
+    position: relative;
+    width: calc(25% - 0.75rem);
+    height: 18vw;
+    margin-right: 1rem;
+}
+.tile img {
+    position: absolute;
+    width: 100%;
+}
+.tile .img-pos {
+    z-index: 2;
+    cursor: pointer;
+}
+.tile .img-neg {
+    opacity: 0;
+}
+.tile:hover .img-pos {
+    opacity: 0;
+}
+.tile:hover .img-neg {
+    opacity: 1;
+}
+#div-submit {
+    position: absolute;
+    width: 8rem;
+    height: 1rem;
+    top: 90%;
+    right: 2rem;
 }
 
 /* Small devices (landscape phones, 576px and up) */
