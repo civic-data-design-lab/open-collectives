@@ -6,7 +6,24 @@ var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
 
 // nav menu to X animation
 $('.navTrigger').click(function(){
-    $(this).toggleClass('active');
+  $(this).toggleClass('active');
+});
+
+// sidebar secondary menu animation
+$('.arrow-wide').on('click', function() {
+  if ($(this).hasClass('active')) {
+    $('#sidebar').css('left','-24rem');
+    $('main').css('margin-left','auto');
+    $('.sidebtn').css('left','0px');
+    $('.fade').removeClass('show').css('z-index','-1');
+  }
+  else {
+    $('.fade').addClass('show').css('z-index','4');
+    $('#sidebar').css('left','0rem');
+    $('main').css('margin-left','26rem');
+    $('.sidebtn').css('left','22rem');
+  }
+  $(this).toggleClass('active');
 });
 
 // embed trailer video

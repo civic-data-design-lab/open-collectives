@@ -220,6 +220,65 @@ body.black .arrow, body.black .arrow .head, body.black .arrow .head:after {
     background-color: #FFF;
 }
 
+/* sidebar secondary menu */
+.sidebtn {
+    position: fixed;
+    top: 50vh;
+    left: 0px;
+    z-index: 10;
+    transition: all 0.5s ease;
+}
+.sidebtn:hover {
+    cursor: pointer;
+}
+.fade {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: -1;
+    /* transition: all 0.5s; */
+}
+.sidebar {
+    position: fixed;
+    height: 100vh;
+    /* width: 0px; */
+    width: 24rem;
+    top: 0px;
+    left: -24rem;
+    /* padding: 2rem 0rem; */
+    padding: 2rem;
+    overflow: hidden auto;
+    background-color: #FEF8DD;
+    z-index: 5;
+    transition: all 0.5s ease;
+}
+.sidebar .closebtn:hover {
+    text-decoration: none;
+}
+.sidebar a {
+    color: #000;
+    text-decoration: none;
+}
+.sidebar a:hover {
+    text-decoration: underline;
+}
+.openbtn {
+    position: fixed;
+    top: 50vh;
+    left: 2rem;
+    background-color: #000;
+}
+.sidebar span {
+    margin-left: 1rem;
+}
+main {
+    transition: all 0.5s ease;
+}
+
 /* arrow extend */
 .before-arrow {
     padding-right: 4rem;
@@ -266,6 +325,77 @@ a:hover .arrow {
     -ms-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
+}
+a .arrow-sm {
+    width: 2rem;
+    margin-left: 1rem;
+}
+a:hover .arrow-sm {
+    width: 4rem;
+}
+.arrow-sm .head, .arrow-sm .head:after {
+    width: 0.5rem;
+}
+.arrow-sm .head {
+    top: 0.16rem;
+    right: -0.1rem;
+}
+.arrow-sm .head:after {
+    top: -0.25rem;
+    right: -0.25rem;
+}
+
+/* arrow wide */
+.arrow-wide {
+    /* position: relative; */
+    display: inline-block;
+    width: 2.3rem;
+    height: 1rem;
+    /* margin: 0 1rem; */
+    transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+}
+.arrow-wide:before, .arrow-wide:after {
+    content: "";
+    position: absolute;
+    top: 0.5rem;
+    width: 1.25rem;
+    height: 2px;
+    background-color: #000;
+    transition: all 0.3s ease;
+}
+.arrow-wide:before {
+    left: 0px;
+    transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+}
+.arrow-wide:after {
+    right: 0px;
+    transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+}
+.arrow-wide.active:before {
+    transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+}
+.arrow-wide.active:after {
+    transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
 }
 
 /* #sect-video {
@@ -392,6 +522,9 @@ div.ytp-chrome-top {
 }
 
 /* Collective Voices Page */
+body#voices {
+    overflow: hidden auto;
+}
 #select {
     position: absolute;
     top: 100px;
