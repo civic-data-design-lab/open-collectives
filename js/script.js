@@ -10,21 +10,32 @@ $('.navTrigger').click(function(){
 });
 
 // sidebar secondary menu animation
+function closeSidebar() {
+  $('#sidebar').css('left','-24rem');
+  $('main').css('margin-left','auto');
+  $('.sidebtn').css('left','0px');
+  $('#fade-sidebar').removeClass('show').css('z-index','-1');
+  $('.dropdown-menu').removeClass('active-side');
+  $('.arrow-wide').removeClass('active');
+};
+
 $('.arrow-wide').on('click', function() {
-  if ($(this).hasClass('active')) {
-    $('#sidebar').css('left','-24rem');
-    $('main').css('margin-left','auto');
-    $('.sidebtn').css('left','0px');
-    $('.fade').removeClass('show').css('z-index','-1');
-  }
-  else {
-    $('.fade').addClass('show').css('z-index','4');
+  if (!$(this).hasClass('active')) {
+    closeSidebar();
+    $('#fade-sidebar').addClass('show').css('z-index','4');
     $('#sidebar').css('left','0rem');
     $('main').css('margin-left','26rem');
     $('.sidebtn').css('left','22rem');
+    $('.dropdown-menu').addClass('active-side');
+    $('.arrow-wide').addClass('active');
   }
-  $(this).toggleClass('active');
+  else {
+    closeSidebar();
+  }
 });
+$('.close-sidebar').on('click', function() {
+  closeSidebar();
+})
 
 // embed trailer video
 // 2. This code loads the IFrame Player API code asynchronously.

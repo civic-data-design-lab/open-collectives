@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="./css/nav.css">
 
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/voices.css">
     <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
 </head>
 
@@ -42,18 +43,18 @@
         <!-- <a href="javascript:void(0)" class="closebtn arrow-wide" onclick="toggleSide()"> -->
         <h1 class="h2 text-uppercase mt-5 mb-4">Collective Voices</h1>
         <p class="mb-1"><b>To share <em>or</em> not to share?</b></p>
-            <a class="position-relative">
+            <a class="position-relative close-sidebar" id="link-questions" href="#questions">
                 <span class="before-arrow">Add your voice</span>
                 <div class="arrow arrow-sm"><div class="head"></div></div>
             </a><br>
-            <a class="position-relative">
+            <a class="position-relative close-sidebar" id="link-results" href="#results">
                 <span class="before-arrow">View the results</span>
                 <div class="arrow arrow-sm"><div class="head"></div></div>
             </a>
         </p>
         <p class="mt-4"><b>Read about the visualization</b></p>
     </div>
-    <div class="fade"></div>
+    <div id="fade-sidebar" class="close-sidebar"></div>
 
     <main class="container">
         <!-- <button class="openbtn" onclick="openSide()">></button> -->
@@ -61,40 +62,218 @@
         <section class="container-fluid section d-flex" id="questions">
             <p id="select">Select a tile to share your voice:</p>
             <div class="row w-100 align-self-center">
-                <div class="col d-flex">
-                    <figure class="tile">
+                <div class="col col-6 col-lg-3">
+                    <a id="btn-labor" data-toggle="modal" data-target="#modal-labor" onclick="openModal('modal-labor')"><figure class="tile">
                         <img class="img-pos" src="./img/labor-pos.svg" alt="Labor Question">
                         <img class="img-neg" src="./img/labor-neg.svg" alt="Labor Question">
-                    </figure>
-                    <figure class="tile">
+                    </figure></a>
+                </div>
+                <div class="col col-6 col-lg-3">
+                    <a id="btn-market" data-toggle="modal" data-target="#modal-market" onclick="openModal('modal-market')"><figure class="tile">
                         <img class="img-pos" src="./img/market-pos.svg" alt="Market Question">
                         <img class="img-neg" src="./img/market-neg.svg" alt="Market Question">
-                    </figure>
-                    <figure class="tile">
+                    </figure></a>
+                </div>
+                <div class="col col-6 col-lg-3">
+                    <a id="btn-care" data-toggle="modal" data-target="#modal-care" onclick="openModal('modal-care')"><figure class="tile">
                         <img class="img-pos" src="./img/care-pos.svg" alt="Care Question">
                         <img class="img-neg" src="./img/care-neg.svg" alt="Care Question">
-                    </figure>
-                    <figure class="tile">
+                    </figure></a>
+                </div>
+                <div class="col col-6 col-lg-3">
+                    <a id="btn-living" data-toggle="modal" data-target="#modal-living" onclick="openModal('modal-living')"><figure class="tile">
                         <img class="img-pos" src="./img/living-pos.svg" alt="Living Question">
                         <img class="img-neg" src="./img/living-neg.svg" alt="Living Question">
-                    </figure>
+                    </figure></a>
                 </div>
             </div>
             <div id="div-submit">
-                <a class="text-black" href="#">
+                <a class="text-black" href="#results">
                     <p class="text-black before-arrow" id="submit"><b>Submit</b></p>
                     <div class="arrow"><div class="head"></div></div>
                 </a>
             </div>
+
+            <!-- Modal Q-Labor -->
+            <div class="modal fade" id="modal-labor" tabindex="-1" role="dialog" aria-labelledby="questionLabor" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content"><!-- Q-Labor -->
+                        <img class="img-quest" src="./img/labor-quest.svg" alt="Labor Question Background">
+                        <div class="modal-header">
+                            <h3 class="h4 mb-3">What does the future of work mean to you?</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal('modal-labor')">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input class="form-check-input" type="radio" name="labor" id="laborGig" value="laborGig">
+                            <label class="form-check-label" for="laborGig">
+                                Gig work isn’t good work — I want to reap the fruits of my labor. If collectives can command fair wages for members, I’m in.
+                            </label><br>
+                            <input class="form-check-input" type="radio" name="labor" id="laborAgency" value="laborAgency">
+                            <label class="form-check-label" for="laborAgency">
+                                I want to learn new skills, set my own hours, and recover from pandemic burnout. Can collectives help me do that?
+                            </label><br>
+                            <input class="form-check-input" type="radio" name="labor" id="laborRobots" value="laborRobots">
+                            <label class="form-check-label" for="laborRobots">
+                                Will robots steal my job? They can have it — if there are taxes and regulations in place to share the benefits equitably.
+                            </label>
+                            <input class="form-check-input" type="radio" name="labor" id="laborMoney" value="laborMoney">
+                            <label class="form-check-label" for="laborMoney">
+                                Money isn’t everything. How can we better learn to upskill and skill-share? I’m a designer and can barter my skills to learn how to skateboard.
+                            </label>
+                            <input class="form-check-input" type="radio" name="labor" id="laborTeamwork" value="laborTeamwork">
+                            <label class="form-check-label" for="laborTeamwork">
+                                Teamwork makes the dream work. Open collectives mean open collaboration — how do we rewire work to learn and create as much possible with as many people as possible?
+                            </label>
+                        </div>
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Q-Market -->
+            <div class="modal fade" id="modal-market" tabindex="-1" role="dialog" aria-labelledby="questionMarket" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content"><!-- Q-Market -->
+                        <img class="img-quest" src="./img/market-quest.svg" alt="Market Question Background">
+                        <div class="modal-header">
+                            <h3 class="h4 mb-3">How can digital and physical marketplaces benefit from each other?</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal('modal-market')">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input class="form-check-input" type="radio" name="market" id="marketGig" value="marketGig">
+                            <label class="form-check-label" for="marketGig">
+                                Answer 1
+                            </label><br>
+                            <input class="form-check-input" type="radio" name="market" id="marketAgency" value="marketAgency">
+                            <label class="form-check-label" for="marketAgency">
+                                Answer 2
+                            </label><br>
+                            <input class="form-check-input" type="radio" name="market" id="marketRobots" value="marketRobots">
+                            <label class="form-check-label" for="marketRobots">
+                                Answer 3
+                            </label>
+                            <input class="form-check-input" type="radio" name="market" id="marketMoney" value="marketMoney">
+                            <label class="form-check-label" for="marketMoney">
+                                Answer 4
+                            </label>
+                            <input class="form-check-input" type="radio" name="market" id="marketTeamwork" value="marketTeamwork">
+                            <label class="form-check-label" for="marketTeamwork">
+                                Answer 5
+                            </label>
+                        </div>
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Q-Care -->
+            <div class="modal fade" id="modal-care" tabindex="-1" role="dialog" aria-labelledby="questionCare" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content"><!-- Q-Care -->
+                        <img class="img-quest" src="./img/care-quest.svg" alt="Care Question Background">
+                        <div class="modal-header">
+                            <h3 class="h4 mb-3">Who’s watching grandpa (and grandma)?</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal('modal-care')">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input class="form-check-input" type="radio" name="care" id="careGig" value="careGig">
+                            <label class="form-check-label" for="careGig">
+                                Answer 1
+                            </label><br>
+                            <input class="form-check-input" type="radio" name="care" id="careAgency" value="careAgency">
+                            <label class="form-check-label" for="careAgency">
+                                Answer 2
+                            </label><br>
+                            <input class="form-check-input" type="radio" name="care" id="careRobots" value="careRobots">
+                            <label class="form-check-label" for="careRobots">
+                                Answer 3
+                            </label>
+                            <input class="form-check-input" type="radio" name="care" id="careMoney" value="careMoney">
+                            <label class="form-check-label" for="careMoney">
+                                Answer 4
+                            </label>
+                            <input class="form-check-input" type="radio" name="care" id="careTeamwork" value="careTeamwork">
+                            <label class="form-check-label" for="careTeamwork">
+                                Answer 5
+                            </label>
+                        </div>
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Q-Living -->
+            <div class="modal fade" id="modal-living" tabindex="-1" role="dialog" aria-labelledby="questionLiving" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content"><!-- Q-Living -->
+                        <img class="img-quest" src="./img/living-quest.svg" alt="Living Question Background">
+                        <div class="modal-header">
+                            <h3 class="h4 mb-3">Co-living refers to sharing spaces with others outside your family. It’s on the rise — are you ready?</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal('modal-living')">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input class="form-check-input" type="radio" name="living" id="livingGig" value="livingGig">
+                            <label class="form-check-label" for="livingGig">
+                                Answer 1
+                            </label><br>
+                            <input class="form-check-input" type="radio" name="living" id="livingAgency" value="livingAgency">
+                            <label class="form-check-label" for="livingAgency">
+                                Answer 2
+                            </label><br>
+                            <input class="form-check-input" type="radio" name="living" id="livingRobots" value="livingRobots">
+                            <label class="form-check-label" for="livingRobots">
+                                Answer 3
+                            </label>
+                            <input class="form-check-input" type="radio" name="living" id="livingMoney" value="livingMoney">
+                            <label class="form-check-label" for="livingMoney">
+                                Answer 4
+                            </label>
+                            <input class="form-check-input" type="radio" name="living" id="livingTeamwork" value="livingTeamwork">
+                            <label class="form-check-label" for="livingTeamwork">
+                                Answer 5
+                            </label>
+                        </div>
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+            </div>
             
         </section>
         <section class="container-fluid section" id="results">
-            
+            <div class="row w-100 d-flex" id="nav-dashboard">
+                <div class="col-7 d-flex">
+                    <figure class="tile">
+                        <img class="img-result" src="./img/labor-color.svg" alt="Labor Result">
+                    </figure>
+                    <figure class="tile">
+                        <img class="img-result" src="./img/market-color.svg" alt="Market Result">
+                    </figure>
+                    <figure class="tile">
+                        <img class="img-result" src="./img/care-color.svg" alt="Care Result">
+                    </figure>
+                    <figure class="tile">
+                        <img class="img-result" src="./img/living-color.svg" alt="Living Result">
+                    </figure>
+                </div>
+                <div class="col-5">
+                    
+                </div>
+            </div>
+            <div id="dashboard"></div>
         </section>
     </main><!-- /.container -->
 
     <script type="text/javascript" src="./js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./js/script.js"></script>
+    <script type="text/javascript" src="./js/voices.js"></script>
 </body>
 
 </html>

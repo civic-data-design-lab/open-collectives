@@ -34,7 +34,7 @@ body {
     font-family: 'Prophet-Regular';
     letter-spacing: 0.2rem;
 }
-.h2, .h3, .h4 {
+.h2, .h3, .h4, .h5 {
     font-family: 'Prophet-Regular'
 }
 p {
@@ -220,6 +220,20 @@ body.black .arrow, body.black .arrow .head, body.black .arrow .head:after {
     background-color: #FFF;
 }
 
+/* dropdown styles if sidebar is open */
+.dropdown-menu.active-side {
+    border-color: rgba(254,248,221,0.8);
+}
+.dropdown-menu.active-side, .dropdown-menu.active-side .dropdown-item {
+    background-color: rgba(254,248,221,0.8);
+}
+.dropdown-menu.active-side .dropdown-item.active {
+    background-color: rgba(254,248,221,0.8);
+}
+.dropdown-menu.active-side > li > a:hover {
+    background-color: rgba(254,248,221,0.8)!important;
+}
+
 /* sidebar secondary menu */
 .sidebtn {
     position: fixed;
@@ -231,15 +245,17 @@ body.black .arrow, body.black .arrow .head, body.black .arrow .head:after {
 .sidebtn:hover {
     cursor: pointer;
 }
-.fade {
-    position: fixed;
+#fade-sidebar:not(.show) {
+    display: none;
+    z-index: -1;
+}
+#fade-sidebar {
+    position: absolute;
     top: 0px;
     left: 0px;
-    height: 100vh;
-    width: 100vw;
-    background-color: #000;
-    opacity: 0.5;
-    z-index: -1;
+    height: 200%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
     /* transition: all 0.5s; */
 }
 .sidebar {
@@ -519,46 +535,6 @@ div.ytp-chrome-top {
 }
 .img-logo {
     width: 100%;
-}
-
-/* Collective Voices Page */
-body#voices {
-    overflow: hidden auto;
-}
-#select {
-    position: absolute;
-    top: 100px;
-    left: 40px;
-}
-.tile {
-    position: relative;
-    width: calc(25% - 0.75rem);
-    height: 18vw;
-    margin-right: 1rem;
-}
-.tile img {
-    position: absolute;
-    width: 100%;
-}
-.tile .img-pos {
-    z-index: 2;
-    cursor: pointer;
-}
-.tile .img-neg {
-    opacity: 0;
-}
-.tile:hover .img-pos {
-    opacity: 0;
-}
-.tile:hover .img-neg {
-    opacity: 1;
-}
-#div-submit {
-    position: absolute;
-    width: 8rem;
-    height: 1rem;
-    top: 90%;
-    right: 2rem;
 }
 
 /* Small devices (landscape phones, 576px and up) */
