@@ -1,0 +1,144 @@
+[
+    {
+        "theme": "labor",
+        "question": "What does the future of work mean to you?",
+        "type": "checkbox",
+        "responses": [
+            {
+                "rID": "gig",
+                "long": "Gig work isn’t good work &mdash; I want to reap the fruits of my labor. If collectives can command fair wages for members, I’m in.",
+                "short": "Gig isn't good work",
+                "headline": "think gigs aren't good work"
+            },
+            {
+                "rID": "labor",
+                "long": "I want to learn new skills, set my own hours, and recover from pandemic burnout. Can collectives help me do that?",
+                "short": "Want agency and fulfillment",
+                "headline": "want agency and fulfillment"
+            },
+            {
+                "rID": "robots",
+                "long": "Will robots steal my job? They can have it &mdash; if there are taxes and regulations in place to share the benefits equitably.",
+                "short": "Robots can have my job, with regulations",
+                "headline": "think robots can have their jobs, with regulations"
+            },
+            {
+                "rID": "money",
+                "long": "Money isn’t everything. How can we better learn to upskill and skill-share?",
+                "short": "Money isn't everything",
+                "headline": "think money isn't everything"
+            },
+            {
+                "rID": "teamwork",
+                "long": "Teamwork makes the dream work. Open collectives mean open colation &mdash; how do we rewire work to learn and create as much possible with as many people as possible?",
+                "short": "Teamwork makes the dream work",
+                "headline": "think teamwork makes the dream work"
+            }
+        ]
+    },
+    {
+        "theme": "market",
+        "question": "How can digital and physical marketplaces benefit from each other?",
+        "type": "radio",
+        "responses": [
+            {
+                "rID": "cant",
+                "long": "Can they? Or is the scale of digital commerce incompatible with supporting local merchants?",
+                "short": "Can't benefit from each other",
+                "headline": "think digital and physical marketplaces can't benefit from each other"
+            },
+            {
+                "rID": "circular",
+                "long": "Collective markets are spaces for bringing people together; apps help organize what happens there. One should support the other, in a circular economy.",
+                "short": "Support circular economies",
+                "headline": "think marketplaces should support circular economies"
+            },
+            {
+                "rID": "shrinkSupply",
+                "long": "Global supply chains are too long and too fragile. We need makers and markets closer to home, spaces designed for them, and tools for matching them with customers.",
+                "short": "Shrink global supply chains",
+                "headline": "think global supply chains should shrink"
+            },
+            {
+                "rID": "blockchain",
+                "long": "Who needs money when you have local economies and currencies? Digital bartering (or blockchain?) can be a powerful tool for equity and development.",
+                "short": "Blockchain bartering",
+                "headline": "prefer digital blockchain bartering"
+            },
+            {
+                "rID": "delivery",
+                "long": "I love the convenience of delivery but prefer to know who makes my tacos and to pay them a living wage. Is there any way to do both?",
+                "short": "Delivery without the guilt",
+                "headline": "prefer delivery without the guilt"
+            }
+        ]
+    },
+    {
+        "theme": "care",
+        "question": "Who’s watching grandpa (and grandma)?",
+        "type": "radio",
+        "responses": [
+            {
+                "rID": "professionals",
+                "long": "Healthcare professionals. Safety before socializing, even if it means another year of isolation.",
+                "short": "Professionals",
+                "headline": "think professionals should care for the elderly"
+            },
+            {
+                "rID": "themselves",
+                "long": "Themselves. They’re fiscally fit and of sound mind and body, leading independent lives, thankfully.",
+                "short": "Themselves",
+                "headline": "think the elderly should care for themselves"
+            },
+            {
+                "rID": "peers",
+                "long": "Their peers. Fortunately, we can afford one of those fancy retirement villages, where grandpa drives a golf cart from party to party.",
+                "short": "Their peers",
+                "headline": "think the elderly should care for their peers"
+            },
+            {
+                "rID": "noOne",
+                "long": "No one; I am. We’re among the 90% of families in the U.S. who can’t afford care. We need new policies and new designs to care for our old and young.",
+                "short": "No one",
+                "headline": "must care for their elderly because there are no affordable alternatives"
+            }
+        ]
+    },
+    {
+        "theme": "living",
+        "question": "Co-living refers to sharing spaces with others outside your family. It’s on the rise &mdash; are you ready?",
+        "type": "checkbox",
+        "responses": [
+            {
+                "rID": "commune",
+                "long": "Let’s start a commune &mdash; you do the dishes, I’ll watch the kids.",
+                "short": "Let's start a commune",
+                "headline": "want to start a commune"
+            },
+            {
+                "rID": "community",
+                "long": "I’ll trade you my kitchen for a community (and coworking space).",
+                "short": "Embrace shared spaces for a community",
+                "headline": "would embrace shared spaces for a community"
+            },
+            {
+                "rID": "privacy",
+                "long": "Happy to share a house, as long as I don’t have to share a bathroom. I’m open to sharing, given enough privacy.",
+                "short": "Open to sharing, given enough privacy",
+                "headline": "are open to sharing, given enough privacy"
+            },
+            {
+                "rID": "own",
+                "long": "Good fences (and strong property rights) make good neighbors. I’m fine on my own.",
+                "short": "I'm fine on my own",
+                "headline": "are fine on their own"
+            },
+            {
+                "rID": "affordable",
+                "long": "Why can’t I simply afford to live alone? Fix housing, not families.",
+                "short": "Fix housing affordability",
+                "headline": "think housing affordability should be fixed"
+            }
+        ]
+    }
+]

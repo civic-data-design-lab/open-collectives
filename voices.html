@@ -16,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" type="text/css" href="./css/voices.css">
     <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./data/questions.json"></script>
+    <script type="text/javascript" src="./data/responses-test.json"></script>
 </head>
 
 <body id="voices">
@@ -94,10 +96,11 @@
                 </a>
             </div>
 
+            <form id="form">
             <!-- Modal Q-Labor -->
             <div class="modal fade" id="modal-labor" tabindex="-1" role="dialog" aria-labelledby="questionLabor" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content"><!-- Q-Labor -->
+                    <div class="modal-content">
                         <img class="img-quest" src="./img/labor-quest.svg" alt="Labor Question Background">
                         <div class="modal-header">
                             <h3 class="h4 mb-3">What does the future of work mean to you?</h3>
@@ -135,7 +138,7 @@
             <!-- Modal Q-Market -->
             <div class="modal fade" id="modal-market" tabindex="-1" role="dialog" aria-labelledby="questionMarket" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content"><!-- Q-Market -->
+                    <div class="modal-content">
                         <img class="img-quest" src="./img/market-quest.svg" alt="Market Question Background">
                         <div class="modal-header">
                             <h3 class="h4 mb-3">How can digital and physical marketplaces benefit from each other?</h3>
@@ -173,7 +176,7 @@
             <!-- Modal Q-Care -->
             <div class="modal fade" id="modal-care" tabindex="-1" role="dialog" aria-labelledby="questionCare" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content"><!-- Q-Care -->
+                    <div class="modal-content">
                         <img class="img-quest" src="./img/care-quest.svg" alt="Care Question Background">
                         <div class="modal-header">
                             <h3 class="h4 mb-3">Who’s watching grandpa (and grandma)?</h3>
@@ -207,7 +210,7 @@
             <!-- Modal Q-Living -->
             <div class="modal fade" id="modal-living" tabindex="-1" role="dialog" aria-labelledby="questionLiving" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content"><!-- Q-Living -->
+                    <div class="modal-content">
                         <img class="img-quest" src="./img/living-quest.svg" alt="Living Question Background">
                         <div class="modal-header">
                             <h3 class="h4 mb-3">Co-living refers to sharing spaces with others outside your family. It’s on the rise &mdash; are you ready?</h3>
@@ -241,6 +244,7 @@
                     </div>
                 </div>
             </div>
+            </form>
             
         </section>
         <section class="container-fluid section" id="results">

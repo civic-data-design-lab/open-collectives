@@ -12,21 +12,21 @@
         "market": "circular",
         "care": "eachOther",
         "living": ["commune", "community", "privacy", "own", "affordable"]
-    }
+    },
     {
         "responseID": 3,
         "labor": ["gig", "agency", "robots", "money", "teamwork"],
         "market": "shrinkSupply",
         "care": "peers",
         "living": ["commune", "community", "privacy", "own", "affordable"]
-    }
+    },
     {
         "responseID": 4,
         "labor": ["gig", "agency", "robots", "money", "teamwork"],
         "market": "blockchain",
         "care": "noOne",
         "living": ["commune", "community", "privacy", "own", "affordable"]
-    }
+    },
     {
         "responseID": 5,
         "labor": ["gig", "agency", "robots", "money", "teamwork"],
