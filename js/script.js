@@ -1,3 +1,13 @@
+// title case
+function titleCase(string) {
+	string = string.toLowerCase();
+	string = string.split(' ');
+	for (var i = 0; i < string.length; i++) {
+		string[i] = string[i].charAt(0).toUpperCase() + string[i].slice(1);
+	}
+	return string.join(' ');
+}
+
 // menu dropdown
 var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
 var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
