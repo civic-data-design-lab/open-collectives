@@ -37,7 +37,7 @@ body {
 .h2, .h3, .h4, .h5 {
     font-family: 'Prophet-Regular'
 }
-p {
+p, span {
     font-size: 0.9rem;
     line-height: 1.2em;
 }
@@ -52,13 +52,16 @@ a {
 a:hover {
     text-decoration: underline;
 }
+.text-right {
+    text-align: right!important;
+}
 .text-red, a.text-red, a.text-red:hover {
     color: #FF0000;
 }
-.text-pink {
+.text-pink, a.text-pink, a.text-pink:hover {
     color: #F8C5D7;
 }
-.text-yellow {
+.text-yellow, a.text-yellow, a.text-yellow:hover {
     color: #FDF4C4;
 }
 .text-black {
@@ -79,19 +82,6 @@ a.link-white {
 .img-row {
     position: absolute;
     width: 90vw;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    -o-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    -webkit-transform: translate(-50%,-50%);
-    z-index: -1;
-}
-.img-theme {
-    position: fixed;
-    max-width: 90vw;
-    max-height: 90vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -360,6 +350,12 @@ a:hover .arrow-sm {
     top: -0.25rem;
     right: -0.25rem;
 }
+.arrow.red, .arrow.red .head, .arrow.red .head:after {
+    background-color: #FF0000;
+}
+.arrow.pink, .arrow.pink .head, .arrow.pink .head:after {
+    background-color: #F8C5D7;
+}
 
 /* arrow wide */
 .arrow-wide {
@@ -535,6 +531,36 @@ div.ytp-chrome-top {
 }
 .img-logo {
     width: 100%;
+}
+
+/* Theme Pages */
+.img-theme {
+    position: fixed;
+    max-width: 85vw;
+    max-height: 85vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    z-index: -1;
+}
+.img-project {
+    position: relative;
+    width: 100%;
+    opacity: 0.8;
+}
+.img-project:hover {
+    opacity: 1.0;
+}
+@media (max-width: 767px) {
+    .next-theme {
+        display: inline;
+        margin-top: 2rem;
+        padding-right: 5rem!important;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
