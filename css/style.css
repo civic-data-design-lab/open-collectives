@@ -41,7 +41,7 @@ p, span {
     font-size: 0.9rem;
     line-height: 1.2em;
 }
-b {
+b, a.font-weight-bold {
     font-weight: 600;
     font-variation-settings: 'wght' 600;
     letter-spacing: 0.5px;

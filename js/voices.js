@@ -3,6 +3,8 @@ var modalLabor = document.getElementById("modal-labor"),
     modalMarket = document.getElementById("modal-market"),
     modalCare = document.getElementById("modal-care"),
     modalLiving = document.getElementById("modal-living");
+var themesList = ["labor", "market", "care", "living"];
+var currentTheme = "labor";
 
 // FUNCTIONS
 function openModal(modalId) {
@@ -14,6 +16,7 @@ function closeModal(modalId) {
   document.getElementById(modalId).classList.remove("show");
 }
 
+// load json file and callback function
 function getJsonObject(jsonFileName, callback){
     var request = new XMLHttpRequest();
     var jsonPath = './data/' + jsonFileName + '.json';
@@ -57,7 +60,12 @@ getJsonObject("questions", function(qData){
         $('#form').append(htmlString);
     }
     
-    console.log(qData[0].responses[0].rID);
+    console.log(qData);
+});
+
+// get results json data and visualize data
+getJsonObject("responses-test", function(rData){
+    console.log(rData);
 });
 
 // EVENTS
@@ -75,7 +83,17 @@ window.onclick = function (event) {
     else if (event.target == modalLiving) {
         closeModal('modal-living')
     }
-}
+};
+// keep results section at top when resizing window
+$(window).resize(function() {
+    if (window.location.href.endsWith("#results")) {
+        $("html, body").animate({scrollTop: winHeight});
+    }
+});
+$(".tile").on("click", function() {
+    $(".tile").removeClass("active");
+    $(this).addClass("active");
+});
 
 $(document).ready(function() {
     // console.log("ready!");

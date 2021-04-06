@@ -47,6 +47,15 @@ $('.close-sidebar').on('click', function() {
   closeSidebar();
 })
 
+// window resize
+var winHeight = $(window).height();
+var winWidth = $(window).width();
+
+$(window).resize(function() {
+	winHeight = $(window).height();
+	winWidth = $(window).width();
+});
+
 // embed trailer video
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');

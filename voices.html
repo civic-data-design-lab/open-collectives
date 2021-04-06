@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -42,7 +42,6 @@
 
     <a class="sidebtn arrow-wide"></a>
     <div id="sidebar" class="sidebar">
-        <!-- <a href="javascript:void(0)" class="closebtn arrow-wide" onclick="toggleSide()"> -->
         <h1 class="h2 text-uppercase mt-5 mb-4">Collective Voices</h1>
         <p class="mb-1"><b>To share <em>or</em> not to share?</b></p>
             <a class="position-relative close-sidebar" id="link-questions" href="#questions">
@@ -59,8 +58,6 @@
     <div id="fade-sidebar" class="close-sidebar"></div>
 
     <main class="container">
-        <!-- <button class="openbtn" onclick="openSide()">></button> -->
-
         <section class="container-fluid section d-flex" id="questions">
             <p id="select">Select a tile to share your voice:</p>
             <div class="row w-100 align-self-center">
@@ -95,30 +92,40 @@
                     <div class="arrow"><div class="head"></div></div>
                 </a>
             </div>
-
+ 
             <form id="form">
             </form>
             
         </section>
         <section class="container-fluid section" id="results">
-            <div class="row w-100 d-flex" id="nav-dashboard">
-                <div class="col-7 d-flex">
-                    <figure class="tile">
+            <div class="row w-100 d-flex flex-column flex-md-row-reverse" id="nav-dashboard">
+                <div class="col-md-5">
+                    <h3></h3>
+                </div>
+                <div id="nav-results" class="col-md-7 d-flex align-items-md-end position-relative">
+                    <a id="arrow-prev" class="arrow-left">
+                        <div class="arrow arrow-short"><div class="head"></div></div>
+                    </a>
+                    <a id="arrow-next">
+                        <div class="arrow arrow-short"><div class="head"></div></div>
+                    </a>
+
+                    <figure class="tile position-relative active">
                         <img class="img-result" src="./img/labor-color.svg" alt="Labor Result">
                     </figure>
-                    <figure class="tile">
+                    <figure class="tile position-relative ">
                         <img class="img-result" src="./img/market-color.svg" alt="Market Result">
                     </figure>
-                    <figure class="tile">
+                    <figure class="tile position-relative">
                         <img class="img-result" src="./img/care-color.svg" alt="Care Result">
                     </figure>
-                    <figure class="tile">
+                    <figure class="tile position-relative">
                         <img class="img-result" src="./img/living-color.svg" alt="Living Result">
                     </figure>
                 </div>
-                <div class="col-5">
+                
                     
-                </div>
+                
             </div>
             <div id="dashboard"></div>
         </section>
