@@ -34,7 +34,8 @@
                 "short": "Teamwork makes the dream work",
                 "headline": "think teamwork makes the dream work"
             }
-        ]
+        ],
+        "learn": "The 20th century social contract&mdash;work hard, join a union, retire&mdash;is unrecognizable today. Automation and gig platforms threaten to shrink tenure further, while new technologies and organizing point to opportunities for open collectives at work."
     },
     {
         "theme": "market",
@@ -71,7 +72,8 @@
                 "short": "Delivery without the guilt",
                 "headline": "prefer delivery without the guilt"
             }
-        ]
+        ],
+        "learn": "Pandemic-driven supply shocks made a powerful case for fostering more local economies, even as e-commerce and delivery platforms soared in size and popularity. A handful of collectives are exploring how to capture the benefits of each."
     },
     {
         "theme": "care",
@@ -102,7 +104,8 @@
                 "short": "No one",
                 "headline": "must care for their elderly because there are no affordable alternatives"
             }
-        ]
+        ],
+        "learn": "In the U.S., more than half of people 80 years of age and older are considered financially precarious. Most cannot afford assisted living facilities or other current systems of care. Explore alternative ways to take care of the elderly."
     },
     {
         "theme": "living",
@@ -139,6 +142,7 @@
                 "short": "Fix housing affordability",
                 "headline": "think housing affordability should be fixed"
             }
-        ]
+        ],
+        "learn": "Both the Great Depression and Great Recession led to a resurgence in co-living through necessity. Prior to COVID-19, co-living arrangements had increased 200% over the previous decade, and will likely continue to surge."
     }
 ]

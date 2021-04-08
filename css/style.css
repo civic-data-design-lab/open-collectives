@@ -52,11 +52,17 @@ a {
 a:hover {
     text-decoration: underline;
 }
+.text-prophet {
+    font-family: 'Prophet-Regular';
+}
 .text-right {
     text-align: right!important;
 }
 .text-red, a.text-red, a.text-red:hover {
     color: #FF0000;
+}
+.text-lt-red, a.text-lt-red, a.text-lt-red:hover {
+    color: #D96B6D;
 }
 .text-pink, a.text-pink, a.text-pink:hover {
     color: #F8C5D7;
@@ -352,6 +358,9 @@ a:hover .arrow-sm {
 }
 .arrow.red, .arrow.red .head, .arrow.red .head:after {
     background-color: #FF0000;
+}
+.arrow.lt-red, .arrow.lt-red .head, .arrow.lt-red .head:after {
+    background-color: #D96B6D;
 }
 .arrow.pink, .arrow.pink .head, .arrow.pink .head:after {
     background-color: #F8C5D7;

@@ -3,8 +3,16 @@ var modalLabor = document.getElementById("modal-labor"),
     modalMarket = document.getElementById("modal-market"),
     modalCare = document.getElementById("modal-care"),
     modalLiving = document.getElementById("modal-living");
-var themesList = ["labor", "market", "care", "living"];
-var currentTheme = "labor";
+
+var questionsData = [],
+    responsesData = [];
+var themesList = [];
+var currentTheme = "labor",
+    currentKeys =  [];
+var laborData = [],
+    marketData = [],
+    careData = [],
+    livingData = [];
 
 // FUNCTIONS
 function openModal(modalId) {
@@ -34,16 +42,15 @@ function getJsonObject(jsonFileName, callback){
     }
 }
 
-// QUESTIONS DATA
-// get questions json data and generate modals and form inputs for each theme
-getJsonObject("questions", function(qData){
-    for (i = 0; i < qData.length; i++) {
-        var theme = qData[i].theme,
+// generate modals and form inputs for each theme question
+function createModals(questionsData) {
+    for (i = 0; i < questionsData.length; i++) {
+        var theme = questionsData[i].theme,
             modalID = 'modal-' + theme,
             imgSrc = './img/' + theme + '-quest.svg',
-            question = qData[i].question,
-            responses = qData[i].responses,
-            qType = qData[i].type;
+            question = questionsData[i].question,
+            responses = questionsData[i].responses,
+            qType = questionsData[i].type;
 
         var htmlString = "<div class='modal fade' id='" + modalID + "' tabindex='-1' role='dialog' aria-labelledby='" + theme + "' aria-hidden='true'><div class='modal-dialog modal-dialog-centered' role='document'><div class='modal-content'><img class='img-quest' src='" + imgSrc + "' alt='" + titleCase(theme) + " Question Background'><div class='modal-header'><h3 class='h4 mb-3'>" + question + "</h3><button type='button' class='close' data-dismiss='modal' aria-label='Close' onclick='closeModal('" + modalID + "')'><span aria-hidden='true'>&times;</span></button></div><div class='modal-body'>";
         var modalStringEnd = "</div><div class='modal-footer'></div></div></div></div>";
@@ -59,13 +66,61 @@ getJsonObject("questions", function(qData){
         htmlString += modalStringEnd;
         $('#form').append(htmlString);
     }
+}
+
+// change results theme content
+function changeTheme(lastTheme, currentTheme) {
+    currentTabID = "#tab-" + currentTheme;
+
+    $("#results").removeClass(lastTheme)
+        .addClass(currentTheme);
+    $(".tile").removeClass("active");
+    $(currentTabID).addClass("active");
+};
+
+// QUESTIONS DATA
+// get questions json data and generate modals and form inputs for each theme
+getJsonObject("questions", function(data){
+    questionsData = data;
+    themesList = data.map(d => d.theme);
+    console.log(themesList);
+
+    // for (var i = 0; i < data.length; i++) {
+        
+    //     let qTheme = data[i].qTheme;
+    //     item = {};
+
+    //     item.theme = qTheme;
+    //     item.responses = data[i].responses.map(d => d.rID);
+
+        // themesList.push(item);
+
+    //     for (var i = 0; j < data.length; j++) {
+    //         let rKey = data[i].responses[j].rID;
+    //         // rCount = data.filter(d => d.rID == rKey).length;
+
+    //         item.theme = qTheme;
+    //         item.rID = data[i].responses[j].rID;
+            
+    //     }
+        
+    // }
+
+    createModals(questionsData);
+    // console.log(data);
     
-    console.log(qData);
 });
 
 // get results json data and visualize data
-getJsonObject("responses-test", function(rData){
-    console.log(rData);
+getJsonObject("responses-test", function(data) {
+    responsesData = data;
+
+    // if (!rTotal) {
+    //     rTotal = data.length;
+    // }
+
+    console.log(responsesData);
+    console.log(questionsData);
 });
 
 // EVENTS
@@ -90,9 +145,46 @@ $(window).resize(function() {
         $("html, body").animate({scrollTop: winHeight});
     }
 });
+
+// click tile to change results theme
 $(".tile").on("click", function() {
-    $(".tile").removeClass("active");
-    $(this).addClass("active");
+    lastTheme = currentTheme;
+    currentTheme = $(this).attr("id").slice(4);
+    // console.log(currentTheme);
+
+    if (!$("#results").hasClass(currentTheme)) {
+        changeTheme(lastTheme, currentTheme);
+    };
+});
+
+// click arrows to change results theme
+$("#arrow-prev").on("click", function() {
+    indexLastTheme = themesList.indexOf(currentTheme);
+    
+    if (indexLastTheme == 0) {
+        indexNextTheme = themesList.length - 1;
+    }
+    else {
+        indexNextTheme = indexLastTheme - 1;
+    }
+    
+    lastTheme = themesList[indexLastTheme];
+    currentTheme = themesList[indexNextTheme];
+    changeTheme(lastTheme, currentTheme);
+});
+$("#arrow-next").on("click", function() {
+    indexLastTheme = themesList.indexOf(currentTheme);
+    
+    if (indexLastTheme == themesList.length - 1) {
+        indexNextTheme = 0;
+    }
+    else {
+        indexNextTheme = indexLastTheme + 1;
+    }
+    
+    lastTheme = themesList[indexLastTheme];
+    currentTheme = themesList[indexNextTheme];
+    changeTheme(lastTheme, currentTheme);
 });
 
 $(document).ready(function() {

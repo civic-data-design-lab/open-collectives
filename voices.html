@@ -97,12 +97,16 @@
             </form>
             
         </section>
-        <section class="container-fluid section" id="results">
-            <div class="row w-100 d-flex flex-column flex-md-row-reverse" id="nav-dashboard">
-                <div class="col-md-5">
-                    <h3></h3>
+        <section class="container-fluid section labor" id="results">
+            <div class="w-100 d-flex flex-column flex-md-row-reverse" id="nav-dashboard">
+                <div id="nav-headline" class="h-50 col col-md-5 d-flex align-items-md-end text-lt-red">
+                    <div id="headline-percent" class="position-relative text-center">
+                        <h3 class="h1 mb-0">79%</h3>
+                        <span class="position-relative text-prophet">of respondents...</span>
+                    </div>
+                    <p id="headline-description" class="h4 position-relative">think teamwork makes the dream work</p>
                 </div>
-                <div id="nav-results" class="col-md-7 d-flex align-items-md-end position-relative">
+                <div id="nav-results" class="h-50 col col-md-7 d-flex align-items-end position-relative">
                     <a id="arrow-prev" class="arrow-left">
                         <div class="arrow arrow-short"><div class="head"></div></div>
                     </a>
@@ -110,24 +114,38 @@
                         <div class="arrow arrow-short"><div class="head"></div></div>
                     </a>
 
-                    <figure class="tile position-relative active">
+                    <figure id="tab-labor" class="tile position-relative active">
                         <img class="img-result" src="./img/labor-color.svg" alt="Labor Result">
                     </figure>
-                    <figure class="tile position-relative ">
+                    <figure id="tab-market" class="tile position-relative ">
                         <img class="img-result" src="./img/market-color.svg" alt="Market Result">
                     </figure>
-                    <figure class="tile position-relative">
+                    <figure id="tab-care" class="tile position-relative">
                         <img class="img-result" src="./img/care-color.svg" alt="Care Result">
                     </figure>
-                    <figure class="tile position-relative">
+                    <figure id="tab-living" class="tile position-relative">
                         <img class="img-result" src="./img/living-color.svg" alt="Living Result">
                     </figure>
                 </div>
-                
-                    
-                
             </div>
-            <div id="dashboard"></div>
+            <div id="dashboard">
+                <div class="container h-100 pt-5">
+                    <div class="row">
+                        <div class="col-8">
+                            <h2 id="theme-question" class="h4">What does the future of work mean to you?</h2>
+                            <div id="theme-chart"></div>
+                        </div>
+                        <div id="learn" class="col-4">
+                            <h2 id="theme-name" class="h3 text-uppercase mb-3">Labor</h2>
+                            <p id="theme-learn" class="mb-5">The 20th century social contract&mdash;work hard, join a union, retire&mdash;is unrecognizable today. Automation and gig platforms threaten to shrink tenure further, while new technologies and organizing point to opportunities for open collectives at work.</p>
+                            <span class="position-relative">Learn more about</span><br>
+                            <a id="theme-link" class="position-relative font-weight-bold" href="./labor"><span class="before-arrow">labor-based collectives</span>
+                                <div class="arrow arrow-sm"><div class="head"></div></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main><!-- /.container -->
 
