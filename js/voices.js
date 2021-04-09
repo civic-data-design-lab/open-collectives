@@ -8,7 +8,8 @@ var questionsData = [],
     responsesData = [];
 var themesList = [];
 var currentTheme = "labor",
-    currentKeys =  [];
+    currentResponses =  [],
+    topResponse = "teamwork";
 var laborData = [],
     marketData = [],
     careData = [],
@@ -70,12 +71,23 @@ function createModals(questionsData) {
 
 // change results theme content
 function changeTheme(lastTheme, currentTheme) {
+    currentIndex = themesList.indexOf(currentTheme);
     currentTabID = "#tab-" + currentTheme;
 
     $("#results").removeClass(lastTheme)
         .addClass(currentTheme);
     $(".tile").removeClass("active");
     $(currentTabID).addClass("active");
+
+    // $("#headline-description").text(questionsData[currentIndex].responses[currentResponses].headline);
+
+    $("#theme-question").text(questionsData[currentIndex].question);
+    $("#theme-name").text(currentTheme);
+    $("#theme-learn").text(questionsData[currentIndex].learn);
+    $("#theme-link").attr("href", "./" + currentTheme);
+    $("#theme-link > span").text(currentTheme + "-based collectives");
+
+    // console.log(currentTheme);
 };
 
 // QUESTIONS DATA
@@ -106,7 +118,9 @@ getJsonObject("questions", function(data){
         
     // }
 
+    // load on start up
     createModals(questionsData);
+    changeTheme("living", "labor");
     // console.log(data);
     
 });
@@ -150,7 +164,6 @@ $(window).resize(function() {
 $(".tile").on("click", function() {
     lastTheme = currentTheme;
     currentTheme = $(this).attr("id").slice(4);
-    // console.log(currentTheme);
 
     if (!$("#results").hasClass(currentTheme)) {
         changeTheme(lastTheme, currentTheme);
@@ -188,5 +201,6 @@ $("#arrow-next").on("click", function() {
 });
 
 $(document).ready(function() {
+    
     // console.log("ready!");
 })
