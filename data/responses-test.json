@@ -8,30 +8,30 @@
     },
     {
         "responseID": 2,
-        "labor": ["gig", "agency", "robots", "money", "teamwork"],
+        "labor": ["agency", "teamwork"],
         "market": "circular",
         "care": "eachOther",
-        "living": ["commune", "community", "privacy", "own", "affordable"]
+        "living": ["commune", "community"]
     },
     {
         "responseID": 3,
-        "labor": ["gig", "agency", "robots", "money", "teamwork"],
+        "labor": ["money", "teamwork"],
         "market": "shrinkSupply",
         "care": "peers",
-        "living": ["commune", "community", "privacy", "own", "affordable"]
+        "living": ["community", "privacy", "affordable"]
     },
     {
         "responseID": 4,
-        "labor": ["gig", "agency", "robots", "money", "teamwork"],
+        "labor": ["gig", "agency", "teamwork"],
         "market": "blockchain",
         "care": "noOne",
-        "living": ["commune", "community", "privacy", "own", "affordable"]
+        "living": ["community", "privacy", "affordable"]
     },
     {
         "responseID": 5,
-        "labor": ["gig", "agency", "robots", "money", "teamwork"],
+        "labor": ["agency", "teamwork"],
         "market": "delivery",
         "care": "noOne",
-        "living": ["commune", "community", "privacy", "own", "affordable"]
+        "living": ["community", "privacy"]
     }
 ]

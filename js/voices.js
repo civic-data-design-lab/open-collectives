@@ -5,15 +5,16 @@ var modalLabor = document.getElementById("modal-labor"),
     modalLiving = document.getElementById("modal-living");
 
 var questionsData = [],
-    responsesData = [];
+    responsesData = [],
+    surveyData = [];
 var themesList = [];
 var currentTheme = "labor",
     currentResponses =  [],
     topResponse = "teamwork";
-var laborData = [],
-    marketData = [],
-    careData = [],
-    livingData = [];
+var laborResponses = [],
+    marketResponses = [],
+    careResponses = [],
+    livingResponses = [];
 
 // FUNCTIONS
 function openModal(modalId) {
@@ -83,7 +84,7 @@ function changeTheme(lastTheme, currentTheme) {
 
     $("#theme-question").text(questionsData[currentIndex].question);
     $("#theme-name").text(currentTheme);
-    $("#theme-learn").text(questionsData[currentIndex].learn);
+    $("#theme-learn").html(questionsData[currentIndex].learn);
     $("#theme-link").attr("href", "./" + currentTheme);
     $("#theme-link > span").text(currentTheme + "-based collectives");
 
@@ -94,33 +95,26 @@ function changeTheme(lastTheme, currentTheme) {
 // get questions json data and generate modals and form inputs for each theme
 getJsonObject("questions", function(data){
     questionsData = data;
+
     themesList = data.map(d => d.theme);
-    console.log(themesList);
+    currentIndex = themesList.indexOf(currentTheme);
 
-    // for (var i = 0; i < data.length; i++) {
-        
-    //     let qTheme = data[i].qTheme;
-    //     item = {};
+    // response list
+    for (var i = 0; i < themesList.length; i++) {
+        let theme = themesList[i];
+        responseList = data[i].responses.map(d => d.rID);
 
-    //     item.theme = qTheme;
-    //     item.responses = data[i].responses.map(d => d.rID);
-
-        // themesList.push(item);
-
-    //     for (var i = 0; j < data.length; j++) {
-    //         let rKey = data[i].responses[j].rID;
-    //         // rCount = data.filter(d => d.rID == rKey).length;
-
-    //         item.theme = qTheme;
-    //         item.rID = data[i].responses[j].rID;
-            
-    //     }
-        
-    // }
+        (theme == "labor") ? (laborResponses = responseList)
+            : (theme == "market") ? (marketResponses = responseList)
+            : (theme == "care") ? (careResponses = responseList)
+            : (theme == "living") ? (livingResponses = responseList)
+            : responseList = undefined;
+    }
+    // console.log(currentResponses);
 
     // load on start up
     createModals(questionsData);
-    changeTheme("living", "labor");
+    changeTheme("", currentTheme);
     // console.log(data);
     
 });
@@ -129,9 +123,43 @@ getJsonObject("questions", function(data){
 getJsonObject("responses-test", function(data) {
     responsesData = data;
 
-    // if (!rTotal) {
-    //     rTotal = data.length;
-    // }
+    currentIndex = themesList.indexOf(currentTheme);
+
+    for (var t = 0; t < themesList.length; t++) {
+        let theme = themesList[t];
+        item = {};
+        item.theme = theme;
+
+        (theme == "labor") ? (responseList = laborResponses)
+            : (theme == "market") ? (responseList = marketResponses)
+            : (theme == "care") ? (responseList = careResponses)
+            : (theme == "living") ? (responseList = livingResponses)
+            : (responseList = undefined);
+
+        let responseData = [];
+
+        if (theme == "care" || theme == "market") {
+            for (var i = 0; i < data.length; i++) {
+                responseData.push(data[i][theme]);
+            }
+        }
+        else if (theme == "labor" || theme == "living") {
+            for (var i = 0; i < data.length; i++) {
+                responseData = responseData.concat(data[i][theme]);
+            }
+        }
+
+        totalResponses = responseData.reduce((accumulator, response) => {
+            if (!item[response]) {
+                item[response] = 1;
+            } else {
+                item[response]++;
+            }
+        });
+
+        surveyData.push(item);
+    }
+    console.log(surveyData);
 
     console.log(responsesData);
     console.log(questionsData);
