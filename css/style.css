@@ -70,7 +70,7 @@ a:hover {
 .text-yellow, a.text-yellow, a.text-yellow:hover {
     color: #FDF4C4;
 }
-.text-black {
+.text-black, a.text-black {
     color: #000;
 }
 .text-white {

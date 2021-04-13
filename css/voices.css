@@ -2,6 +2,9 @@
 body#voices {
     overflow: hidden;
 }
+body#voices .container {
+    max-width: calc(100% - 120px);
+}
 
 /* Questions Section Survey */
 #select {
@@ -116,6 +119,7 @@ body#voices {
     margin-right: 1rem;
 }
 #headline-percent .h1 {
+    font-family: 'Prophet-Bold';
     font-weight: 900;
     font-variation-settings: 'wght' 900;
 }
@@ -214,6 +218,33 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
 #learn a {
     top: -0.4rem;
 }
+
+/* chart styles */
+#theme-chart {
+    max-height: 60vh;
+}
+.chart-label {
+    font-family: 'Prophet-Bold';
+}
+.chart-short {
+    font-size: 0.6rem;
+}
+.chart-label text {
+    display: none;
+}
+.chart-label .active {
+    display: block;
+}
+.chart-short text {
+    fill: #000;
+    opacity: 0.5;
+}
+.chart-short .active {
+    font-weight: bold;
+    fill: #D96B6D;
+    opacity: 1.0;
+}
+
 /* theme colors for learn more blurb */
 .labor #learn {
     color: #F8C5D7;

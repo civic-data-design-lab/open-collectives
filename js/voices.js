@@ -1,3 +1,82 @@
+// QUESTIONS DATA
+// get questions json data and generate modals and form inputs for each theme
+getJsonObject("questions", function(data){
+    questionsData = data;
+
+    themesList = data.map(d => d.theme);
+    currentIndex = themesList.indexOf(currentTheme);
+
+    // response list
+    for (var i = 0; i < themesList.length; i++) {
+        let theme = themesList[i];
+        responseList = data[i].responses.map(d => d.rID);
+
+        (theme == "labor") ? (laborResponses = responseList)
+            : (theme == "market") ? (marketResponses = responseList)
+            : (theme == "care") ? (careResponses = responseList)
+            : (theme == "living") ? (livingResponses = responseList)
+            : responseList = undefined;
+    }
+
+    // load on start up
+    createModals(questionsData);
+    changeTheme("", currentTheme);
+    // console.log(data);
+});
+
+// RESULTS DATA
+// get results json data and visualize data
+getJsonObject("responses-test", function(data) {
+    responsesData = data;
+    currentIndex = themesList.indexOf(currentTheme);
+
+    for (var t = 0; t < themesList.length; t++) {
+        let theme = themesList[t];
+        item = {};
+        item.theme = theme;
+
+        (theme == "labor") ? (responseList = laborResponses)
+            : (theme == "market") ? (responseList = marketResponses)
+            : (theme == "care") ? (responseList = careResponses)
+            : (theme == "living") ? (responseList = livingResponses)
+            : (responseList = undefined);
+
+        let responseData = [];
+
+        if (theme == "care" || theme == "market") {
+            for (var i = 0; i < data.length; i++) {
+                responseData.push(data[i][theme]);
+            }
+        }
+        else if (theme == "labor" || theme == "living") {
+            for (var i = 0; i < data.length; i++) {
+                responseData = responseData.concat(data[i][theme]);
+            }
+        }
+
+        item.total = responseData.length;
+        totalResponses = responseData.reduce((accumulator, response) => {
+            if (!item[response]) {
+                item[response] = 1;
+            } else {
+                item[response]++;
+            }
+        });
+
+        surveyData.push(item);
+    };
+
+    currentResponses = laborResponses;
+    currentData = surveyData[currentIndex];
+    plotHorizontalBar(currentData);
+    $("." + topResponse).addClass("active");
+
+    // console.log(currentData);
+    console.log(surveyData);
+    console.log(responsesData);
+    console.log(questionsData);
+});
+
 // VARIABLES
 var modalLabor = document.getElementById("modal-labor"),
     modalMarket = document.getElementById("modal-market"),
@@ -9,7 +88,10 @@ var questionsData = [],
     surveyData = [];
 var themesList = [];
 var currentTheme = "labor",
-    currentResponses =  [],
+    currentIndex = themesList.indexOf(currentTheme),
+    currentResponses = [],
+    currentData = [],
+    currentBarData = [],
     topResponse = "teamwork";
 var laborResponses = [],
     marketResponses = [],
@@ -91,79 +173,119 @@ function changeTheme(lastTheme, currentTheme) {
     // console.log(currentTheme);
 };
 
-// QUESTIONS DATA
-// get questions json data and generate modals and form inputs for each theme
-getJsonObject("questions", function(data){
-    questionsData = data;
+// CREATE D3 CHARTS
+// aspect ratio
+const width = 400;
+const height = 300;
+const margin = {
+    top: 10,
+    right: 50,
+    bottom: 10,
+    left: 100
+};
 
-    themesList = data.map(d => d.theme);
-    currentIndex = themesList.indexOf(currentTheme);
+// define svg
+const svg = d3.select("#theme-chart")
+    .append("svg")
+        .attr("viewBox", [0, 0, width, height]);
+// tooltip
 
-    // response list
-    for (var i = 0; i < themesList.length; i++) {
-        let theme = themesList[i];
-        responseList = data[i].responses.map(d => d.rID);
+// get sorted data for chart
+function getSortedBarData(data) {
+    let barData = [];
+    for (var i = 0; i < currentResponses.length; i++) {
+        let rID = currentResponses[i];
 
-        (theme == "labor") ? (laborResponses = responseList)
-            : (theme == "market") ? (marketResponses = responseList)
-            : (theme == "care") ? (careResponses = responseList)
-            : (theme == "living") ? (livingResponses = responseList)
-            : responseList = undefined;
-    }
-    // console.log(currentResponses);
+        let item = {};
+        item.rID = rID;
+        item.value = data[rID];
+        item.percent = data[rID] / data.total;
+        item.short = questionsData[currentIndex].responses[i].short;
 
-    // load on start up
-    createModals(questionsData);
-    changeTheme("", currentTheme);
-    // console.log(data);
-    
-});
+        barData.push(item);
+    };
+    sortedData = barData.slice().sort((a, z) => d3.descending(a.value, z.value));
+    return sortedData;
+    // console.log(barData);
+}
 
-// get results json data and visualize data
-getJsonObject("responses-test", function(data) {
-    responsesData = data;
+// plot horizontal bar chart
+function plotHorizontalBar(data) {
+    currentBarData = getSortedBarData(data);
 
-    currentIndex = themesList.indexOf(currentTheme);
+    x = d3.scaleLinear()
+        .domain([0, d3.max(currentBarData, d => +d.percent)])
+        .range([margin.left, width - margin.right]);
 
-    for (var t = 0; t < themesList.length; t++) {
-        let theme = themesList[t];
-        item = {};
-        item.theme = theme;
+    y = d3.scaleBand()
+        .domain(d3.range(currentBarData.length))
+        .rangeRound([margin.top, height - margin.bottom])
+        .padding(0.2);
 
-        (theme == "labor") ? (responseList = laborResponses)
-            : (theme == "market") ? (responseList = marketResponses)
-            : (theme == "care") ? (responseList = careResponses)
-            : (theme == "living") ? (responseList = livingResponses)
-            : (responseList = undefined);
-
-        let responseData = [];
-
-        if (theme == "care" || theme == "market") {
-            for (var i = 0; i < data.length; i++) {
-                responseData.push(data[i][theme]);
-            }
-        }
-        else if (theme == "labor" || theme == "living") {
-            for (var i = 0; i < data.length; i++) {
-                responseData = responseData.concat(data[i][theme]);
-            }
-        }
-
-        totalResponses = responseData.reduce((accumulator, response) => {
-            if (!item[response]) {
-                item[response] = 1;
-            } else {
-                item[response]++;
-            }
+    // bar rect
+    svg.append("g")
+            .attr("class", "chart-bar")
+        .selectAll("rect")
+        .data(currentBarData)
+        .enter()
+        .append("rect")
+            .attr("id", d => d.rID)
+            .attr("x", x(0))
+            .attr("y", (d, i) => y(i))
+            .attr("width", (d) => x(d.percent) - x(0))
+            .attr("height", y.bandwidth())
+            .attr("fill", (d,i) => {
+                return (i == 0) ? "#D96B6D"
+                : "#F8C5D7"})
+        .on("mouseover", function(event, d) {
+            d3.selectAll("rect")
+                .transition()
+                .duration("50")
+                .attr("fill", "#F8C5D7")
+            d3.select(this)
+                .transition()
+                .duration("50")
+                .attr("fill", "#D96B6D")
+            
+            let chartClass = "." + $(this).attr("id");
+            $("text").removeClass("active");
+            $(chartClass).addClass("active");
         });
-
-        surveyData.push(item);
-    }
-    console.log(surveyData);
-
-    console.log(responsesData);
-    console.log(questionsData);
-});
+    // percent text labels
+    svg.append("g")
+            .attr("fill", "#D96B6D")
+            .attr("text-anchor", "end")
+            .attr("class", "chart-label")
+        .selectAll("text")
+        .data(currentBarData)
+        .enter()
+        .append("text")
+            .attr("class", d => d.rID)
+            .attr("x", d => x(d.percent))
+            .attr("y", (d, i) => y(i) + y.bandwidth() / 2)
+            .attr("dy", "0.35em")
+            .attr("dx", -4)
+            .text(d => roundAccurately(d.percent * 100, 0) + '%')
+        .call(text => text.filter(d => x(d.percent) - x(0) < 20))
+            .attr("dx", +4)
+            .attr("text-anchor", "start");
+    // description text labels
+    svg.append("g")
+            .attr("fill", "#333")
+            .attr("text-anchor", "end")
+            .attr("class", "chart-short")
+        .selectAll("text")
+        .data(currentBarData)
+        .enter()
+        .append("text")
+            .attr("class", d => d.rID)
+            .attr("x", d => x(0) - 10)
+            .attr("y", (d, i) => y(i) + y.bandwidth() / 2)
+            .attr("dy", "0.35em")
+            .attr("opacity", 0.5)
+            .text(d => d.short)
+        .call(wrapText, 85);
+};
 
 // EVENTS
 // close modal on click
