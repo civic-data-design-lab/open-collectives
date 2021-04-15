@@ -111,22 +111,22 @@ body#voices .container {
 #nav-headline {
     padding: 0rem 0rem 3rem 3rem;
 }
-#headline-percent, #headline-description {
+#headline-figure, #headline-description {
     float: left;
 }
-#headline-percent {
+#headline-figure {
     width: 130px;
     margin-right: 1rem;
 }
-#headline-percent .h1 {
+#headline-percent {
     font-family: 'Prophet-Bold';
     font-weight: 900;
     font-variation-settings: 'wght' 900;
 }
-#headline-percent .h1, #headline-percent span {
+#headline-percent, #headline-figure span {
     width: 100%;
 }
-#headline-percent span {
+#headline-figure span {
     top: -1em;
 }
 #headline-description {
@@ -220,8 +220,15 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
 }
 
 /* chart styles */
-#theme-chart {
-    max-height: 60vh;
+.chart {
+    /* max-height: 55vh; */
+    display: none;
+}
+.chart.active {
+    display: block;
+}
+.chart svg {
+    max-height: 55vh;
 }
 .chart-label {
     font-family: 'Prophet-Bold';

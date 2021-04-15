@@ -68,8 +68,11 @@ getJsonObject("responses-test", function(data) {
 
     currentResponses = laborResponses;
     currentData = surveyData[currentIndex];
-    plotHorizontalBar(currentData);
+    currentBarData = getSortedBarData(currentData);
+    plotHorizontalBar(svgLabor, currentBarData);
     $("." + topResponse).addClass("active");
+    headlineTooltip();
+    percentTooltip();
 
     // console.log(currentData);
     console.log(surveyData);
@@ -162,9 +165,7 @@ function changeTheme(lastTheme, currentTheme) {
     $(".tile").removeClass("active");
     $(currentTabID).addClass("active");
 
-    // $("#headline-description").text(questionsData[currentIndex].responses[currentResponses].headline);
-
-    $("#theme-question").text(questionsData[currentIndex].question);
+    $("#theme-question").html(questionsData[currentIndex].question);
     $("#theme-name").text(currentTheme);
     $("#theme-learn").html(questionsData[currentIndex].learn);
     $("#theme-link").attr("href", "./" + currentTheme);
@@ -172,6 +173,33 @@ function changeTheme(lastTheme, currentTheme) {
 
     // console.log(currentTheme);
 };
+function changeThemeData(currentTheme) {
+    themeIndex = themesList.indexOf(currentTheme);
+    currentData =  surveyData[currentIndex];
+    currentBarData = getSortedBarData(currentData);
+    currentChartID = "#chart-" + currentTheme;
+
+    (currentTheme == "labor") ? currentResponses = laborResponses
+    : (currentTheme == "market") ? currentResponses = marketResponses
+    : (currentTheme == "care") ? currentResponses = careResponses
+    : (currentTheme == "living") ? currentResponses = livingResponses
+    : currentResponses = undefined;
+
+    (currentTheme == "labor") ? svg = svgLabor
+    : (currentTheme == "living") ? svg = svgLiving
+    : svg = undefined;
+
+    $(".chart.active").removeClass("active");
+    $(currentChartID).addClass("active");
+    if (currentTheme == "labor" || currentTheme == "living") {
+        // plotHorizontalBar(svg, currentBarData);
+        // percentTooltip();
+        // headlineTooltip();
+    }
+    console.log(currentData);
+    console.log(currentBarData);
+    console.log(topResponse);
+}
 
 // CREATE D3 CHARTS
 // aspect ratio
@@ -185,10 +213,31 @@ const margin = {
 };
 
 // define svg
-const svg = d3.select("#theme-chart")
+const svgLabor = d3.select("#chart-labor")
+    .append("svg")
+        .attr("viewBox", [0, 0, width, height]);
+const svgLiving = d3.select("#chart-living")
     .append("svg")
         .attr("viewBox", [0, 0, width, height]);
 // tooltip
+var divPercent = d3.select("#headline-percent")
+    .text("");
+var divHeadline = d3.select("#headline-description")
+    .text("");
+
+// headline text
+function percentTooltip() {
+    divPercent.html(divHtml => {
+        return roundAccurately(currentBarData[0].percent * 100, 0) + "%";
+    })
+}
+function headlineTooltip() {
+    divHeadline.html(divHtml => {
+        themeIndex = themesList.indexOf(currentTheme);
+        responseIndex = currentResponses.indexOf(topResponse);
+        return questionsData[themeIndex].responses[responseIndex].headline;
+    });
+}
 
 // get sorted data for chart
 function getSortedBarData(data) {
@@ -201,24 +250,26 @@ function getSortedBarData(data) {
         item.value = data[rID];
         item.percent = data[rID] / data.total;
         item.short = questionsData[currentIndex].responses[i].short;
+        item.headline = questionsData[currentIndex].responses[i].headline;
 
         barData.push(item);
     };
     sortedData = barData.slice().sort((a, z) => d3.descending(a.value, z.value));
+    topResponse = sortedData[0].rID;
     return sortedData;
     // console.log(barData);
 }
 
 // plot horizontal bar chart
-function plotHorizontalBar(data) {
-    currentBarData = getSortedBarData(data);
+function plotHorizontalBar(svg, barData) {
+    // currentBarData = getSortedBarData(data);
 
     x = d3.scaleLinear()
-        .domain([0, d3.max(currentBarData, d => +d.percent)])
+        .domain([0, d3.max(barData, d => +d.percent)])
         .range([margin.left, width - margin.right]);
 
     y = d3.scaleBand()
-        .domain(d3.range(currentBarData.length))
+        .domain(d3.range(barData.length))
         .rangeRound([margin.top, height - margin.bottom])
         .padding(0.2);
 
@@ -226,7 +277,7 @@ function plotHorizontalBar(data) {
     svg.append("g")
             .attr("class", "chart-bar")
         .selectAll("rect")
-        .data(currentBarData)
+        .data(barData)
         .enter()
         .append("rect")
             .attr("id", d => d.rID)
@@ -257,7 +308,7 @@ function plotHorizontalBar(data) {
             .attr("text-anchor", "end")
             .attr("class", "chart-label")
         .selectAll("text")
-        .data(currentBarData)
+        .data(barData)
         .enter()
         .append("text")
             .attr("class", d => d.rID)
@@ -275,7 +326,7 @@ function plotHorizontalBar(data) {
             .attr("text-anchor", "end")
             .attr("class", "chart-short")
         .selectAll("text")
-        .data(currentBarData)
+        .data(barData)
         .enter()
         .append("text")
             .attr("class", d => d.rID)
@@ -285,6 +336,9 @@ function plotHorizontalBar(data) {
             .attr("opacity", 0.5)
             .text(d => d.short)
         .call(wrapText, 85);
+    // headline
+    // divPercent.html(divHtml => percentTooltip());
+    // divHeadline.html(divHtml => headlineTooltip());
 };
 
 // EVENTS
@@ -317,6 +371,7 @@ $(".tile").on("click", function() {
 
     if (!$("#results").hasClass(currentTheme)) {
         changeTheme(lastTheme, currentTheme);
+        // changeThemeData(currentTheme);
     };
 });
 
