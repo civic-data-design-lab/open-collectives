@@ -632,9 +632,16 @@ div.ytp-chrome-top {
     left: 24%;
 }
 #wall {
-    position: relative;
-    margin-top: 10vh;
+    position: absolute;
+    width: calc(100vw - 10rem);
     height: 85vh;
+    margin-top: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
 }
 .img-logo {
     width: 100%;

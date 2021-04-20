@@ -239,6 +239,9 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
 .chart-label text {
     display: none;
 }
+.chart-bar .active {
+    fill: #D96B6D;
+}
 .chart-label .active {
     display: block;
 }
