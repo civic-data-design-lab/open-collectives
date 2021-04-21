@@ -2,6 +2,7 @@
 // get questions json data and generate modals and form inputs for each theme
 getJsonObject("questions", function(data){
     questionsData = data;
+    console.log(questionsData)
 
     themesList = data.map(d => d.theme);
     currentIndex = themesList.indexOf(currentTheme);

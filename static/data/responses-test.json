@@ -1,0 +1,37 @@
+[
+    {
+        "responseID": 1,
+        "labor": ["gig", "agency", "robots", "money", "teamwork"],
+        "market": "cant",
+        "care": "professionals",
+        "living": ["commune", "community", "privacy", "own", "affordable"]
+    },
+    {
+        "responseID": 2,
+        "labor": ["agency", "teamwork"],
+        "market": "circular",
+        "care": "eachOther",
+        "living": ["commune", "community"]
+    },
+    {
+        "responseID": 3,
+        "labor": ["money", "teamwork"],
+        "market": "shrinkSupply",
+        "care": "peers",
+        "living": ["community", "privacy", "affordable"]
+    },
+    {
+        "responseID": 4,
+        "labor": ["gig", "agency", "teamwork"],
+        "market": "blockchain",
+        "care": "noOne",
+        "living": ["community", "privacy", "affordable"]
+    },
+    {
+        "responseID": 5,
+        "labor": ["agency", "teamwork"],
+        "market": "delivery",
+        "care": "noOne",
+        "living": ["community", "privacy"]
+    }
+]
