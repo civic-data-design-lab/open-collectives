@@ -10,11 +10,11 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/starter-template/">
 
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/nav.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/nav.css">
 
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
 </head>
 
 <body id="home" class="black">
@@ -28,10 +28,10 @@
                 </div>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" id="dropdownMenu" aria-labelledby="dropdownMenu">
-                <li><a class="dropdown-item active" aria-current="page" href="{{url_for('index')}}">Open Collectives</a></li>
-                <li><a class="dropdown-item" href="{{url_for('film')}}">Film</a></li>
-                <li><a class="dropdown-item" href="{{url_for('about')}}">About</a></li>
-                <li><a class="dropdown-item" href="{{url_for('voices')}}">Collective Voices</a></li>
+                <li><a class="dropdown-item active" aria-current="page" href="./index">Open Collectives</a></li>
+                <li><a class="dropdown-item" href="./film">Film</a></li>
+                <li><a class="dropdown-item" href="./about">About</a></li>
+                <li><a class="dropdown-item" href="./voices">Collective Voices</a></li>
                 <li><a class="dropdown-item" href="http://ec2-3-94-170-100.compute-1.amazonaws.com/">Collective Dimensions</a></li>
             </ul>
         </div>
@@ -40,10 +40,15 @@
     <main class="container">
         <section id="sect-video" class="container-fluid section d-flex">
             <a href="./film"><video class="align-self-center" id="vidTrailer" width="560" height="315" autoplay muted loop>
-                <source src="/video/shapes_morph test_1.mp4" type="video/mp4">
+                <source src="./video/shapes_morph test_1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video></a>
             <!-- <iframe class="align-self-center" id="vidTrailer" width="560" height="315" src="https://www.youtube.com/embed/GW3JPYkjeo0?rel=0&modestbranding=1&autohide=1&controls=0&autoplay=1&mute=1&playlist=GW3JPYkjeo0&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+            <div class="w-100 d-flex flex-row-reverse align-self-end mb-5">
+                <a class="px-3 link-white" href="./film"><h2 class="h4 text-uppercase position-relative before-arrow">Film
+                            <div class="arrow arrow-sm"><div class="head"></div></div>
+                </h2></a>
+            </div>
         </section>
         <section class="container-fluid section">
             <div class="row align-items-end" id="oc">
@@ -55,10 +60,12 @@
             </div>
             <div class="row">
                 <div class="col-10 offset-2 col-md-6 offset-md-6 col-lg-4 offset-lg-8 mt-4">
-                    <p>Open Collectives is an immersive installation featuring digital and urban architectural platforms seeking to leverage the power of solidarity to strengthen economic sovereignty, housing affordability, communal self-determination, and mutual aid.</p>
-                    <p>Open Collectives offers new perspectives on timely contemporary issues — the future of work, reputational economy, elder boom, and the climate refugee crisis, to name a few. Featured architecture projects engage with four specific themes.
-                        <img class="arrow-dn" src="./img/arrow-dn.svg" alt="Read about Open Collective Themes">
-                    </p>
+                    <a class="link-white" href="#sect-themes">
+                        <p>Open Collectives is an immersive installation featuring digital and urban architectural platforms seeking to leverage the power of solidarity to strengthen economic sovereignty, housing affordability, communal self-determination, and mutual aid.</p>
+                        <p>Open Collectives offers new perspectives on timely contemporary issues — the future of work, reputational economy, elder boom, and the climate refugee crisis, to name a few. Featured architecture projects engage with four specific <span class="position-relative before-arrow">themes.
+                            <span class="arrow arrow-dn"><span class="head"></span></span></span>
+                        </p>
+                    </a>
                 </div>
             </div>
             <img class="img img-center" id="img-oc" src="./img/installation.svg" alt="Open Collectives Installation">
@@ -115,7 +122,7 @@
                     </a>
                 </div>
             </div>
-            <img class="img img-center" id="img-voices" src="/img/voices.svg" alt="Collective Voices">
+            <img class="img img-center" id="img-voices" src="./img/voices.svg" alt="Collective Voices">
         </section>
         <section class="container-fluid section d-flex" id="cd">
             <div id="cd-explore" class="row w-100 align-self-center">
@@ -131,20 +138,20 @@
                 </div>
             </div>
             <div class="W-100 img-row marquee">
-                    <img class="marquee-item img img-cd" src="/img/cd-1.svg" alt="Collective Dimensions 1">
-                    <img class="marquee-item img img-cd" src="/img/cd-2.svg" alt="Collective Dimensions 2">
-                    <img class="marquee-item img img-cd" src="/img/cd-3.svg" alt="Collective Dimensions 3">
-                    <img class="marquee-item img img-cd" src="/img/cd-4.svg" alt="Collective Dimensions 4">
-                    <img class="marquee-item img img-cd" src="/img/cd-5.svg" alt="Collective Dimensions 5">
-                    <img class="marquee-item img img-cd" src="/img/cd-6.svg" alt="Collective Dimensions 6">
-                    <img class="marquee-item img img-cd" src="/img/cd-7.svg" alt="Collective Dimensions 7">
-                    <img class="marquee-item img img-cd" src="/img/cd-8.svg" alt="Collective Dimensions 8">
+                    <img class="marquee-item img img-cd" src="./img/cd-1.svg" alt="Collective Dimensions 1">
+                    <img class="marquee-item img img-cd" src="./img/cd-2.svg" alt="Collective Dimensions 2">
+                    <img class="marquee-item img img-cd" src="./img/cd-3.svg" alt="Collective Dimensions 3">
+                    <img class="marquee-item img img-cd" src="./img/cd-4.svg" alt="Collective Dimensions 4">
+                    <img class="marquee-item img img-cd" src="./img/cd-5.svg" alt="Collective Dimensions 5">
+                    <img class="marquee-item img img-cd" src="./img/cd-6.svg" alt="Collective Dimensions 6">
+                    <img class="marquee-item img img-cd" src="./img/cd-7.svg" alt="Collective Dimensions 7">
+                    <img class="marquee-item img img-cd" src="./img/cd-8.svg" alt="Collective Dimensions 8">
             </div>
         </section>
     </main><!-- /.container -->
 
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
 </body>
 
 </html>

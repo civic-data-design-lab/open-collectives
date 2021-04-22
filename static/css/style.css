@@ -302,11 +302,11 @@ main {
 .before-arrow {
     padding-right: 4rem;
 }
-a .arrow {
+a .arrow, button .arrow {
     width: 4rem;
     transition: all 0.3s ease;
 }
-a:hover .arrow {
+a:hover .arrow, button:hover .arrow {
     width: 6rem;
 }
 .arrow {
@@ -352,16 +352,33 @@ a .arrow-sm {
 a:hover .arrow-sm {
     width: 4rem;
 }
-.arrow-sm .head, .arrow-sm .head:after {
+.arrow-sm .head, .arrow-sm .head:after, .arrow-dn .head, .arrow-dn .head:after {
     width: 0.5rem;
 }
-.arrow-sm .head {
+.arrow-sm .head, .arrow-dn .head {
     top: 0.16rem;
     right: -0.1rem;
 }
-.arrow-sm .head:after {
+.arrow-sm .head:after, .arrow-dn .head:after {
     top: -0.25rem;
     right: -0.25rem;
+}
+a .arrow-dn {
+    width: 0.75rem;
+    margin-left: 1rem;
+    transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+}
+a:hover .arrow-dn {
+    width: 0.75rem;
+    transform: rotate(90deg) translateX(0.5rem);
+    -o-transform: rotate(90deg) translateX(0.5rem);
+    -ms-transform: rotate(90deg) translateX(0.5rem);
+    -moz-transform: rotate(90deg) translateX(0.5rem);
+    -webkit-transform: rotate(90deg) translateX(0.5rem);
 }
 .arrow.red, .arrow.red .head, .arrow.red .head:after {
     background-color: #FF0000;
@@ -632,9 +649,16 @@ div.ytp-chrome-top {
     left: 24%;
 }
 #wall {
-    position: relative;
-    margin-top: 10vh;
+    position: absolute;
+    width: calc(100vw - 10rem);
     height: 85vh;
+    margin-top: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
 }
 .img-logo {
     width: 100%;

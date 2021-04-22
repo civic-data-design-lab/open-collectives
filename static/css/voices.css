@@ -5,6 +5,18 @@ body#voices {
 body#voices .container {
     max-width: calc(100% - 120px);
 }
+/* a.read-more:hover {
+    text-decoration: none;
+} */
+.read-more.active .arrow {
+    transform: rotate(-90deg);
+}
+.read-more.active:hover .arrow {
+    transform: rotate(-90deg) translateX(0.5rem);
+}
+#read-more {
+    display: none;
+}
 
 /* Questions Section Survey */
 #select {
@@ -27,7 +39,7 @@ body#voices .container {
     z-index: 2;
     cursor: pointer;
 }
-#questions .tile .img-neg {
+#questions .tile .img-neg, #questions .tile .img-color {
     opacity: 0;
 }
 #questions .tile:hover .img-pos {
@@ -47,7 +59,7 @@ body#voices .container {
 /* Modal Styles for Pop-up Questions */
 .modal-content {
     height: calc(100vw - 2rem);
-    max-height: 500px;
+    max-height: 515px;
     border: none;
     border-radius: 0px;
     outline: none;
@@ -66,12 +78,12 @@ body#voices .container {
 .modal-body {
     padding: 0px 2rem;
 }
-.modal-header .h4 {
+.modal-header .h5 {
     margin-right: 3rem;
 }
 .modal-header .close {
     position: absolute;
-    top: 1.3rem;
+    top: 1.5rem;
     right: 2rem;
     background: none;
     border: none;
@@ -79,9 +91,22 @@ body#voices .container {
 .modal-header .close span {
     font-size: 2rem!important;
 }
+.modal-body {
+    overflow: hidden auto;
+}
+.modal-footer .continue {
+    background: none;
+    border: none;
+    margin: 0rem 1rem 0rem 0rem;
+}
+.modal-footer .continue span {
+    margin-right: 1rem;
+    padding-right: 5rem;
+}
 
 /* Form Input Styles */
 .modal-body .form-check-input, .modal-body .form-check-input:checked {
+    margin-top: 0px;
     border: solid 2px #000;
     background: none;
 }
@@ -229,6 +254,7 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
 }
 .chart svg {
     max-height: 55vh;
+    max-width: 100%;
 }
 .chart-label {
     font-family: 'Prophet-Bold';
@@ -238,6 +264,9 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
 }
 .chart-label text {
     display: none;
+}
+.chart-bar .active {
+    fill: #D96B6D;
 }
 .chart-label .active {
     display: block;
@@ -308,7 +337,9 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-
+    .modal-dialog {
+        max-width: 515px;
+    }
 }
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -345,6 +376,7 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
 @media (max-aspect-ratio: 2/3) {
     .col {
         width: 100%!important;
+        max-height: 15vh;
     }
     #questions .tile {
         max-height: 15vh;

@@ -10,15 +10,15 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/starter-template/">
 
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/nav.css">
-
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/css/voices.css">
-    <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="/js/d3.v6.min.js"></script>
-    <script type="text/javascript" src="/data/questions.json"></script>
-    <script type="text/javascript" src="/data/responses-test.json"></script>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/nav.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/voices.css">
+    
+    <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./js/d3.v6.min.js"></script>
+    <script type="text/javascript" src="./data/questions.json"></script>
+    <script type="text/javascript" src="./data/responses-test.json"></script>
 </head>
 
 <body id="voices">
@@ -54,41 +54,51 @@
                 <div class="arrow arrow-sm"><div class="head"></div></div>
             </a>
         </p>
-        <p class="mt-4"><b>Read about the visualization</b></p>
+        <a class="position-relative link-black read-more mt-4" href="#"><b class="before-arrow">Read about the visualization</b>
+            <div class="arrow arrow-dn"><div class="head"></div></div>
+        </a>
+        <div id="read-more" class="mt-3">
+            <p>We are sharing more than ever before, and collective living has been a common solution to our needs as a community. Collective sharing can help address many of our contemporary issues&mdash;housing affordability, economic crisis, the elder boom, reputational economy, and the future of work.</p>
+            <p>The Collective Voices platform seeks your input in envisioning answers to the question&mdash;how will we live together? Add your voice and explore what others think about the future of care, labor, co-living, and the market. We welcome your honesty and thoughtful consideration and encourage you to explore each theme further.</p>
+        </div>
     </div>
     <div id="fade-sidebar" class="close-sidebar"></div>
 
     <main class="container">
         <section class="container-fluid section d-flex" id="questions">
             <p id="select">Select a tile to share your voice:</p>
-            <div class="row w-100 align-self-center">
+            <div class="row w-100 align-self-center mt-5">
                 <div class="col col-6 col-lg-3">
                     <a id="btn-labor" data-toggle="modal" data-target="#modal-labor" onclick="openModal('modal-labor')"><figure class="tile">
                         <img class="img-pos" src="./img/labor-pos.svg" alt="Labor Question">
                         <img class="img-neg" src="./img/labor-neg.svg" alt="Labor Question">
+                        <img class="img-color" src="./img/labor-color.svg" alt="Labor Question">
                     </figure></a>
                 </div>
                 <div class="col col-6 col-lg-3">
                     <a id="btn-market" data-toggle="modal" data-target="#modal-market" onclick="openModal('modal-market')"><figure class="tile">
                         <img class="img-pos" src="./img/market-pos.svg" alt="Market Question">
                         <img class="img-neg" src="./img/market-neg.svg" alt="Market Question">
+                        <img class="img-color" src="./img/market-color.svg" alt="Market Question">
                     </figure></a>
                 </div>
                 <div class="col col-6 col-lg-3">
                     <a id="btn-care" data-toggle="modal" data-target="#modal-care" onclick="openModal('modal-care')"><figure class="tile">
                         <img class="img-pos" src="./img/care-pos.svg" alt="Care Question">
                         <img class="img-neg" src="./img/care-neg.svg" alt="Care Question">
+                        <img class="img-color" src="./img/care-color.svg" alt="Care Question">
                     </figure></a>
                 </div>
                 <div class="col col-6 col-lg-3">
                     <a id="btn-living" data-toggle="modal" data-target="#modal-living" onclick="openModal('modal-living')"><figure class="tile">
                         <img class="img-pos" src="./img/living-pos.svg" alt="Living Question">
                         <img class="img-neg" src="./img/living-neg.svg" alt="Living Question">
+                        <img class="img-color" src="./img/living-color.svg" alt="Living Question">
                     </figure></a>
                 </div>
             </div>
-            <div type="submit" id="div-submit">
-                <a onclick="document.getElementById('form').submit();" class="text-black" href="#results">
+            <div id="div-submit">
+                <a onclick="document.getElementById('form').submit();" class="link-black" href="#results">
                     <p class="before-arrow" id="submit"><b>Submit</b></p>
                     <div class="arrow"><div class="head"></div></div>
                 </a>
@@ -100,12 +110,12 @@
         </section>
         <section class="container-fluid section labor" id="results">
             <div class="w-100 d-flex flex-column flex-md-row-reverse" id="nav-dashboard">
-                <div id="nav-headline" class="h-50 col col-md-5 d-flex align-items-md-end text-lt-red">
+                <div id="nav-headline" class="h-50 col col-md-5 d-flex align-items-md-center text-lt-red">
                     <div id="headline-figure" class="position-relative text-center">
                         <h3 id="headline-percent" class="h1 mb-0"></h3>
                         <span class="position-relative text-prophet">of respondents...</span>
                     </div>
-                    <p id="headline-description" class="h4 position-relative"></p>
+                    <p id="headline-description" class="h4 position-relative mb-3"></p>
                 </div>
                 <div id="nav-results" class="h-50 col col-md-7 d-flex align-items-end position-relative">
                     <a id="arrow-prev" class="arrow-left">
