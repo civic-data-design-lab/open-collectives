@@ -463,12 +463,13 @@ body#home {
     position: absolute;
     min-width: 100%;
     min-height: 100%;
-    /* top: 50%;
-    transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -webkit-transform: translateY(-50%); */
+    left: 50%;
+    transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    /* top: 50%; */
 }
 div.ytp-chrome-top {
     display: none!important;

@@ -88,14 +88,15 @@ getJsonObject("responses-test", function (data) {
 var modalLabor = document.getElementById("modal-labor"),
     modalMarket = document.getElementById("modal-market"),
     modalCare = document.getElementById("modal-care"),
-    modalLiving = document.getElementById("modal-living");
+    modalLiving = document.getElementById("modal-living"),
+    modalThanks = document.getElementById("modal-thanks");
 
 var questionsData = [],
     responsesData = [],
     surveyData = [];
 var laborData = [],
-    marketData = []
-careData = [],
+    marketData = [],
+    careData = [],
     livingData = [];
 var laborChartData = [],
     livingChartData = [];
@@ -111,14 +112,68 @@ var laborTopResponse = "",
     careTopResponse = "",
     livingTopResponse = "";
 
+    // D3 CHART VARIABLES
+// aspect ratio
+const width = 400;
+const height = 300;
+const margin = {
+    top: 10,
+    right: 50,
+    bottom: 10,
+    left: 100
+};
+
+// define svg
+const svgLabor = d3.select("#chart-labor")
+    .append("svg")
+    .attr("viewBox", [0, 0, width, height]);
+const svgMarket = d3.select("#chart-market")
+    .append("svg")
+    .attr("viewBox", [0, 0, width, height]);
+const svgCare = d3.select("#chart-care")
+    .append("svg")
+    .attr("viewBox", [0, 0, width, height]);
+const svgLiving = d3.select("#chart-living")
+    .append("svg")
+    .attr("viewBox", [0, 0, width, height]);
+// tooltip
+var divPercent = d3.select("#headline-percent")
+    .text("");
+var divHeadline = d3.select("#headline-description")
+    .text("");
+
+
 // FUNCTIONS
 function openModal(modalId) {
-    document.getElementById(modalId).style.display = "block";
-    document.getElementById(modalId).classList.add("show");
+    if (modalId == "modal-thanks") {
+        // $(modalId).modal({
+        //     show: 'false',
+        //     backdrop: 'static',
+        //     keyboard: false
+        // });
+        document.getElementById('form').submit(function(e) {
+            // document.getElementById(modalId).style.display = "block";
+            // document.getElementById(modalId).classList.add("show");
+            e.preventDefault();
+            document.getElementById(modalId).style.display = "block";
+            document.getElementById(modalId).classList.add("show");
+        });
+         
+    }
+    else {
+        document.getElementById(modalId).style.display = "block";
+        document.getElementById(modalId).classList.add("show");
+    }
 }
 function closeModal(modalId) {
     document.getElementById(modalId).style.display = "none";
     document.getElementById(modalId).classList.remove("show");
+
+    if (modalId == "modal-thanks") {
+        window.location.hash = "#results";
+        $("html, body").animate({ scrollTop: winHeight });
+        // console.log("continue to results");
+    }
 }
 
 // load json file and callback function
@@ -149,8 +204,8 @@ function createModals(questionsData) {
             responses = questionsData[i].responses,
             qType = questionsData[i].type;
 
-        var htmlString = "<div class='modal fade' id='" + modalID + "' tabindex='-1' role='dialog' aria-labelledby='" + theme + "' aria-hidden='true'><div class='modal-dialog modal-dialog-centered' role='document'><div class='modal-content'><img class='img-quest' src='" + imgSrc + "' alt='" + titleCase(theme) + " Question Background'><div class='modal-header'><h3 class='h5 mb-0'>" + question + "</h3><button type='button' class='close' data-dismiss='modal' aria-label='Close' onclick='closeModal('" + modalID + "')'><span aria-hidden='true'>&times;</span></button></div><div class='modal-body'>";
-        var modalStringEnd = "</div><div class='modal-footer'><button type='button' class='continue link-black' data-dismiss='modal' aria-label='Continue' onclick='closeModal('" + modalID + "')'><span aria-hidden='true' class='position-relative before-arrow'><b>Continue</b><div class='arrow'><div class='head'></div></div></span></button></div></div></div></div>";
+        var htmlString = "<div class='modal fade' id='" + modalID + "' tabindex='-1' role='dialog' aria-labelledby='" + theme + "' aria-hidden='true'><div class='modal-dialog modal-dialog-centered' role='document'><div class='modal-content'><img class='img-quest' src='" + imgSrc + "' alt='" + titleCase(theme) + " Question Background'><div class='modal-header'><h3 class='h5 mb-0'>" + question + "</h3><button type='button' class='close' data-dismiss='modal' aria-label='Close' onclick='closeModal(" + modalID + ")'><span aria-hidden='true'>&times;</span></button></div><div class='modal-body'>";
+        var modalStringEnd = "</div><div class='modal-footer'><button type='button' class='continue link-black' data-dismiss='modal' aria-label='Continue' onclick='closeModal(" + modalID + ")'><span aria-hidden='true' class='position-relative before-arrow'><b>Continue</b><div class='arrow'><div class='head'></div></div></span></button></div></div></div></div>";
 
         for (j = 0; j < responses.length; j++) {
             var rID = responses[j].rID,
@@ -203,35 +258,6 @@ function changeThemeData(currentTheme) {
 }
 
 // CREATE D3 CHARTS
-// aspect ratio
-const width = 400;
-const height = 300;
-const margin = {
-    top: 10,
-    right: 50,
-    bottom: 10,
-    left: 100
-};
-
-// define svg
-const svgLabor = d3.select("#chart-labor")
-    .append("svg")
-    .attr("viewBox", [0, 0, width, height]);
-const svgMarket = d3.select("#chart-market")
-    .append("svg")
-    .attr("viewBox", [0, 0, width, height]);
-const svgCare = d3.select("#chart-care")
-    .append("svg")
-    .attr("viewBox", [0, 0, width, height]);
-const svgLiving = d3.select("#chart-living")
-    .append("svg")
-    .attr("viewBox", [0, 0, width, height]);
-// tooltip
-var divPercent = d3.select("#headline-percent")
-    .text("");
-var divHeadline = d3.select("#headline-description")
-    .text("");
-
 // headline text
 function percentTooltip(themeData) {
     divPercent.html(divHtml => {
@@ -388,6 +414,9 @@ window.onclick = function (event) {
     else if (event.target == modalLiving) {
         closeModal('modal-living')
     }
+    else if (event.target == modalThanks) {
+        closeModal('modal-thanks');
+    }
 };
 // keep results section at top when resizing window
 $(window).resize(function () {
@@ -440,19 +469,26 @@ $("#arrow-next").on("click", function () {
 
 $(document).ready(function () {
     // if input checked
-    $("#form .form-check-input").on("click", function() {
+    $("#form").on("click", ".form-check-input", function() {
         var themeName = $(this).attr("name");
 
         if ($(this).is(":checked")) {
             $("#btn-" + themeName + " .img-pos").css("opacity", 0);
             $("#btn-" + themeName + " .img-neg").css("opacity", 0);
             $("#btn-" + themeName + " .img-color").css("opacity", 1);
-            console.log(themeName + " checked");
+            // console.log(themeName + " checked");
         }
         else if (!$(".form-check-input[name*='" + themeName + "']").is(":checked")) {
             $("#btn-" + themeName + " .img-color").css("opacity", 0);
             $("#btn-" + themeName + " .img-pos").css("opacity", 1);
         }
+    });
+
+    // on submit form
+    $("#form").on('submit', "#submit", function(e) {
+        document.getElementById(modalId).style.display = "block";
+        document.getElementById(modalId).classList.add("show");
+        e.preventDefault();
     });
     // console.log("ready!");
 })

@@ -55,6 +55,12 @@ body#voices .container {
     top: 90%;
     right: 2rem;
 }
+#div-submit button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+}
 
 /* Modal Styles for Pop-up Questions */
 .modal-content {
@@ -102,6 +108,30 @@ body#voices .container {
 .modal-footer .continue span {
     margin-right: 1rem;
     padding-right: 5rem;
+}
+
+/* Modal Styles for Thank You */
+/* #modal-thanks {
+    background-color: rgba(0,0,0,0.5);
+} */
+#modal-thanks .modal-content {
+    background-color: #fff;
+}
+#modal-thanks .h4 {
+    font-family: 'Acumin';
+    font-weight: 600;
+    font-variation-settings: 'wght' 500;
+}
+#modal-thanks .modal-body {
+    overflow: hidden;
+}
+#modal-thanks .modal-body .row {
+    max-width: 336px;
+}
+.img-thanks {
+    max-width: 150px;
+    width: calc(50% - 2rem);
+    height: calc(100% - 1rem);
 }
 
 /* Form Input Styles */
