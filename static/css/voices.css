@@ -310,9 +310,6 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
     fill: #D96B6D;
     opacity: 1.0;
 }
-.chart-short .text:not(.gig) {
-    y: 32;
-}
 
 /* theme colors for learn more blurb */
 .labor #learn {

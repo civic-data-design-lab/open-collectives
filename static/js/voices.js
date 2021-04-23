@@ -1,3 +1,92 @@
+// VARIABLES
+var modalLabor = document.getElementById("modal-labor"),
+    modalMarket = document.getElementById("modal-market"),
+    modalCare = document.getElementById("modal-care"),
+    modalLiving = document.getElementById("modal-living"),
+    modalThanks = document.getElementById("modal-thanks");
+
+var questionsData = [],
+    responsesData = [],
+    surveyData = [];
+var laborData = [],
+    marketData = [],
+    careData = [],
+    livingData = [];
+var laborChartData = [],
+    livingChartData = [];
+var themesList = [];
+var currentTheme = "labor",
+    currentIndex = themesList.indexOf(currentTheme);
+var laborResponses = [],
+    marketResponses = [],
+    careResponses = [],
+    livingResponses = [];
+var laborTopResponse = "",
+    marketTopResponse = "",
+    careTopResponse = "",
+    livingTopResponse = "";
+
+// D3 CHART VARIABLES
+const width = 400;
+const height = 300;
+const margin = {
+    top: 10,
+    right: 50,
+    bottom: 10,
+    left: 100
+};
+const donutWidth = 60;
+const radius = Math.min(width, (height - donutWidth * 2/3)) / 2;
+
+// define svg
+const svgLabor = d3.select("#chart-labor")
+    .append("svg")
+    .attr("viewBox", [0, 0, width, height]);
+const svgMarket = d3.select("#chart-market")
+    .append("svg")
+    .attr("viewBox", [-width/2, -height/2, width, height]);
+const svgCare = d3.select("#chart-care")
+    .append("svg")
+    .attr("viewBox", [-width/2, -height/2, width, height]);
+const svgLiving = d3.select("#chart-living")
+    .append("svg")
+    .attr("viewBox", [0, 0, width, height]);
+
+// tooltip
+var divPercent = d3.select("#headline-percent")
+    .text("");
+var divHeadline = d3.select("#headline-description")
+    .text("");
+
+// donut chart
+var arc = d3.arc()
+    .innerRadius(radius - donutWidth)
+    .outerRadius(radius);
+
+var pie = d3.pie()
+    .value(d => d.value)
+    .padAngle(0.025)
+    .sort(null);
+
+// CALL DATA PARSE FUNCTIONS
+// load json file and callback function
+function getJsonObject(jsonFileName, callback) {
+    var request = new XMLHttpRequest();
+    var jsonPath = './data/' + jsonFileName + '.json';
+    request.open('GET', jsonPath, true);
+    request.send(null);
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            var type = request.getResponseHeader('Content-Type');
+            try {
+                callback(JSON.parse(request.responseText));
+            } catch (err) {
+                callback(err);
+            }
+        }
+    }
+}
+
 // QUESTIONS DATA
 // get questions json data and generate modals and form inputs for each theme
 getJsonObject("questions", function (data) {
@@ -47,7 +136,7 @@ getJsonObject("responses-test", function (data) {
         }
 
         item.total = responseData.length;
-        totalResponses = responseData.reduce((accumulator, response) => {
+        responseData.forEach((response) => {
             if (!item[response]) {
                 item[response] = 1;
             } else {
@@ -73,6 +162,8 @@ getJsonObject("responses-test", function (data) {
 
     plotHorizontalBar(svgLabor, laborChartData);
     plotHorizontalBar(svgLiving, livingChartData);
+    plotDonutChart(svgMarket, marketChartData);
+    plotDonutChart(svgCare, careChartData);
 
     $(".chart").addClass("inactive");
     $("." + laborTopResponse).removeClass("inactive").addClass("active");
@@ -85,66 +176,8 @@ getJsonObject("responses-test", function (data) {
     // console.log(laborData);
 });
 
-// VARIABLES
-var modalLabor = document.getElementById("modal-labor"),
-    modalMarket = document.getElementById("modal-market"),
-    modalCare = document.getElementById("modal-care"),
-    modalLiving = document.getElementById("modal-living"),
-    modalThanks = document.getElementById("modal-thanks");
-
-var questionsData = [],
-    responsesData = [],
-    surveyData = [];
-var laborData = [],
-    marketData = [],
-    careData = [],
-    livingData = [];
-var laborChartData = [],
-    livingChartData = [];
-var themesList = [];
-var currentTheme = "labor",
-    currentIndex = themesList.indexOf(currentTheme);
-var laborResponses = [],
-    marketResponses = [],
-    careResponses = [],
-    livingResponses = [];
-var laborTopResponse = "",
-    marketTopResponse = "",
-    careTopResponse = "",
-    livingTopResponse = "";
-
-    // D3 CHART VARIABLES
-// aspect ratio
-const width = 400;
-const height = 300;
-const margin = {
-    top: 10,
-    right: 50,
-    bottom: 10,
-    left: 100
-};
-
-// define svg
-const svgLabor = d3.select("#chart-labor")
-    .append("svg")
-    .attr("viewBox", [0, 0, width, height]);
-const svgMarket = d3.select("#chart-market")
-    .append("svg")
-    .attr("viewBox", [0, 0, width, height]);
-const svgCare = d3.select("#chart-care")
-    .append("svg")
-    .attr("viewBox", [0, 0, width, height]);
-const svgLiving = d3.select("#chart-living")
-    .append("svg")
-    .attr("viewBox", [0, 0, width, height]);
-// tooltip
-var divPercent = d3.select("#headline-percent")
-    .text("");
-var divHeadline = d3.select("#headline-description")
-    .text("");
-
-
 // FUNCTIONS
+// open and close modals
 function openModal(modalId) {
     if (modalId == "modal-thanks") {
         // $(modalId).modal({
@@ -153,13 +186,11 @@ function openModal(modalId) {
         //     keyboard: false
         // });
         document.getElementById('form').submit(function(e) {
-            // document.getElementById(modalId).style.display = "block";
-            // document.getElementById(modalId).classList.add("show");
             e.preventDefault();
+            // $(this).submit();
             document.getElementById(modalId).style.display = "block";
             document.getElementById(modalId).classList.add("show");
         });
-         
     }
     else {
         document.getElementById(modalId).style.display = "block";
@@ -174,24 +205,6 @@ function closeModal(modalId) {
         window.location.hash = "#results";
         $("html, body").animate({ scrollTop: winHeight });
         // console.log("continue to results");
-    }
-}
-
-// load json file and callback function
-function getJsonObject(jsonFileName, callback) {
-    var request = new XMLHttpRequest();
-    var jsonPath = './data/' + jsonFileName + '.json';
-    request.open('GET', jsonPath, true);
-    request.send(null);
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            var type = request.getResponseHeader('Content-Type');
-            try {
-                callback(JSON.parse(request.responseText));
-            } catch (err) {
-                callback(err);
-            }
-        }
     }
 }
 
@@ -259,18 +272,6 @@ function changeThemeData(currentTheme) {
 }
 
 // CREATE D3 CHARTS
-// headline text
-function percentTooltip(themeData) {
-    divPercent.html(divHtml => {
-        return roundAccurately(themeData[0].percent * 100, 0) + "%";
-    })
-}
-function headlineTooltip(themeData) {
-    divHeadline.html(divHtml => {
-        return themeData[0].headline;
-    });
-}
-
 // get sorted data for chart
 function getSortedChartData(data) {
     let barData = [];
@@ -309,6 +310,18 @@ function getSortedChartData(data) {
     // console.log(barData);
 }
 
+// headline text
+function percentTooltip(themeData) {
+    divPercent.html(divHtml => {
+        return roundAccurately(themeData[0].percent * 100, 0) + "%";
+    })
+}
+function headlineTooltip(themeData) {
+    divHeadline.html(divHtml => {
+        return themeData[0].headline;
+    });
+}
+
 // plot horizontal bar chart
 function plotHorizontalBar(svg, barData) {
     x = d3.scaleLinear()
@@ -327,16 +340,16 @@ function plotHorizontalBar(svg, barData) {
         .data(barData)
         .enter()
         .append("rect")
-        .attr("id", d => d.rID)
-        .attr("class", d => d.rID)
-        .attr("x", x(0))
-        .attr("y", (d, i) => y(i))
-        .attr("width", (d) => x(d.percent) - x(0))
-        .attr("height", y.bandwidth())
-        .attr("fill", (d, i) => {
-            return (i == 0) ? "#D96B6D"
-                : "#F8C5D7"
-        })
+            .attr("id", d => d.rID)
+            .attr("class", d => d.rID)
+            .attr("x", x(0))
+            .attr("y", (d, i) => y(i))
+            .attr("width", (d) => x(d.percent) - x(0))
+            .attr("height", y.bandwidth())
+            .attr("fill", (d, i) => {
+                return (i == 0) ? "#D96B6D"
+                    : "#F8C5D7"
+            })
         .on("mouseover", function (event, d) {
             d3.selectAll("rect")
                 .transition()
@@ -361,15 +374,15 @@ function plotHorizontalBar(svg, barData) {
         .data(barData)
         .enter()
         .append("text")
-        .attr("class", d => d.rID)
-        .attr("x", d => x(d.percent))
-        .attr("y", (d, i) => y(i) + y.bandwidth() / 2)
-        .attr("dy", "0.35em")
-        .attr("dx", -4)
-        .text(d => roundAccurately(d.percent * 100, 0) + '%')
+            .attr("class", d => d.rID)
+            .attr("x", d => x(d.percent))
+            .attr("y", (d, i) => y(i) + y.bandwidth() / 2)
+            .attr("dy", "0.35em")
+            .attr("dx", -4)
+            .text(d => roundAccurately(d.percent * 100, 0) + '%')
         .call(text => text.filter(d => x(d.percent) - x(0) < 20))
-        .attr("dx", +4)
-        .attr("text-anchor", "start");
+            .attr("dx", +4)
+            .attr("text-anchor", "start");
     // description text labels
     svg.append("g")
         .attr("class", "chart-short")
@@ -388,6 +401,57 @@ function plotHorizontalBar(svg, barData) {
             .text(d => d.short)
         .call(wrapText, 80);
 };
+
+// plot donut chart
+function plotDonutChart(svg, donutData) {
+    arcs = pie(donutData);
+
+    svg.append("g")
+            .attr("class", "chart-donut")
+        .selectAll("path")
+        .data(arcs)
+        .enter()
+        .append("path")
+            .attr("id", d => d.data.rID)
+            .attr("class", d => d.data.rID)
+            .attr("d", arc)
+            .attr("fill", (d, i) => {
+                return (i == 0) ? "#D96B6D"
+                    : "#F8C5D7"
+            })
+        .on("mouseover", function (event, d) {
+            d3.selectAll("path")
+                .transition()
+                .duration("50")
+                .attr("fill", "#F8C5D7")
+            d3.select(this)
+                .transition()
+                .duration("50")
+                .attr("fill", "#D96B6D")
+
+            let chartClass = "." + $(this).attr("id");
+            $("text").removeClass("active");
+            $("rect").removeClass("active");
+            $(chartClass).addClass("active");
+        });
+    
+    svg.append("g")
+            .attr("class", "chart-short")
+        .selectAll("text")
+        .data(arcs)
+        .enter()
+        .append("text")
+        // .join("text")
+            .attr("class", d => d.data.rID)
+            .attr("text-anchor", "middle")
+            .attr("transform", d => `translate(${arc.centroid(d)})`)
+            .text(d => d.data.short)
+            // .attr("dy", "0.35em")
+        // .call(wrapText, donutWidth)
+            // .call(text => text.append("tspan")
+            //     .attr("y", "-0.4em")
+            //     .text(d => d.data.value.toLocalString()))
+}
 
 // EVENTS
 // click to read more
