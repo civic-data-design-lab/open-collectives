@@ -74,7 +74,8 @@ getJsonObject("responses-test", function (data) {
     plotHorizontalBar(svgLabor, laborChartData);
     plotHorizontalBar(svgLiving, livingChartData);
 
-    $("." + laborTopResponse).addClass("active");
+    $(".chart").addClass("inactive");
+    $("." + laborTopResponse).removeClass("inactive").addClass("active");
     percentTooltip(laborChartData);
     headlineTooltip(laborChartData);
 
@@ -248,8 +249,8 @@ function changeThemeData(currentTheme) {
                 : (currentTheme == "living") ? (currentChartData = livingChartData, topResponse = livingTopResponse)
                     : (currentChartData = undefined);
 
-    $(".chart.active").removeClass("active");
-    $(currentChartID).addClass("active");
+    $(".chart.active").removeClass("active").addClass("inactive");
+    $(currentChartID).removeClass("inactive").addClass("active");
     if (currentTheme == "labor" || currentTheme == "living") {
         percentTooltip(currentChartData);
         headlineTooltip(currentChartData);
@@ -385,7 +386,7 @@ function plotHorizontalBar(svg, barData) {
             // .attr("dx", "0")
             .attr("opacity", 0.5)
             .text(d => d.short)
-        .call(wrapText, 85);
+        .call(wrapText, 80);
 };
 
 // EVENTS
