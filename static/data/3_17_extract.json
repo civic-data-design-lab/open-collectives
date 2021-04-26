@@ -1,0 +1,420 @@
+[{
+	"id": 1,
+	"title": "Green Taxi Cooperative",
+	"link": "",
+	"description": "Green Taxi Co-Op was formed in 2015 by 150 (and 650 other members not driving yet) drivers hailing from 37 countries as a response to the increasing impact Uber was having on the livelihood of taxi drivers. In the Green Taxi Co-Op, all drivers are member-owners of the company and the cars.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "The Green Taxi Cooperative is a Denver-based taxi cooperative that was formed In response to Uberu2019s increasing impact on taxi drivers. It is a cooperative in which all drivers are member-owners of the company, decreasing the risk for the individual drivers. Because the company is owned by the drivers, the drivers do not have to pay u201cduesu201d to the taxi company to rent or lease the car, but instead take home more than 90% of the fares they collect. It formed with 800 members, but the city was slow to give out permits allowing the members to make trips to the airport, permits that Ubers and Lyfts do not need. Its share of drivers represented, at the time, a third of all taxi drivers operating in the Denver area, and its membership is, as of 2018, over 1,000.",
+	"values": {
+		"porosity": 4,
+		"economics": 2,
+		"size": 1,
+		"platform": 5,
+		"governance": 4
+	}
+}, {
+	"id": 2,
+	"title": "rCredits",
+	"link": "rCredits.org",
+	"description": "rCredit is a local payment card system that allows communities to move away from large banks and corporations while funding local projects using their collective money pool. This financial structure is called a u201cCommon Good Systemu201d because it allows community members to pursue their personal dreams knowing that their community will support them.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "rCredit is a community-based payment card system in which members use US dollars to purchase u201ccreditu201d for their account. The credit can be used at any store in the community that is a part of the program, and in turn that store can use the credit to pay its employees. Members are able to exchange credit for paper money at any time (and vice versa). Over time, the community collects enough paper money to create a u201ccommunity fundu201d that is used to fund various projects in the community - for example, a community in Greenfield, MA was able to fund a food clinic, an opiate recovery center, a community garden, and twenty other projects!",
+	"values": {
+		"porosity": 5,
+		"economics": 5,
+		"size": 1,
+		"platform": 4,
+		"governance": 2
+	}
+}, {
+	"id": 3,
+	"title": "CoAbode - coliving for single mothers",
+	"link": "http://www.coabode.org/",
+	"description": "Promoting affinity and stability, CoAbode matches single mothers for a co-living enviornment. Under the value that two together can overcome more than one person alone, the company brings women together in the hope that they will face less financial challenges.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "CoAbodeu2019s mission is driven by women supporting women. At a high level, itu2019s a networking platform for single mothers to connect with one another. On their site, moms can find many resources for both the domestic and professional spheres. From moving effectively to financial counseling, CoAbode seeks to provide helpful information on top of their connections. nWhen it comes to co-living, CoAbode connects women in the same area who sign onto the (free) site. Through an initial questionnaire, the site strives to match people who share similar values. Although the company launches these connections, itu2019s up to the moms to meet up and decide if they want to live together. The idea behind this goal is that two single mothers together can overcome challenges more easily together. On the financial side, itu2019s easier to buy a home in an area with good education. Sharing common areas promotes affinity and comradery amongst both the women and their children. It also frees up a bit of time while simultaneously offering more security. nIf mothers donu2019t opt to home-share, they can also be involved with CoAbode through Friend Circle. This program is a monthly meet-up for moms to get together, discuss needs through the maternal community and help each other. n",
+	"values": {
+		"porosity": 5,
+		"economics": 1,
+		"size": 3,
+		"platform": 3,
+		"governance": 1
+	}
+}, {
+	"id": 4,
+	"title": "Sensorica (scientific instruments)",
+	"link":"",
+	"description": "Sensorica follows the complicated model of partially market economy and partially gift economy. It is defined as opne value network aiming to develop and deploy sensors, sensing sytems and automation systems.n",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "Sensorica was established in 2011 in Montreal, Quebec by Tiberius Brastaviceanu, Ivan Pavlov and Fracois Bergeron as an open value network. It is defined as u201cit is not a corporation, it is not a coop, it is not a non-profit, it is not an LLP. It is an open value network. From a legal perspective, it is a non-registered association.u201d It follows the complicated model of partially market economy and partially gift economy. The mission of sensorica is essentially to establish commons-based peer production for developing and deploying sensors, sensing systems and automation systems. It is dedicated to building a locus of sensing intelligence and empowering individual initiatives through completely transparent processes. nnBy reducing transaction costs and allowing transactions in non-financial forms, sensorica has established a model that better facilitates co-creation. As both a market-oriented entity and a commons-based community, Sensoricau2019s vision is mainly challenged by finding the balance between supporting productions with intrinsic motivations, rather than financial, and making such production economically sustainable. Sensoricau2019s governance system relies on three systems: the value accounting system, the reputation system and the role system. They collectively evaluate every memberu2019s contributions, incentivize good behaviors, filtering each member to adequate tasks, and incites voluntary subordination. Contributions can be made by participants in the forms of material, financial or time. It is a direct democratic and decentralized organization in the forms of distributed decision making and bottom-up resource allocations. n",
+	"values": {
+		"porosity": 5,
+		"economics": 3,
+		"size": 2,
+		"platform": 2,
+		"governance": 5
+	}
+}, {
+	"id": 5,
+	"title": "LVN (healthcare)",
+	"link": "",
+	"description": "Licensed Vocational Nurses, also called Licensed Practitional Nurses, are bedside care takers who work most often in home settings. LVNs are certified to perform a variety of tasks, including feeding, bathing, injections, collecting samples, cleaning wounds, and monitoring medical equipment.n",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "Licensed Vocational Nurses, also called Licensed Practitional Nurses, are bedside care takers who work most often in home settings. However, they also work in a diversity of other settings, such as hospitals and nursing homes. LVNs are certified to perform a variety of tasks, including feeding, bathing, injections, collecting samples, cleaning wounds, and monitoring medical equipment. Becoming a LVN is one of the quickest ways of becoming a nurse, requiring a high school diploma (or equivalent) and competition of a state-certified program. Once certified, LVNs work under the direction of physicians or registered nurses to give care. The practice can be traced to communities of self-taught individuals who worked in home care, with the first formal training program coming out of the Young Womanu2019s Christian Association in 1892. The YWCAu2019s course consisted of a 3 month long session for individuals regarding the care of infants, children, elderly, and people with disabilities. LVNs are important for providing home care to patients who do not require all the treatment skills of professional nurses. As the elderly population rises, so does the population of the country with long term care needs. With the ease of entrance to the professional field, LVN is a field with growing employment and a growing community of care.",
+	"values": {
+		"porosity": 5,
+		"economics": 5,
+		"size": 2,
+		"platform": 1,
+		"governance": 5
+	}
+}, {
+	"id": 6,
+	"title": "Timesfree",
+	"link": "",
+	"description": "TimesFree is a mobile-based platform for time and task sharing groups.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "missing",
+	"values": {
+		"porosity": 3,
+		"economics": 3,
+		"size": 3,
+		"platform": 3,
+		"governance": 3
+	}
+}, {
+	"id": 7,
+	"title": "Stocksy United",
+	"link": "",
+	"description": "nStocksy United is a photography platform co-op launched in 2013 by Brianna Wettlaufer and, Bruce Livingstone, with the primary aim of bridging the opportunity gap in the stick photo industry. The platform provides stock photos focusing on empowering their shareholders through fair pay. n",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "Vancouver based Stocksy United is a photography platform co-op launched in 2013 by Brianna Wettlaufer and, Bruce Livingstone, with the primary aim of bridging the opportunity gap in the stick photo industry. The platform provides stock photos focusing on empowering their shareholders through fair pay. During its first year the company had about 200 contributing photographers. Now, Stocksy has over 900 contributing members. nAs a multi-stakeholder co-operative, Stocksy has three categories of shareholders. Class A is the executive-level and is made up of advisors and the founders. Class B is staff, while Class C are contributing artists. As a means to keep the growth sustainable Stocksy caps Class C at 1000. Each of the classes has at least two directors on the board; with each shareholder allotted with one vote. nStocksyu2019s client list includes over 100 Fortune 500 companies, and the company was cash-profitable within its first year. In the first four years of business, Stocksy had paid out over $20 million to their 900 plus artists.Currently, the co-operative employs 25 people, and manages 5 full-time external contractors. nAs a platform co-op Stocksy creates a unique opportunity for members to with each other through online forums; providing valuable input to the development of the company. According to Wettlaufer this approach has built trust and loyalty, as well as confidence that decisions are being made in the best interests of the membership.",
+	"values": {
+		"porosity": 3,
+		"economics": 3,
+		"size": 3,
+		"platform": 3,
+		"governance": 3
+	}
+}, {
+	"id": 8,
+	"title": "Rochdale, England",
+	"link": "",
+	"description": "Rochdale, is a town and metropolitan borough in northeastern England. It became important in the 18th and 19th centuries as a center of cotton textile manufacturing, with an emphasis on heavy textiles for industrial uses. With the founding of the Rochdale Equitable Pioneers Society in 1844, the town became the birthplace of the cooperative movement.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "Rochdale, is a town and metropolitan borough in the northeastern part Greater Manchester, in northeastern England.",
+	"values": {
+		"porosity": 2,
+		"economics": 1,
+		"size": 1,
+		"platform": 1,
+		"governance": 4
+	}
+}, {
+	"id": 9,
+	"title": "Catalan Integral Cooperative",
+	"link": "",
+	"description": "Catalan Integral Cooperative (CIC) is an open cooperative that aims to create collaborative economy structures in Catalan. It was founded by an assembly of activists in 2010 in Catalonia, Spain and is still present today. Their mission is to create an innovative alternative to capitalism, authoritarianism, and patriarchy.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "Catalan Integral Cooperative (CIC) is an open cooperative that aims to create collaborative economy structures in Catalan. It was founded by an assembly of activists in 2010 in Catalonia, Spain and is still present today. Their mission is to create an innovative alternative to capitalism, authoritarianism, and patriarchy.nThe organization of this cooperative is based on monthly open assemblies that produce decisions regarding the operation of the cooperative. These meetings have a democratic structure with committees allocated to different tasks. Collaboratively, this community aims to develop a local cooperative economy that makes basic needs such as food, water, and health care, accessible to everyone. nAll members are a part of what are known as The Common Projects which are autonomous projects fueled by an effort to protect self-management from the effect of the bank and the State. These projects range from hackerspaces to organic farms that have the purpose to disrupt industries and welcome in open cooperatives.nECOcoops, the local electronic currency created by the CIC, are used for exchange within the community and are not convertible to Euros. Although all members have access to basic income of both ECOcoops and Euros, the members value and address the needs of people above everything and contribute according to what is possible for them. Currency is viewed as exchange between people in the community, and informal exchange such as free economy, direct exchange and community economy are heavily promoted. This shift in values eliminates the the goal of accumulating money that is fundamental to capitalism.",
+	"values": {
+		"porosity": 4,
+		"economics": 1,
+		"size": 1,
+		"platform": 2,
+		"governance": 3
+	}
+}, {
+	"id": 10,
+	"title": "REI",
+	"link": "",
+	"description": "REI is a consumersu2019 cooperative that sells sporting goods and outdoor gear. It was founded in 1938 by Seattle residents Lloyd and Mary Anderson, who wanted to help other outdoor enthusiasts get high quality gear for lower prices. Today, it is a nationwide retailer owned by its members.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "REI is a consumersu2019 cooperative that sells sporting goods and outdoor gear.",
+	"values": {
+		"porosity": 5,
+		"economics": 4,
+		"size": 1,
+		"platform": 3,
+		"governance": 2
+	}
+}, {
+	"id": 11,
+	"title": "Land O'Lakes",
+	"link": "",
+	"description": "Land O'Lakes is an agricultural cooperative that started in 1921 focused on dairy and butter products. The company is run by a corporate office nominated by members of the dairy and ag co-ops.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "Land Ou2019Lakes started as a cooperative of 320 creameries in July of 1921 and persists today as one of the largest agricultural Co-ops. The cooperative group began with an aim at improving marketing and quality of butter to increase profitability of the dairy trade. The association developed systematic inspection, grading, and certification that granted initial success over competitors through advertisement of the process as well as greater product uniformity and reliability. Since the late 1970u2019s Land Ou2019Lakes has been collecting other companies in business acquisitions, the largest of which are Purina Mills, animal nutrition, and Winfield United, international seed purveyor. Land Ou2019Lakes is run by a corporate board with 24 directors that are nominated by member owners. In keeping with the new makeup of the company, 12 directors from dairy members are nominated by dairy members and 12 directors from ag members are nominated by ag members. The nominations are conducted by region and the number of directors nominated from each region is based on the total amount of business conducted with the cooperative by that regionu2019s members.",
+	"values": {
+		"porosity": 5,
+		"economics": 4,
+		"size": 3,
+		"platform": 4,
+		"governance": 2
+	}
+}, {
+	"id": 12,
+	"title": "The Underground Railroad (America's first black co-op, says Jessica Nembhard)",
+	"link": "",
+	"description": "The Underground Railroad was a secret network of roads and houses in the US that African-American slaves used to escape to free states and Canada. It was created in the late 1700s and was used until the Civil War (1861-65). It is considered by some to be Americau2019s first black co-op because of the way that resources and knowledge were shared to help people find their way to freedom.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "missing",
+	"values": {
+		"porosity": 5,
+		"economics": 2,
+		"size": 4,
+		"platform": 5,
+		"governance": 5
+	}
+}, {
+	"id": 13,
+	"title": "Other examples of African-American/Black coops (Jessica has examples from the South): Freedom Quilting Bee",
+	"link": "",
+	"description": "The Freedom Quilting Bee is a quilting cooperative established in 1966 by a African American women in the Black Belt of Alabama. It was started during the civil rights movement as a way for poor black women to raise money for their families. The Freedom Bee staged auctions in New York that enabled the group to gain momentum and capture the attention of famed artists, museums, and high-end stores. While causing a countrywide quilting revival, the women earned money to help with their childrenu2019s education costs and raise the economic standards in their community.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "The Freedom Quilting Bee is a quilting cooperative established in 1966 by a African American women in the Black Belt of Alabama. It was started during the civil rights movement as a way for poor black women to raise money for their families. The Freedom Bee initially included 60 members. The founding members elected officers, set up a board of directors, and adopted a charter. nnUnder the leadership of Estelle Witherspoon and in collaboration with an Episcopal priest, Father Francis X. Walter, the Freedom Bee staged auctions in New York, in a photography studio and the Unitarian-Universalist Community Church of New York. The auctions gained momentum. Buyers and promoters included famed New York decorator Sister Parrish, Vogue editor Diana Vreeland, high-end department stores such as Bloomingdale's and Saks Fifth Avenue, The New York Times, the painter Lee Krasner, and the Smithsonian. While causing a countrywide quilting revival, the women earned money to help with their children's education costs and raise the economic standards in their community. nnThe group started losing momentum around the 1990s as members switched occupations, retired, or passed away. After the last living member of the original Freedom Quilting Bee passed away, the Bee was closed in 2012.",
+	"values": {
+		"porosity": 2,
+		"economics": 3,
+		"size": 2,
+		"platform": 4,
+		"governance": 2
+	}
+}, {
+	"id": 14,
+	"title": "Sunkist (formerly California Fruit Exchange)",
+	"link": "",
+	"description": "Sunkist Growers is a cooperative of more than 6000 citrus growers in California and Arizona. It is the largest fresh produce producer in the US, selling around $1 billion of produce annually.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "The Sunkist Growers cooperative is entirely owned and operated by itu2019s approximately 6000 members, and it is the largest fresh produce producer in the US, selling around $1 billion of produce annually. Sunkist Growers was founded in 1893 as the Southern California Fruit Exchange, just as an economic depression came and severely hurt California farmers, accelerating the already growing trend of farmers forming cooperatives to mitigate risk. Since its founding, it has also formed a lobbying arm, a supply company that procured equipment for Sunkist farmers, as well as the Sunkist's Exchange By-Products Company, which sold by-products of citrus plants. Sunkist continues to operate successfully, and is currently one of Calirforniau2019s largest landowners. Its growers include many multi-generation Sunkist families, many of whom started working the fields for someone else and eventually coming to own some or all of an orchard.",
+	"values": {
+		"porosity": 5,
+		"economics": 4,
+		"size": 3,
+		"platform": 3,
+		"governance": 1
+	}
+}, {
+	"id": 15,
+	"title": "Agricultural coops in Latin America",
+	"description": "In general, Latin American agricultural coops result when poor farmers (who are typically neighboring each other and grow similar crops) band together to increase their purchasing power and work together to support each otheru2019s farms. This u201csafety netu201d protects farmers from unlucky crop seasons and takes very different forms depending on country and demographics.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "Latin American agricultural coops can range from informal partnerships between neighboring farmers to communal living situations between entire communities. In general, these coops rely on increased labor and purchasing power to defend the farmers against bad harvests or unforseen costs. Both the structure and effectiveness of these coops vary by country: the Catholic church in Chile has had great success sponsoring indigenous tribal coops, Argentinian coops thrive under socialist government programs, and small, rural Ecuadorian coops survive only due to NGOs and exporters who financially support them and purchase their crops.",
+	"values": {
+		"porosity": 3,
+		"economics": 3,
+		"size": 2,
+		"platform": 2,
+		"governance": 5
+	}
+}, {
+	"id": 16,
+	"title": "Findhorn Ecovillage",
+	"link": "",
+	"description": "Findhorn Ecovillage has changed through the years, but it's mission remains the same: promote sustainability by both educating about sustainable practices and living the vocation.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "Findhorn Ecovillage offers several different programs and opportunities regarding sustainable living. Using their functional campus, they lead students and school groups through educational agendas that surround contradicting poverty, living a low-impact lifestyle, and ecovillage design. Findhorn Foundation also focuses on food production, energy and water. With over 25 acres of garden, the foundation supplies their own kitchens as well as a local for-donation store and partnered online shop. Using their own wind turbines, Findhorn produces 100% of its own campus electricity; although unlike the produce, they donu2019t export it outside of their own land. The Foundation doesnu2019t stop there. With multiple complex filtration systems based on algae, fish, microorganisms and more, Findhorn seeks to cleanse sewage and wastewater without utilizing chemicals. They continue to successfully outflow uncontaminated water. nIn terms of building and living arrangements, Findhorn innovates with zero carbon buildings. They build houses with alternative materials in the endeavor to both build, and live in, low-impact dwellings. For those who want more immersion into this ecological awareness, Findhorn plans to run a co-living program on their campus. Whether in the former hotel building or the small homes, participants engage in a feat of sustainable living. n",
+	"values": {
+		"porosity": 3,
+		"economics": 5,
+		"size": 2,
+		"platform": 1,
+		"governance": 4
+	}
+}, {
+	"id": 17,
+	"title": "Lange Eng, Albertslund",
+	"link": "",
+	"description": "Lange Eng is a cohousing community in greater Copenhagen, Denmark. It houses 100 adults and 100 children in 54 houses and apartments.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "Lange Eng was founded in May 2005 by a group of 4 friends in Albertslund, Denmark. They became seriously interested in creating a coliving community after a series of discussions amongst themselves on what the actual method of governance for a community should be. Eventually they collected enough residents to be able to make a down payment on their construction, and were able to move in beginning in 2006. Denmark has a rich tradition of cohabitation, the creators of Lange Eng were able to consult with several other Danish coliving establishments for advice on developing their community up through the construction stage and into the actual governance aspects of the community. nA distinctive part of the physical construction of Lange Eng is that there is a large meadow in the middle of a ring of connected townhouses and apartments. The ring of what would normally be a contiguous block of houses creates a shared backyard that serves a variety of functions. The children of the community are raised as brothers and sisters, which lends an important level of familiarity that improves accountability. There is no revenue generation from Lange Eng, but each family pays dues and has to work in the communal kitchen for a couple days every 6 weeks.",
+	"values": {
+		"porosity": 3,
+		"economics": 5,
+		"size": 2,
+		"platform": 2,
+		"governance": 4
+	}
+}, {
+	"id": 18,
+	"title": "Christiania (semi-autonomous neighborhood in Denmark)",
+	"link": "",
+	"description": "Christiania's objective is to create a self-governing society, wherey each and every individual can thrive under the responsibility for hte entire community. This soceity must economically rest in itself, and the joint efforts must continue to be about showing that psychological and physical destitution can be diverted.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "missing",
+	"values": {
+		"porosity": 4,
+		"economics": 5,
+		"size": 3,
+		"platform": 3,
+		"governance": 5
+	}
+}, {
+	"id": 19,
+	"title": "Kibbutz (Hatzor, Degania, Ein Harod)",
+	"link": "",
+	"description": "Kibbutzim are voluntary democratic communities where people work and live for the greater good of the society. The emergence of kibbutzim was driven by Jewish communityu2019s desire to re-establish a national spirituality and identity which emphasized an ideal model of social equality, self-sacrifice, and connections to the land.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "Kibbutzim are voluntary democratic communities where people work and live for the greater good of the society. The emergence of kibbutzim was driven by Jewish communityu2019s desire to re-establish a national spirituality and identity which emphasized an ideal model of social equality, self-sacrifice, and connections to the land. nnIn the late nineteenth-century and early twentieth-century, escalating violence in Europe instigated the large-scale migration of the Jewish communities to the Palestine region. Amongst these displaced Jewish people are mostly atheist young adults with strong values and ideals that conflicted with the environment they grew up in. They sought new identities and often embraced models of socialism to overturn the old way of life. A.D. Gordon, a spiritual leader in the early Jewish communities, preached redeeming Jewish souls through agricultural and manual labor. nnThe earliest form of Kibbutz is Degania, which was founded in 1909 as a small collective agricultural settlement between the southern shore of Sea of Galilee and the Jordan River. A larger kibbutz, Ein Harod, was built by two hundred people in 1921 near Mount Gilboa. These communities were founded on principles of communal ownership and direct democracy. They practice drastic measures to reject any forms of possession. Shared homes are assigned upon marriage. Children grew up in communal children houses and were raised not by their own families but by their assigned nannies of their age group. The gender equal and democratic environment fosters influential social activists, politicians and military leaders, both female and male. nnAs Israel shifted from agricultural economy to industrialized economy, kibbutzim could not keep pace with the change. Eventually, most kibbutzim were merged and privatized. Kibbutzim still exist in different forms today but only about a quarter of them are practicing the traditional model. Despite its decline in popularity, its ideologies represented the purest form of Zionism in Israel and established the foundation of modern Israli society.n",
+	"values": {
+		"porosity": 3,
+		"economics": 2,
+		"size": 1,
+		"platform": 4,
+		"governance": 1
+	}
+}, {
+	"id": 20,
+	"title": "Twin Oaks, Virginia (economic commune)",
+	"link": "",
+	"description": "Twin Oaks is an u201cintentional communityu201d (part of a group of communities under the Foundation for Intentional Communities) based in rural Virginia made up of 90 adults and 15 children. As a lifestyle community values of cooperation, sharing, nonviolence, equality, and ecology are central to the community.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "Twin Oaks is an u201cintentional communityu201d (part of a group of communities under the Foundation for Intentional Communities) based in rural Virginia made up of 90 adults and 15 children. As a lifestyle community cooperation, sharing, nonviolence, equality, and ecology are central to the community. The character of Twin Oaku2019s has been loosely based around B.F. Skinneru2019s novel, Walden Two, with a desire to create a model social system which would include human-scale solutions to problems of land use, food production, energy conservation, and appropriate use of technology.nThe style of government adapted from the novel Walden Two; is made up of three planners who serve 18-month staggered terms carrying out executive functions with the focus on issues and the long-range effects.nThe 350 acre campus sits adjacent to the South Anna River and is made up of seven large group houses, a children's building, a community center including a main communal kitchen, industrial buildings, and various other structures. nThey use a trust-based labor system to ensure all work is valued equally. Its purpose is to organize work and share it equitably, giving each member as much flexibility and choice as possible. Members work about 45.5 hours a week which include domestic chores.nIn order to join the community, potential members must visit for three weeks before being considered for provisional membership. After the end of the 3 weeks, they must spend a minimum of one month away from Twin Oaks while the community decides whether to accept you. After acceptance there is a six-month provisional membership period. After which new members can be fully accepted by the community for full membership, and they are asked to sign an agreement. The membership agreement covers financial arrangements worked out with the community and the community bylaws. Each member, in return, is guaranteed an equal share of all the benefits the community can provide.n",
+	"values": {
+		"porosity": 3,
+		"economics": 5,
+		"size": 3,
+		"platform": 5,
+		"governance": 3
+	}
+}, {
+	"id": 21,
+	"title": "The Collective (London)",
+	"link": "https://www.thecollective.com/",
+	"description": "The Collective is a company that provides serviced living, co-living, co-working, and private hire services in London and New York. They strive to offer a flexible platform for connectivity and community engagement. They offer a critique of the existing housing stock, and through their model of collective living, offer new ways of living and working.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "The Collective is a company that provides serviced living, co-living, co-working, and private hire services in London and New York. Their services are flexible, and depending on the location, can vary from a few days to several months. They strive to offer a platform for connectivity and community engagement. They offer a critique of the existing housing stock, and through their model of collective living, offer new ways of living and working. They engage with an entrepreneurial mindset, and offer flexible amenities for working, living, and creating community within the city. Their non-profit arm u201cthe collective foundationu201d aims to address the shortage of affordable housing in cities, as well as declining mental health within communities. They u201cfocus on economic opportunity, social integration, health and wellbeing and environmental sustainability.u201d This nonprofit arm also provides a four-week immersive program working providing mentorship and workshops for and with entrepreneurs. It also offers a grant program that helps fund local charities, community groups, authorities and individuals who want to realize works in their respective communities. nThe collective offers co-living amenities including bars restaurants, gyms, libraries, laundry, roof terraces, and hot desks. They see co-living as an opportunity for u201canyone who values community and convenience and is ready to embrace a new way to stay and live.u201d The collective offers unique buildings, which different shared programs, that address different needs and events. They also maintain a running journal, offering insights into the city, offering readers things to do and ways of connecting with others.",
+	"values": {
+		"porosity": 5,
+		"economics": 5,
+		"size": 1,
+		"platform": 4,
+		"governance": 1
+	}
+}, {
+	"id": 22,
+	"title": "Bruderhof Intentional Community",
+	"link": "",
+	"description": "Bruderhof Intentional Community is a Christian community founded in 1920 Germany and is still present today. The community is comprised of more than 2,900 people living in 23 settlements on four continents. The members renounce individual property to practice radical discipline in the spirit of the first church in Jerusalem.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "Bruderhof Intentional Community is a Christian community founded in 1920 Sannerz, Germany that is still present today. The community is comprised of more than 2,900 people living in 23 settlements on four continents. The members renounce individual property to practice radical discipline in the spirit of the first church in Jerusalem.nThis effort was created by the Protestant theologian Eberhard Arnold and his family as a way to seek answers to the devastation after World War I. What started as a small group of Christians rapidly grew into a community of over 100 members. However, during World War II they were threatened by Nazis to leave Germany, for they refused National Socialism. This defiance forced them to reestablish themselves in England, and later on, Paraguay.nMembership in the Bruderhof is for life and achieved by taking vows of poverty, chastity, and obedience. Economics are a common good; no member receives a paycheck, stipend, or allowance from the church community. Once someone has become a member, all of their earnings and inheritances are given to the church community, and each receives necessities such as food, clothing, medical care, and housing according to need evaluated by an appointed steward.nThe Plough, the communityu2019s own publishing house, brings profits from the multiple books and magazines that have been released since the Bruderhofu2019s beginning. These earnings are then used for spreading the gospel, building up and sustaining community life, carrying on educational work, offering hospitality to visitors, and giving aid to the needy.n",
+	"values": {
+		"porosity": 4,
+		"economics": 1,
+		"size": 3,
+		"platform": 3,
+		"governance": 1
+	}
+}, {
+	"id": 23,
+	"title": "Lilac, United Kingdom",
+	"link": "",
+	"description": "LILAC is a co-housing community of 20 eco-build households in the northern United Kingdom. It was founded in 2006 by five residents of the city of Leeds, who wanted a sustainable, independent way of living, as well as a new and different way of raising their children.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "LILAC is a co-housing community of 20 eco-build households in the northern United Kingdom. It was founded in 2006 by five residents of the city of Leeds, who wanted a sustainable, independent way of living, as well as a new and different way of raising their children. LILAC is designed to remain affordable for many generations to come; the homes and land are managed by residents through a Mutual Home Ownership Society, a pioneering financial model that ensures permanent affordability. Buying into the community provides each member with a lease, which gives them certain rights in the housing community. Members pay an equity share to the co-op and retain equity in the scheme. LILAC follows the Danish housing mode, which mixes private homes with shared facilities. They provide various green spaces for community interaction, such as a pond, a shared garden, and a childrenu2019s play area. The heart of the LILAC community, however, is their common house, which includes communal cooking, dining, and laundry facilities. LILAC also strives to serve as a resource for their surrounding neighborhood, and hosts a u2018Learning with LILACu2019 program for people living outside of the community.",
+	"values": {
+		"porosity": 2,
+		"economics": 3,
+		"size": 5,
+		"platform": 2,
+		"governance": 1
+	}
+}, {
+	"id": 24,
+	"title": "Mount Lebanon Shaker Society, New York",
+	"link": "",
+	"description": "Mount Lebanon is the official community of the Shaker Society. The Shakers lived in shared communities, supported financially by sales of the communities manufactured goods and seeds.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "Mount Lebanon in New York is considered the first official community of the Shaker Society. The Shaker Society had been founded by Ann Lee in 1774 when she arrived in America with a handful of followers. The religious group was originally named The United Society of Believers in Christu2019s Second Coming and earned the nickname the u201cShaking Quakersu201d for their u201cecstatic worship services. In 1787, the Mount Lebanon Meetinghouse was established as the first official Shaker community. Mount Lebanon closed in 1947 when remaining members moved and the New York Shakers ceased to exist. At its peak around 600 people lived on Mount Lebanonu2019s 600 acres, divided into self-sustaining families of about 50-100 men, women, and children. The Shaker Society believed, among other things, in communalism, celibacy, gender and racial equality, and separation from the world. They became well known for quality craftsmanship and supported their communities through manufacturing of things like brooms, bonnets, chairs, baskets, etc. Seed sales was one of the most successful enterprises that brought in the majority of community income. Inside the community, each family had their own communal laundries, kitchen gardens, agricultural operations, commercial industries, classrooms, and dwellings.",
+	"values": {
+		"porosity": 3,
+		"economics": 2,
+		"size": 4,
+		"platform": 1,
+		"governance": 3
+	}
+}, {
+	"id": 25,
+	"title": "Nikiszowiec",
+	"link": "",
+	"description": "Nikiszowiec is a former district in Poland that was the home to coal miners working under George von Giesches Erben, a mining company founded in the 1700s. Nikiszowiec itself was designed and built in two distinct stages from 1908-15 and 1920-24, created to be a self-sufficient community for the 1,000+ workers and families living there.",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "missing",
+	"values": {
+		"porosity": 4,
+		"economics": 3,
+		"size": 3,
+		"platform": 2,
+		"governance": 4
+	}
+}, {
+	"id": 26,
+	"title": "Auroville (City of Dawn)",
+	"link": "",
+	"description": "u201cAuroville wants to be a universal town where men and women of all countries are able to live in peace and progressive harmony, above all creeds, all politics and all nationalities. The purpose of Auroville is to realize human unity.u201dnu2014u2009Mirra AlfassanLocated in southern India, Auroville, the u201cCity of Dawn,u201d was founded by Mirra Alfassa (The Mother) in 1968. It was initially conceptualized as a self-governing town without money, private property, or a hierarchy and was focused on the spiritual evolution of its residents, many of whom have migrated from outside India. It aims to become a model of the u2018city of the futureu2019. n",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "Located in southern India, Auroville, the u201cCity of Dawn,u201d was founded by Mirra Alfassa (The Mother) in 1968. It was initially conceptualized as a self-governing town without money, private property, or a hierarchy and was focused on the spiritual evolution of its residents, many of whom have migrated from outside India. It aims to become a model of the u2018city of the futureu2019. The Charter of Auroville specifies that its residents must be u201cwilling servitor(s) of the Divine Consciousnessu201d who live in a place of u201cunending education, of constant progress, and a youth that never ages.u201dnnIn the master plan for Auroville, the city is laid out as a galaxy. At the center is a striking structure called the Matrimandir, the u201csoul of Auroville.u201d Four zones radiate out from the Matrimandir -- the Industrial in the North, the Cultural in the Northeast, Residential in the South/Southwest, and the International in the West. A Green Belt surrounds the city area. nnThe community of Auroville, which includes people living in much more affluent conditions than those in the surrounding villages, continues to grapple with the clash of the concept of utopian living with the realities of living in a world of inequality. n",
+	"values": {
+		"porosity": 4,
+		"economics": 1,
+		"size": 3,
+		"platform": 3,
+		"governance": 3
+	}
+}, {
+	"id": 27,
+	"title": "Arcosanti",
+	"link": "",
+	"description": "An experimental town that aims to explore densely populated but ecologically low-impact human habitats",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "Arcosantiu2019s story begins as Italian-American architect Paolo Soleriu2019s urban planning concept. Coined as a prototype u2018arcologyu2019, Arcosanti explored the possibilities of densely populated but ecologically low-impact human habitats. The 25-acres of land in Paradise Valley, Arizona was first purchased in 1956 while the physical construction began in 1970. It was projected to house 5000 residents.nnThe 80 residents (dubbed u201cArconautsu201d) that live there now earn minimum wage by working 40 hours a week for the Cosanti Foundation, a non-profit organization. They keep the city running by working in grounds maintenance, construction or administration. The foundation provides workshops to teach Paolo Soleriu2019s ideas as well as exist as a tourist attraction, offering services such as tours, overnight stays, cafes, and conferences u2013 about 40,000 tourists visit yearly. Arcosanti also supports itself with the production of Soleri Windbells, ceramic and bronze bells made on-site.nnFor a $75 weekly fee, residents are also provided food discounts alongside unlimited access to housing, utilities, and facilities, such as a swimming pool and music library. In order to formally become a member and permanently live at Arcosanti, prospectives must submit a letter of intent to the community council and complete a multi-week workshop that includes assisting with building renovations and infrastructure upgrades.nnAlthough Arcosanti and its community still exists today, with Soleriu2019s resignation and eventual passing, the languished construction, and rapidly developing technology elsewhere, the site remains as a pipe dream.n",
+	"values": {
+		"porosity": 2,
+		"economics": 1,
+		"size": 2,
+		"platform": 4,
+		"governance": 1
+	}
+}, {
+	"id": 28,
+	"title": "East Wind Community",
+	"link": "",
+	"description": "Intentional community in the Missouri Ozards, secular and democratic where all members hold community assets in common",
+	"backgroundImage": "user.png",
+	"itemImage": "user.png",
+	"longDescription": "Located in the Ozarks (the connecting space between Missouri, Arkansas, Oklahoma, and southeastern Kansas), the East Wind Community is an intentional community that values the sharing of community assets. They practice democracy, where major decisions are made by direct democratic processes and managers for various positions are elected annually. Members are given basic needs such as food, shelter, clothing, medical care, education alongside a monthly stipend.nnThe collective is a member of the Federation of Egalitarian Communities, a group of communities that focus on a lifestyle based upon equality, cooperation, and harmony with the earth. They support themselves through primarily two indusries: East Wind Nut Butters (the manufacturing of peanut butter, cashew butter, almond butter, and tahini) and Utopian Rope Sandals. They own over 1000 acres of land, filled with gardens for vegetables and herbs, orchards, and even pasture; therefore it is easy for members to pursue a variety of agricultural and industrial interests. Members learn homesteading skills such as cheesemaking, woodworking, and canning, and are required to work a certain number of hours for the businesses.nnIn order to join, prospectives are selected by a membership team. They undergo a three-week visitor period before coming provisional members for a year. If one is unable to make a full commitment, they may choose to have an associate status.n",
+	"values": {
+		"porosity": 2,
+		"economics": 1,
+		"size": 2,
+		"platform": 5,
+		"governance": 3
+	}
+}]
