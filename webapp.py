@@ -139,9 +139,9 @@ def responses():
     return flask.Response(json.dumps(data), mimetype="application/json")
 
 
-@webapp.route("/collectives")
+@webapp.route("/dimensions")
 def home():
-    return render_template("collectives.html")
+    return render_template("dimensions.html")
 
 
 @webapp.route("/post_collective", methods =['POST'])
