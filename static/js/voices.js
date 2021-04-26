@@ -257,18 +257,18 @@ function changeThemeData(currentTheme) {
     currentChartID = "#chart-" + currentTheme;
 
     (currentTheme == "labor") ? (currentChartData = laborChartData, topResponse = laborTopResponse)
-        : (currentTheme == "market") ? (currentChartData = marketChartData)
-            : (currentTheme == "care") ? (currentChartData = careChartData)
+        : (currentTheme == "market") ? (currentChartData = marketChartData, topResponse = marketTopResponse)
+            : (currentTheme == "care") ? (currentChartData = careChartData, topResponse = careTopResponse)
                 : (currentTheme == "living") ? (currentChartData = livingChartData, topResponse = livingTopResponse)
                     : (currentChartData = undefined);
 
     $(".chart.active").removeClass("active").addClass("inactive");
     $(currentChartID).removeClass("inactive").addClass("active");
-    if (currentTheme == "labor" || currentTheme == "living") {
-        percentTooltip(currentChartData);
-        headlineTooltip(currentChartData);
-        $("." + topResponse).addClass("active");
-    }
+
+    percentTooltip(currentChartData);
+    headlineTooltip(currentChartData);
+    $("." + topResponse).addClass("active");
+
 }
 
 // CREATE D3 CHARTS
@@ -301,7 +301,7 @@ function getSortedChartData(data) {
     sortedData = barData.slice().sort((a, z) => d3.descending(a.value, z.value));
 
     (theme == "labor") ? (laborTopResponse = topResponse)
-        : (theme == "market") ? (marketTopRepsonse = topResponse)
+        : (theme == "market") ? (marketTopResponse = topResponse)
             : (theme == "care") ? (careTopResponse = topResponse)
                 : (theme == "living") ? (livingTopResponse = topResponse)
                     : (topValue = undefined);
@@ -383,7 +383,7 @@ function plotHorizontalBar(svg, barData) {
         .call(text => text.filter(d => x(d.percent) - x(0) < 20))
             .attr("dx", +4)
             .attr("text-anchor", "start");
-    // description text labels
+    // short text labels
     svg.append("g")
         .attr("class", "chart-short")
         .attr("fill", "#333")
@@ -405,7 +405,7 @@ function plotHorizontalBar(svg, barData) {
 // plot donut chart
 function plotDonutChart(svg, donutData) {
     arcs = pie(donutData);
-
+    // donut sections
     svg.append("g")
             .attr("class", "chart-donut")
         .selectAll("path")
@@ -434,23 +434,53 @@ function plotDonutChart(svg, donutData) {
             $("rect").removeClass("active");
             $(chartClass).addClass("active");
         });
-    
+    // percentage text label
+    svg.append("g")
+        .attr("class", "chart-label")
+        .attr("fill", "#D96B6D")
+        .attr("text-anchor", "center")
+        .selectAll("text")
+        .data(arcs)
+        .enter()
+        .append("text")
+            .attr("class", d => d.data.rID)
+            .attr("x", 0)
+            .attr("y", 0)
+            // .attr("dy", "-0.5em")
+            .text(d => roundAccurately(d.data.percent * 100, 0) + '%');
+    // text short labels
     svg.append("g")
             .attr("class", "chart-short")
         .selectAll("text")
         .data(arcs)
         .enter()
         .append("text")
-        // .join("text")
             .attr("class", d => d.data.rID)
-            .attr("text-anchor", "middle")
-            .attr("transform", d => `translate(${arc.centroid(d)})`)
+            .attr("text-anchor", d => {
+                midAngle = (d.endAngle - d.startAngle) / 2 + d.startAngle;
+                return (midAngle <= Math.PI) ? "start" 
+                : "end"
+            })
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("dy", 0.35)
+            // .attr("transform", d => `translate(${arc.centroid(d)})`)
+            .attr("transform", d => {
+                midAngle = (d.endAngle - d.startAngle) / 2 + d.startAngle;
+                centroid = arc.centroid(d);
+                return (midAngle <= 1/12 * 2 * Math.PI) ? `translate( ${centroid[0] + donutWidth} , ${centroid[1] + donutWidth/2} )`
+                : (1/12 * 2 * Math.PI < midAngle && midAngle <= 2/12 * 2 * Math.PI) ? `translate( ${centroid[0] + donutWidth * 1/2} , ${centroid[1] - donutWidth * 4/5} )`
+                : (2/12 * 2 * Math.PI < midAngle && midAngle <= 4/12 * 2 * Math.PI) ? `translate( ${centroid[0] + donutWidth * 2/3} , ${centroid[1]} )`
+                : (4/12 * 2 * Math.PI < midAngle && midAngle <= 5/12 * 2 * Math.PI) ? `translate( ${centroid[0] + donutWidth * 1/2} , ${centroid[1] + donutWidth * 1/2} )`
+                : (5/12 * 2 * Math.PI < midAngle && midAngle <= Math.PI) ? `translate( ${centroid[0] + donutWidth} , ${centroid[1] + donutWidth/2} )`
+                : (Math.PI < midAngle && midAngle <= 7/12 * 2 * Math.PI) ? `translate( ${centroid[0] - donutWidth} , ${centroid[1] + donutWidth/3} )`
+                : (7/12 * 2 * Math.PI < midAngle && midAngle <= 8/12 * 2 * Math.PI) ? `translate( ${centroid[0] - donutWidth * 1/2} , ${centroid[1] + donutWidth * 1/2} )`
+                : (8/12 * 2 * Math.PI < midAngle && midAngle <= 10/12 * 2 * Math.PI) ? `translate( ${centroid[0] - donutWidth * 2/3} , ${centroid[1]} )`
+                : (10/12 * 2 * Math.PI < midAngle && midAngle <= 11/12 * 2 * Math.PI) ? `translate( ${centroid[0] - donutWidth * 1/2} , ${centroid[1] - donutWidth * 4/5} )`
+                : `translate( ${centroid[0] - donutWidth} , ${centroid[1] - donutWidth/2} )`
+            })
             .text(d => d.data.short)
-            // .attr("dy", "0.35em")
-        // .call(wrapText, donutWidth)
-            // .call(text => text.append("tspan")
-            //     .attr("y", "-0.4em")
-            //     .text(d => d.data.value.toLocalString()))
+        .call(wrapText, 80);
 }
 
 // EVENTS
