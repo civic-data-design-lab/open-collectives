@@ -41,10 +41,15 @@ p, span {
     font-size: 0.9rem;
     line-height: 1.2em;
 }
-b, a.font-weight-bold {
+b, .fw-bold, a.fw-bold, a.font-weight-bold {
     font-weight: 600;
-    font-variation-settings: 'wght' 600;
+    font-variation-settings: 'wght' 500;
     letter-spacing: 0.5px;
+}
+.fs-6 {
+    font-size: 1rem;
+    font-weight: 400;
+    font-variation-settings: 'wght' 400;
 }
 a {
     text-decoration: none;
@@ -670,7 +675,7 @@ div.ytp-chrome-top {
     position: absolute;
     top: -2.1rem;
     right: 0%;
-    z-index: 1040;
+    z-index: 1050;
 }
 #nav-back span {
     padding-left: 6rem;
