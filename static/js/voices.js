@@ -41,15 +41,19 @@ const radius = Math.min(width, (height - donutWidth * 2/3)) / 2;
 // define svg
 const svgLabor = d3.select("#chart-labor")
     .append("svg")
+    .attr("class", "bar-horz")
     .attr("viewBox", [0, 0, width, height]);
 const svgMarket = d3.select("#chart-market")
     .append("svg")
+    .attr("class", "donut")
     .attr("viewBox", [-width/2, -height/2, width, height]);
 const svgCare = d3.select("#chart-care")
     .append("svg")
+    .attr("class", "donut")
     .attr("viewBox", [-width/2, -height/2, width, height]);
 const svgLiving = d3.select("#chart-living")
     .append("svg")
+    .attr("class", "bar-horz")
     .attr("viewBox", [0, 0, width, height]);
 
 // tooltip
@@ -267,6 +271,9 @@ function changeThemeData(currentTheme) {
 
     percentTooltip(currentChartData);
     headlineTooltip(currentChartData);
+    $("rect").removeClass("active");
+    $("path").removeClass("active");
+    $("text").removeClass("active");
     $("." + topResponse).addClass("active");
 
 }
@@ -431,22 +438,22 @@ function plotDonutChart(svg, donutData) {
 
             let chartClass = "." + $(this).attr("id");
             $("text").removeClass("active");
-            $("rect").removeClass("active");
+            $("path").removeClass("active");
             $(chartClass).addClass("active");
         });
     // percentage text label
     svg.append("g")
         .attr("class", "chart-label")
         .attr("fill", "#D96B6D")
-        .attr("text-anchor", "center")
         .selectAll("text")
         .data(arcs)
         .enter()
         .append("text")
             .attr("class", d => d.data.rID)
-            .attr("x", 0)
-            .attr("y", 0)
+            .attr("x", -45)
+            .attr("y", 15)
             // .attr("dy", "-0.5em")
+            .attr("text-anchor", "center")
             .text(d => roundAccurately(d.data.percent * 100, 0) + '%');
     // text short labels
     svg.append("g")
