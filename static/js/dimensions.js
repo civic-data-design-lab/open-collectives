@@ -113,7 +113,7 @@ var initSlider = function() {
       .attr("data-content", value.description)
     slider.find(".iconLabel .title").prepend(key);
     slider.find(".iconLabel input").attr('id',`${key}_chk`);
-    slider.find(".iconLabel label").attr('for',`${key}_chk`);
+    slider.find(".iconLabel .range-label").attr('for',`${key}_chk`);
     slider.find("#left").text(value.range[0]);
     slider.find("#left").attr('id', `${key}_label`)
     // slider.find("#right").text(value.range[10]);

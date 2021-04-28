@@ -17,6 +17,7 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="./css/nav.css">
   <link rel="stylesheet" type="text/css" href="./css/style.css">
   <link type="text/css" rel="stylesheet" href="./css/dimensions.css" />
@@ -55,8 +56,9 @@
             <div class="sliders-wrapper">
               <!-- template for slider for dimensions -->
               <div class="slider template">
-                <a class="iconLabel">
+                <a class="iconLabel mb-0">
                   <span class="title"></span>
+                  <label for="open" id="left" class="range-label fst-italic"></label>
                 </a>
                 <button class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom">
                   <svg class="info-svg" height='25px' width='25px' xmlns:x="http://ns.adobe.com/Extensibility/1.0/"
@@ -80,7 +82,7 @@
                 </button>
                 <!-- <label for="closed" id="right" class="range-label"></label> -->
                 
-                <label for="open" id="left" class="range-label"></label>
+                <!-- <label for="open" id="left" class="range-label fst-italic"></label> -->
                 <input type="range" min="1" max="5" step="1" />
               </div>
             </div>
