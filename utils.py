@@ -1,4 +1,4 @@
-def convert_to_csv(array:list):
+def convert_to_csv(array):
     res = ''
 
     for i in range(len(array)):
@@ -11,7 +11,7 @@ def convert_to_csv(array:list):
     return res
 
 
-def convert_to_array(string: str):
+def convert_to_array(string):
     array = string.split(",")
 
     return array

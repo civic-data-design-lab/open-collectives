@@ -172,7 +172,7 @@
 		"id": 14,
 		"title": "Lilac, GB",
 		"description": "LILAC is a co-housing community of 20 eco-build households in the northern United Kingdom. It was founded in 2006 by five residents of the city of Leeds, who wanted a sustainable, independent way of living, as well as a new and different way of raising their children. LILAC is designed to remain affordable for many generations to come; the homes and land are managed by residents through a Mutual Home Ownership Society, a pioneering financial model that ensures permanent affordability. Buying into the community provides each member with a lease, which gives them certain rights in the housing community. Members pay an equity share to the co-op and retain equity in the scheme. LILAC follows the Danish housing mode, which mixes private homes with shared facilities. They provide various green spaces for community interaction, such as a pond, a shared garden, and a children’s play area. The heart of the LILAC community, however, is their common house, which includes communal cooking, dining, and laundry facilities. LILAC also strives to serve as a resource for their surrounding neighborhood, and hosts a ‘Learning with LILAC'program for people living outside of the community.",
-		"image": "lilac.png",
+		"image": "lilac.jpg",
 		"values": {
 			"porosity": 3,
 			"economics": 3,
@@ -341,7 +341,7 @@
 		"id": 27,
 		"title": "The Underground Railroad",
 		"description": "The Underground Railroad was a secret network of roads and houses in the US that African-American slaves used to escape to free states and Canada. It was created in the late 1700s and was used until the Civil War (1861-65). It is considered by some to be America’s first black co-op because of the way that resources and knowledge were shared to help people find their way to freedom.",
-		"image": "undergroundRailroad.png",
+		"image": "undergroundRailroad.jpg",
 		"values": {
 			"porosity": 4,
 			"economics": 2,

@@ -141,7 +141,11 @@ p{
   
 .modal-content {
     border-radius:0;
+    background-color: #FEF8DD;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    border: none;
+}
+.modal-header {
     border: none;
 }
 /* .modal-backdrop {
@@ -202,8 +206,8 @@ p{
     color:  #FF0000;
 }
 .slider .range-label {
+    display: inline;
     margin: 0;
-    font-size: 0.9em;
 }
 .slider input[type=range], .slider .range-label {
     opacity:0.25;
@@ -221,10 +225,11 @@ p{
     float: right;
     vertical-align: middle; /* This doesn't do anything yet*/
 }
-.iconLabel input, .iconLabel label {
+/* .iconLabel input, .iconLabel label { */
+.iconLabel input {
     float:left;
 }
-  
+
 .iconLabel input[type=checkbox] {
     position: absolute; 
     overflow: hidden; 
@@ -256,9 +261,6 @@ p{
   
 .iconLabel input[type=checkbox]:checked {
     background-position: 0 -15px;
-}
-.iconLabel label {
-    background-image:url('../img/checkbox.jpg');
 }
   
 .sliderFunctions{
@@ -297,13 +299,21 @@ p{
 }
 .btn-dark {
     color: black;
-    background-color: white;
-    border: 1px solid #aaa;
+    background-color: #FEF8DD;
+    border: none;
     width: 100%;
     border-radius: 21px;
     text-transform: lowercase;
     text-decoration:none;
     font-weight: bold;
+}
+.btn-dark:hover, .btn-dark:active, .btn-dark:focus {
+    color: #FF0000!important;
+    background-color: #FEF8DD!important;
+    text-decoration: underline;
+}
+.btn-dark .fa {
+    margin-right: 0.5rem;
 }
 .slider .btn-secondary .info-svg {
     fill:black;
@@ -340,8 +350,12 @@ p{
 .range-label {
     text-align: left;
     margin: 0 auto;
-    display: block;
     text-transform: lowercase;
+    font-size: 0.8rem;
+    line-height: 1.2em;
+    font-weight: 300;
+    font-variation-settings: 'wght' 300;
+    color: #000;
 }
   
 /* Card Styling */
@@ -375,9 +389,8 @@ p{
     filter: grayscale(1);
 }
   
-.item-title {
-    font-size: 20px;
-    font-weight: bold; 
+.h2 {
+    font-size: 3em;
 }
   
 a {
@@ -407,7 +420,7 @@ a:hover{
     right: 0;
     height: 3em;
     content: '';
-    background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1));
+    background: linear-gradient(rgba(254,248,221,0),rgba(254,248,221,1));
 }
   
 .item-longDescription {
@@ -492,7 +505,7 @@ ul.card-list {
 }
   
 .flex-card-back {
-    background-color: #ffff;
+    background-color: #FEF8DD;
     color: black;
     transform: rotateY(180deg);
     padding: 15px;
@@ -744,7 +757,7 @@ input[type="range"]:focus::-ms-fill-upper {
     background: #ffffff;
     border-bottom: 2px solid #ffffff;
     padding: 5px 15px;
-    margin: 0 -15px;
+    /* margin: 0 -15px; */
     z-index: 9;
 }
   
@@ -1076,4 +1089,14 @@ input[type="range"]:focus::-ms-fill-upper {
     .popover {
         max-width: 90vw;
     }
+}
+@media (max-width: 460px){
+    .range-label {
+        display: block!important;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    
 }
