@@ -5,12 +5,13 @@ import webapp
 import os
 from werkzeug.utils import secure_filename
 import requests
+from flask_sqlalchemy import SQLAlchemy
 from apiKey import reCaptcha
 
 
 CURRENT_FILE = os.path.abspath(__file__)
 CURRENT_DIR = os.path.dirname(CURRENT_FILE)
-db = webapp.db
+db = SQLAlchemy()
 
 
 class Collective(db.Model):
