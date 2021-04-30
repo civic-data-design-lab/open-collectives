@@ -5,17 +5,66 @@ body#voices {
 body#voices .container {
     max-width: calc(100% - 120px);
 }
-/* a.read-more:hover {
-    text-decoration: none;
-} */
-.read-more.active .arrow {
-    transform: rotate(-90deg);
+
+/* sidebar secondary menu */
+.sidebtn {
+    position: fixed;
+    top: 50vh;
+    left: 0px;
+    z-index: 10;
+    transition: all 0.5s ease;
 }
-.read-more.active:hover .arrow {
-    transform: rotate(-90deg) translateX(0.5rem);
+.sidebtn:hover {
+    cursor: pointer;
 }
-#read-more {
+#fade-sidebar:not(.show) {
     display: none;
+    z-index: -1;
+}
+#fade-sidebar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 200%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    /* transition: all 0.5s; */
+}
+.sidebar {
+    position: fixed;
+    height: 100vh;
+    /* width: 0px; */
+    width: 24rem;
+    top: 0px;
+    left: -24rem;
+    /* padding: 2rem 0rem; */
+    padding: 2rem;
+    overflow: hidden auto;
+    background-color: #FEF8DD;
+    z-index: 5;
+    transition: all 0.5s ease;
+}
+.sidebar .closebtn:hover {
+    text-decoration: none;
+}
+.sidebar a {
+    color: #000;
+    text-decoration: none;
+}
+.sidebar a:hover {
+    text-decoration: underline;
+}
+.openbtn {
+    position: fixed;
+    top: 50vh;
+    left: 2rem;
+    background-color: #000;
+}
+.sidebar span {
+    margin-left: 1rem;
+}
+main {
+    transition: all 0.5s ease;
 }
 
 /* Questions Section Survey */
