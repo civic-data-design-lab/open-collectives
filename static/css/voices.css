@@ -461,6 +461,9 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
     .h4 {
         font-size: calc(1.275rem + .3vw);
     }
+    #headline-description {
+        font-size: calc(0.8rem + .3vw);
+    }
     #nav-headline, #nav-results {
         height: 100%!important;
     }
@@ -495,6 +498,9 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
 }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    #headline-description {
+        font-size: calc(0.9rem + .3vw);
+    }
     #nav-dashboard {
         padding-left: 0rem;
     }
@@ -511,6 +517,9 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
 }
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+    #headline-description {
+        font-size: calc(1.275rem + .3vw);
+    }
 }
 
 /* sidebar small screen */
