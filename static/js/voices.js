@@ -117,9 +117,13 @@ getJsonObject("questions", function (data) {
     // console.log(data);
 });
 
+// FETCH RESULTS DATA
+
+
 // RESULTS DATA
 // get results json data and visualize data
-getJsonObject("responses-test", function (data) {
+// getJsonObject("responses-test", function (data) {
+jQuery.getJSON("./responses", function(data) {
     responsesData = data;
 
     for (var t = 0; t < themesList.length; t++) {
@@ -217,12 +221,11 @@ function createModals(questionsData) {
     for (i = 0; i < questionsData.length; i++) {
         var theme = questionsData[i].theme,
             modalID = 'modal-' + theme,
-            imgSrc = './img/' + theme + '-quest.svg',
             question = questionsData[i].question,
             responses = questionsData[i].responses,
             qType = questionsData[i].type;
 
-        var htmlString = "<div class='modal fade' id='" + modalID + "' tabindex='-1' role='dialog' aria-labelledby='" + theme + "' aria-hidden='true'><div class='modal-dialog modal-dialog-centered' role='document'><div class='modal-content'><img class='img-quest' src='" + imgSrc + "' alt='" + titleCase(theme) + " Question Background'><div class='modal-header'><h3 class='h5 mb-0'>" + question + "</h3><button type='button' class='close' data-dismiss='modal' aria-label='Close' onclick='closeModal(" + modalID + ")'><span aria-hidden='true'>&times;</span></button></div><div class='modal-body'>";
+        var htmlString = "<div class='modal fade' id='" + modalID + "' tabindex='-1' role='dialog' aria-labelledby='" + theme + "' aria-hidden='true'><div class='modal-dialog modal-dialog-centered' role='document'><div class='modal-content'><div class='modal-header'><h3 class='h5 mb-0'>" + question + "</h3><button type='button' class='close' data-dismiss='modal' aria-label='Close' onclick='closeModal(" + modalID + ")'><span aria-hidden='true'>&times;</span></button></div><div class='modal-body'>";
         var modalStringEnd = "</div><div class='modal-footer'><button type='button' class='continue link-black' data-dismiss='modal' aria-label='Continue' onclick='closeModal(" + modalID + ")'><span aria-hidden='true' class='position-relative before-arrow'><b>Continue</b><div class='arrow'><div class='head'></div></div></span></button></div></div></div></div>";
 
         for (j = 0; j < responses.length; j++) {
@@ -493,7 +496,12 @@ function plotDonutChart(svg, donutData) {
 // EVENTS
 // sidebar secondary menu animation
 function closeSidebar() {
-    $('#sidebar').css('left','-24rem');
+    if (winWidth < 384) {
+        $('#sidebar').css('left', -winWidth);
+    }
+    else {
+        $('#sidebar').css('left','-24rem');
+    }
     $('main').css('margin-left','auto');
     $('.sidebtn').css('left','0px');
     $('#fade-sidebar').removeClass('show').css('z-index','-1');
@@ -503,11 +511,15 @@ function closeSidebar() {
 
 $('.arrow-wide').on('click', function() {
     if (!$(this).hasClass('active')) {
-        closeSidebar();
+        if (winWidth < 384) {
+            $('.sidebtn').css('left','calc(100vw - 2rem)');
+        }
+        else {
+            $('.sidebtn').css('left','22rem');
+        }
         $('#fade-sidebar').addClass('show').css('z-index','4');
         $('#sidebar').css('left','0rem');
         $('main').css('margin-left','26rem');
-        $('.sidebtn').css('left','22rem');
         $('.dropdown-menu').addClass('active-side');
         $('.arrow-wide').addClass('active');
     }
@@ -541,6 +553,24 @@ window.onclick = function (event) {
 $(window).resize(function () {
     if (window.location.href.endsWith("#results")) {
         $("html, body").animate({ scrollTop: winHeight });
+    }
+    if (winWidth < 384) {
+        $(".sidebar").css("width", winWidth);
+        if ($(".arrow-wide").hasClass("active")) {
+            $('.sidebtn').css('left','calc(100vw - 2rem)');
+        }
+        else {
+            $(".sidebar").css("left", -winWidth);
+        }
+    }
+    else {
+        $(".sidebar").css("width", "24rem");
+        if ($(".arrow-wide").hasClass("active")) {
+            $('.sidebtn').css('left','22rem');
+        }
+        else {
+            $(".sidebar").css("left", "-24rem");
+        }
     }
 });
 // click tile to change results theme

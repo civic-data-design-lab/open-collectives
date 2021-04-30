@@ -106,8 +106,34 @@
             </div>
  
             <form id="form">
+                <!-- theme survey questions modal template -->
+                <div class='modal fade template' id='modalID' tabindex='-1' role='dialog' aria-labelledby='theme' aria-hidden='true'>
+                    <div class='modal-dialog modal-dialog-centered' role='document'>
+                        <div class='modal-content'>
+                            <!-- <img class='img-quest' src='" + imgSrc + "' alt='" + titleCase(theme) + " Question Background'> -->
+                            <div class='modal-header'>
+                                <h3 class='h5 mb-0'>question</h3>
+                                <button type='button' class='close' data-dismiss='modal' aria-label='Close' onclick='closeModal(" + modalID + ")'>
+                                    <span aria-hidden='true'>&times;</span>
+                                </button>
+                            </div>
+                            <div class='modal-body'>
+                                <!-- insert questions here -->
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='button' class='continue link-black' data-dismiss='modal' aria-label='Continue' onclick='closeModal(" + modalID + ")'>
+                                    <span aria-hidden='true' class='position-relative before-arrow'>
+                                        <b>Continue</b>
+                                        <div class='arrow'><div class='head'></div></div>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- close modal -->
             </form>
             
+            <!-- thank you modal -->
             <div class='modal fade' id='modal-thanks' tabindex='-1' role='dialog' aria-labelledby='thanks' aria-hidden='true'>
                 <div class='modal-dialog modal-dialog-centered' role='document'>
                     <div class='modal-content'>
@@ -141,14 +167,14 @@
         </section>
         <section class="container-fluid section labor" id="results">
             <div class="w-100 d-flex flex-column flex-md-row-reverse" id="nav-dashboard">
-                <div id="nav-headline" class="h-50 col col-md-5 d-flex align-items-md-center text-lt-red">
+                <div id="nav-headline" class="h-50 col col-md-6 col-lg-5 d-flex align-items-end text-lt-red">
                     <div id="headline-figure" class="position-relative text-center">
                         <h3 id="headline-percent" class="h1 mb-0"></h3>
                         <span class="position-relative text-prophet">of respondents...</span>
                     </div>
-                    <p id="headline-description" class="h4 position-relative mb-3"></p>
+                    <p id="headline-description" class="h4 position-relative mb-md-3"></p>
                 </div>
-                <div id="nav-results" class="h-50 col col-md-7 d-flex align-items-end position-relative">
+                <div id="nav-results" class="h-50 col col-md-6 col-md-7 d-flex align-items-end position-relative">
                     <a id="arrow-prev" class="arrow-left">
                         <div class="arrow arrow-short"><div class="head"></div></div>
                     </a>
@@ -171,24 +197,24 @@
                 </div>
             </div>
             <div id="dashboard">
-                <div class="container h-100 pt-5">
-                    <div class="row">
-                        <div class="col-8">
+                <div class="container h-100 d-flex flex-column flex-md-row pt-5">
+                    <!-- <div class="row"> -->
+                        <div class="col-md-7 col-lg-8">
                             <h2 id="theme-question" class="h4"></h2>
                             <div id="chart-labor" class="chart active"></div>
                             <div id="chart-market" class="chart"></div>
                             <div id="chart-care" class="chart"></div>
                             <div id="chart-living" class="chart"></div>
                         </div>
-                        <div id="learn" class="col-4 mt-5 align-self-start">
+                        <div id="learn" class="flex-shrink-1 col-md-5 col-lg-4 mt-3 mb-5 mt-md-5 p-4 align-self-start">
                             <h2 id="theme-name" class="h3 text-uppercase mb-3"></h2>
-                            <p id="theme-learn" class="mb-5"></p>
+                            <p id="theme-learn" class="mb-md-5"></p>
                             <span class="position-relative">Learn more about</span><br>
                             <a id="theme-link" class="position-relative font-weight-bold" href="./labor"><span class="before-arrow"></span>
                                 <div class="arrow arrow-sm"><div class="head"></div></div>
                             </a>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </section>

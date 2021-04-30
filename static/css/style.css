@@ -20,6 +20,7 @@ body {
     font-family: 'Acumin';
     font-weight: 300;
     font-variation-settings: 'wght' 300;
+    line-height: 1.2em;
 }
 .container {
     max-width: calc(100% - 120px);
@@ -112,6 +113,10 @@ a.link-black {
 }
 .arrow-dn {
     height: 1em;
+}
+
+.template {
+    display: none;
 }
 
 /* nav menu dropdown */
