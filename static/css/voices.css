@@ -113,6 +113,28 @@ main {
     background: none;
     border: none;
 }
+#btn-thanks.disable {
+    color: rgba(0,0,0,0.5);
+}
+#btn-thanks.disable:hover {
+    cursor: auto;
+}
+#btn-thanks.disable:hover .arrow {
+    width: 4rem;
+}
+#btn-thanks.disable .arrow,
+#btn-thanks.disable .arrow .head,
+#btn-thanks.disable .arrow .head:after {
+    background-color: rgba(0,0,0,0.5);
+}
+#btn-thanks.ready #submit {
+    color: #FF0000;
+}
+#btn-thanks.ready .arrow,
+#btn-thanks.ready .arrow .head,
+#btn-thanks.ready .arrow .head:after {
+    background-color: #FF0000;
+}
 
 /* Modal Styles for Pop-up Questions */
 .modal-content {
@@ -206,6 +228,9 @@ main {
 }
 
 /* Form Input Styles */
+.modal-body .form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgb(225 0 0 / 25%);
+}
 .modal-body .form-check-input, .modal-body .form-check-input:checked {
     margin-top: 0px;
     border: solid 2px #000;

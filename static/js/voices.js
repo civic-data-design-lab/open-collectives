@@ -627,9 +627,17 @@ $(document).ready(function () {
             $("#btn-" + themeName + " .img-color").css("opacity", 1);
             // console.log(themeName + " checked");
         }
-        else if (!$(".form-check-input[name*='" + themeName + "']").is(":checked")) {
+        else if (!$(".form-check-input[name*=" + themeName + "]").is(":checked")) {
             $("#btn-" + themeName + " .img-color").css("opacity", 0);
             $("#btn-" + themeName + " .img-pos").css("opacity", 1);
+        }
+        // if all items checked
+        if ($("input[name*='labor']").is(":checked") && $("input[name*='market']").is(":checked") && $("input[name*='care']").is(":checked") && $("input[name*='living']").is(":checked")) {
+            $("#btn-thanks").addClass("ready");
+        }
+        // if all items checked
+        else if ($(".form-check-input").is(":checked")) {
+            $("#btn-thanks").removeClass("disable");
         }
     });
 
