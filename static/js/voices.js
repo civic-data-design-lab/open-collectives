@@ -188,11 +188,15 @@ jQuery.getJSON("./responses", function(data) {
 // open and close modals
 function openModal(modalId) {
     if (modalId == "modal-thanks") {
-        $('#form').submit(function(e) {
+        document.getElementById('form').submit(function(e) {
+        // $("#form").submit(function(e) {
             e.preventDefault();
-            $(this).submit();
+            return false;
         });
-        return false;
+        document.getElementById(modalId).style.display = "block";
+        document.getElementById(modalId).classList.add("show");
+        // e.preventDefault();
+        // return false;
     }
     else {
         document.getElementById(modalId).style.display = "block";
@@ -637,9 +641,10 @@ $(document).ready(function () {
 
     // on submit form
     $("#form").on('submit', "#btn-thanks", function(e) {
-        document.getElementById(modalId).style.display = "block";
-        document.getElementById(modalId).classList.add("show");
-        e.preventDefault();
+        console.log("thank you");
+        // document.getElementById('modal-thanks').style.display = "block";
+        // document.getElementById('modal-thanks').classList.add("show");
+        // e.preventDefault();
     });
     // console.log("ready!");
 })
