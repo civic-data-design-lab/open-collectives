@@ -259,9 +259,6 @@ main {
     top: 4rem;
     height: calc(30vh - 4rem);
 }
-#nav-headline {
-    padding-bottom: 3rem;
-}
 #headline-figure, #headline-description {
     float: left;
 }
@@ -332,7 +329,7 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
     margin-left: -2.25rem;
 }
 .img-result {
-    max-height: 10vh;
+    max-height: 7vh;
 }
 /* dashboard styles */
 #dashboard {
@@ -571,9 +568,9 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
         right: 100%;
     }
 }
-
-/* Landscape screen orientation & small screen */
-@media (max-height: 680px) {
+/* Landscape screen orientation (short height) */
+/* @media (min-width: 768px) and (max-height: 680px) { */
+@media (max-height: 680px) and (min-aspect-ratio: 1/1) {
     p, span {
         font-size: 0.7rem;
     }
@@ -594,7 +591,7 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
         margin-bottom: 1rem!important;
     }
     #nav-headline {
-        padding-bottom: 0.5rem;
+        padding-bottom: 0.5rem!important;
     }
     #results .tile {
         margin-bottom: 1rem;
@@ -605,4 +602,64 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
     a#arrow-prev, a#arrow-next {
         bottom: 1.75rem;
     }
+}
+/* Landscape screen orientation and small screen */
+@media (max-width: 767px) and (min-aspect-ratio: 1/1) {
+    p, span {
+        font-size: 0.6rem;
+    }
+    .h3 {
+        font-size: calc(0.8rem + .3vw);
+        margin-bottom: 0.5rem!important;
+    }
+    .h4 {
+        font-size: calc(0.6rem + .3vw);
+    }
+    #nav-dashboard {
+        flex-direction: row-reverse!important;
+        height: calc(30vh - 4rem);
+    }
+    #dashboard {
+        height: 70h;
+        top: 30vh;
+    }
+    #dashboard .container {
+        flex-direction: row!important;
+    }
+    #nav-headline, #nav-results {
+        height: 100%!important;
+        padding-left: 2rem;
+    }
+    #nav-dashboard {
+        padding-left: 0rem;
+    }
+    #nav-results {
+        padding-left: 3rem;
+        padding-right: auto;
+    }
+    a#arrow-prev, a#arrow-next {
+        bottom: 0.75rem;
+    }
+    a#arrow-prev {
+        right: calc(100% - 2rem);
+    }
+    .img-result {
+        max-height: none;
+    }
+    #dataviz {
+        flex: 0 0 auto;
+        width: 58.3333333333%;
+    }
+    #learn {
+        flex: 0 0 auto;
+        width: 41.6666666667%;
+        padding: 1rem!important;
+    }
+    .chart svg {
+        max-height: none;
+    }
+}
+/* Landscape screen orientation and x-small screen */
+@media (max-width: 575px) and (min-aspect-ratio: 1/1) {
+
 }

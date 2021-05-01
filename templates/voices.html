@@ -98,8 +98,9 @@
                 </div>
             </div>
             <div id="div-submit">
-                 <button id="btn-thanks" data-toggle="modal" data-target="#modal-thanks" class="link-black disable" onclick="document.getElementById('form').submit();" onsubmit="openModal('modal-thanks')">
-<!--                <button type="submit" id="btn-thanks" class="link-black" data-toggle="modal" data-target="#modal-thanks" onsubmit="openModal('modal-thanks')">-->
+                <!-- <button id="btn-thanks" data-toggle="modal" data-target="#modal-thanks" class="link-black disable" onclick="document.getElementById('form').submit();"> -->
+                <button type="submit" id="btn-thanks" class="link-black" data-toggle="modal" data-target="#modal-thanks" onclick="openModal('modal-thanks')">
+                <!-- <button type="submit" id="btn-thanks" class="link-black" data-toggle="modal" data-target="#modal-thanks" onclick="document.getElementById('form').submit()"> -->
                     <span class="before-arrow" id="submit"><b>Submit</b></span>
                     <div class="arrow disable"><div class="head"></div></div>
                 </button>
@@ -144,11 +145,11 @@
                             </button> -->
                         </div>
                         <div class='modal-body d-flex flex-column align-items-center'>
-                            <div class="row h-50 justify-content-center position-relative">
+                            <div class="row h-50 mb-2 justify-content-center position-relative">
                                 <img class="img-thanks mx-2 p-0" src="./img/labor-color.svg" alt="Labor Form">
                                 <img class="img-thanks mx-2 p-0" src="./img/market-color.svg" alt="Market Form">
                             </div>
-                            <div class="row h-50 justify-content-center position-relative">
+                            <div class="row h-50 mt-2 justify-content-center position-relative">
                                 <img class="img-thanks mx-2 p-0" src="./img/living-color.svg" alt="Living Form">
                                 <img class="img-thanks mx-2 p-0" src="./img/care-color.svg" alt="Care Form">
                             </div>
@@ -167,7 +168,7 @@
         </section>
         <section class="container-fluid section labor" id="results">
             <div class="w-100 d-flex flex-column flex-md-row-reverse" id="nav-dashboard">
-                <div id="nav-headline" class="h-50 col col-md-6 col-lg-5 d-flex align-items-end text-lt-red">
+                <div id="nav-headline" class="h-50 col col-md-6 col-lg-5 d-flex align-items-end text-lt-red pb-md-5">
                     <div id="headline-figure" class="position-relative text-center">
                         <h3 id="headline-percent" class="h1 mb-0"></h3>
                         <span class="position-relative text-prophet">of respondents...</span>
@@ -199,7 +200,7 @@
             <div id="dashboard">
                 <div class="container h-100 d-flex flex-column flex-md-row pt-5">
                     <!-- <div class="row"> -->
-                        <div class="col-md-7 col-lg-8">
+                        <div id="dataviz" class="col-md-7 col-lg-8">
                             <h2 id="theme-question" class="h4"></h2>
                             <div id="chart-labor" class="chart active"></div>
                             <div id="chart-market" class="chart"></div>

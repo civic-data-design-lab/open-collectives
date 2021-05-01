@@ -188,17 +188,11 @@ jQuery.getJSON("./responses", function(data) {
 // open and close modals
 function openModal(modalId) {
     if (modalId == "modal-thanks") {
-        // $(modalId).modal({
-        //     show: 'false',
-        //     backdrop: 'static',
-        //     keyboard: false
-        // });
-        document.getElementById('form').submit(function(e) {
+        $('#form').submit(function(e) {
             e.preventDefault();
-            // $(this).submit();
-            document.getElementById(modalId).style.display = "block";
-            document.getElementById(modalId).classList.add("show");
+            $(this).submit();
         });
+        return false;
     }
     else {
         document.getElementById(modalId).style.display = "block";
@@ -642,7 +636,7 @@ $(document).ready(function () {
     });
 
     // on submit form
-    $("#form").on('submit', "#submit", function(e) {
+    $("#form").on('submit', "#btn-thanks", function(e) {
         document.getElementById(modalId).style.display = "block";
         document.getElementById(modalId).classList.add("show");
         e.preventDefault();
