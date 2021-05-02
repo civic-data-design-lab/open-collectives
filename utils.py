@@ -12,7 +12,7 @@ def convert_to_csv(array):
 
 
 def convert_to_array(string):
-    array = string.split(",")
+    array = string.split(", ")
 
     return array
 
