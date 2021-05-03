@@ -109,7 +109,7 @@ getJsonObject("questions", function (data) {
                 : (theme == "care") ? (careResponses = responseList)
                     : (theme == "living") ? (livingResponses = responseList)
                         : responseList = undefined;
-    }
+    };
 
     // load on start up
     createModals(questionsData);
@@ -143,14 +143,20 @@ jQuery.getJSON("./responses", function(data) {
             }
         }
 
-        item.total = responseData.length;
         responseData.forEach((response) => {
-            if (!item[response]) {
+            if (response == null || response == "{}") {
+                if (!item.nullValue) {
+                    item.nullValue = 1;
+                } else {
+                    item.nullValue++;
+                }
+            } else if (!item[response]) {
                 item[response] = 1;
             } else {
                 item[response]++;
             }
         });
+        item.total = responseData.length - item.nullValue;
 
         (theme == "labor") ? (laborData = item)
             : (theme == "market") ? (marketData = item)
@@ -178,9 +184,9 @@ jQuery.getJSON("./responses", function(data) {
     percentTooltip(laborChartData);
     headlineTooltip(laborChartData);
 
-    console.log(surveyData);
-    console.log(responsesData);
-    console.log(questionsData);
+    // console.log(surveyData);
+    // console.log(responsesData);
+    // console.log(questionsData);
     // console.log(laborData);
 });
 
@@ -188,14 +194,16 @@ jQuery.getJSON("./responses", function(data) {
 // open and close modals
 function openModal(modalId) {
     if (modalId == "modal-thanks") {
-        document.getElementById('form').submit(function(e) {
-        // $("#form").submit(function(e) {
-            e.preventDefault();
-            return false;
-        });
         document.getElementById(modalId).style.display = "block";
         document.getElementById(modalId).classList.add("show");
-        // e.preventDefault();
+
+        // document.getElementById('form').submit(function(e) {
+        // $("#form").submit(function(e) {
+            // e.preventDefault();
+            // return false;
+        // });
+        
+        e.preventDefault();
         // return false;
     }
     else {
@@ -216,15 +224,24 @@ function closeModal(modalId) {
 
 // generate modals and form inputs for each theme question
 function createModals(questionsData) {
+    // var modalTemplate = $(".modal.template");
     for (i = 0; i < questionsData.length; i++) {
+    //     var modal = modalTemplate.clone();
         var theme = questionsData[i].theme,
             modalID = 'modal-' + theme,
             question = questionsData[i].question,
             responses = questionsData[i].responses,
             qType = questionsData[i].type;
 
-        var htmlString = "<div class='modal fade' id='" + modalID + "' tabindex='-1' role='dialog' aria-labelledby='" + theme + "' aria-hidden='true'><div class='modal-dialog modal-dialog-centered' role='document'><div class='modal-content'><div class='modal-header'><h3 class='h5 mb-0'>" + question + "</h3><button type='button' class='close' data-dismiss='modal' aria-label='Close' onclick='closeModal(" + modalID + ")'><span aria-hidden='true'>&times;</span></button></div><div class='modal-body'>";
-        var modalStringEnd = "</div><div class='modal-footer'><button type='button' class='continue link-black' data-dismiss='modal' aria-label='Continue' onclick='closeModal(" + modalID + ")'><span aria-hidden='true' class='position-relative before-arrow'><b>Continue</b><div class='arrow'><div class='head'></div></div></span></button></div></div></div></div>";
+    //     modal.find(".modal.template")
+    //         .attr("id", modalID)
+    //         .attr("aria-labelledby", theme);
+    //     modal.find(".h5").html(question);
+    //     modal.find(".close").attr("onclick", closeModal(modalID));
+    //     modal.find(".continue").attr("onclick", closeModal(modalID));
+
+        var htmlString = "<div class='modal fade' id='" + modalID + "' tabindex='-1' role='dialog' aria-labelledby='" + theme + "' aria-hidden='true'><div class='modal-dialog modal-dialog-centered modal-fullscreen-sm-down' role='document'><div class='modal-content'><div class='modal-header'><h3 class='h5 mb-0'>" + question + "</h3><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div><div class='modal-body'>";
+        var modalStringEnd = "</div><div class='modal-footer'><button type='button' class='continue link-black' data-dismiss='modal' aria-label='Continue'><span aria-hidden='true' class='position-relative before-arrow'><b>Continue</b><div class='arrow'><div class='head'></div></div></span></button></div></div></div></div>";
 
         for (j = 0; j < responses.length; j++) {
             var rID = responses[j].rID,
@@ -232,11 +249,17 @@ function createModals(questionsData) {
             var responseString = "<input class='form-check-input' type='" + qType + "' name='" + theme + "' id='" + rID + "' value='" + rID + "'><label class='form-check-label' for='" + rID + "'>" + rLong + "</label>";
 
             htmlString += responseString;
+            // modal.find(".modal-body").append(responseString);
         };
+
+        // modal.find(".modal-body").html(responseString);
+        // modal.removeClass("template").appendTo(modalTemplate.parent());
 
         htmlString += modalStringEnd;
         $('#form').append(htmlString);
     }
+
+
 }
 
 // change results theme content

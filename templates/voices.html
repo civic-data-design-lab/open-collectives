@@ -98,8 +98,8 @@
                 </div>
             </div>
             <div id="div-submit">
-                <!-- <button id="btn-thanks" data-toggle="modal" data-target="#modal-thanks" class="link-black disable" onclick="document.getElementById('form').submit();"> -->
-                <button type="submit" id="btn-thanks" class="link-black" data-toggle="modal" data-target="#modal-thanks" onclick="openModal('modal-thanks')">
+                <button id="btn-thanks" data-toggle="modal" data-target="#modal-thanks" class="link-black disable" onclick="document.getElementById('form').submit()">
+                <!-- <button type="submit" id="btn-thanks" data-toggle="modal" data-target="#modal-thanks" class="link-black" onclick="openModal('modal-thanks')"> -->
                     <span class="before-arrow" id="submit"><b>Submit</b></span>
                     <div class="arrow disable"><div class="head"></div></div>
                 </button>
@@ -107,13 +107,13 @@
  
             <form id="form">
                 <!-- theme survey questions modal template -->
-                <div class='modal fade template' id='modalID' tabindex='-1' role='dialog' aria-labelledby='theme' aria-hidden='true'>
+                <div class='modal fade template' id='' tabindex='-1' role='dialog' aria-labelledby='' aria-hidden='true'>
                     <div class='modal-dialog modal-dialog-centered' role='document'>
                         <div class='modal-content'>
                             <!-- <img class='img-quest' src='" + imgSrc + "' alt='" + titleCase(theme) + " Question Background'> -->
                             <div class='modal-header'>
-                                <h3 class='h5 mb-0'>question</h3>
-                                <button type='button' class='close' data-dismiss='modal' aria-label='Close' onclick='closeModal(" + modalID + ")'>
+                                <h3 class='h5 mb-0'>Question</h3>
+                                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
                                     <span aria-hidden='true'>&times;</span>
                                 </button>
                             </div>
@@ -121,7 +121,7 @@
                                 <!-- insert questions here -->
                             </div>
                             <div class='modal-footer'>
-                                <button type='button' class='continue link-black' data-dismiss='modal' aria-label='Continue' onclick='closeModal(" + modalID + ")'>
+                                <button type='button' class='continue link-black' data-dismiss='modal' aria-label='Continue'>
                                     <span aria-hidden='true' class='position-relative before-arrow'>
                                         <b>Continue</b>
                                         <div class='arrow'><div class='head'></div></div>
@@ -135,7 +135,7 @@
             
             <!-- thank you modal -->
             <div class='modal fade' id='modal-thanks' tabindex='-1' role='dialog' aria-labelledby='thanks' aria-hidden='true'>
-                <div class='modal-dialog modal-dialog-centered' role='document'>
+                <div class='modal-dialog modal-dialog-centered modal-fullscreen-sm-down' role='document'>
                     <div class='modal-content'>
                         <div class='modal-header'>
                             <span class='h4 w-100 text-center m-0'>Thank you for your input!</span>
