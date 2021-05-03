@@ -216,7 +216,7 @@ function openModal(modalId) {
             // return false;
         // });
         
-        e.preventDefault();
+        // e.preventDefault();
         // return false;
     }
     else {
