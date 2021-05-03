@@ -33,32 +33,41 @@
                 <li><a class="dropdown-item" href="./about">About</a></li>
                 <li><a class="dropdown-item" href="./voices">Collective Voices</a></li>
                 <li><a class="dropdown-item" href="./dimensions">Collective Dimensions</a></li>
-<!--                <li><a class="dropdown-item" href="http://ec2-3-94-170-100.compute-1.amazonaws.com/">Collective Dimensions</a></li>-->
             </ul>
         </div>
     </nav>
 
+    <div class="scroll-dots">
+        <ul>
+            <li class="link-white active"><a href="#oc-film"><span>Film</span><div class="dot active"></div></a></li>
+            <li><a class="link-white" href="#oc-voices"><span>Voices</span><div class="dot"></div></a></li>
+            <li><a class="link-white" href="#oc"><span>Open Collectives</span><div class="dot"></div></a></li>
+            <li><a class="link-white" href="#oc-themes"><span>Themes</span><div class="dot"></div></a></li>
+            <li><a class="link-white" href="#oc-dimensions"><span>Dimensions</span><div class="dot"></div></a></li>
+        </ul>
+    </div>
+
     <main class="container">
         <section id="sect-video" class="container-fluid section d-flex">
-            <a href="./film"><video class="align-self-center" id="vidTrailer" width="560" height="315" autoplay muted loop>
-                <source src="./video/shapes_morph test_1.mp4" type="video/mp4">
+            <a href="./film"><video class="align-self-center" id="oc-film" width="560" height="315" autoplay muted playsinline loop>
+                <source src="./video/FormingMutualism_Teaser_20sec_FINAL.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video></a>
-            <!-- <iframe class="align-self-center" id="vidTrailer" width="560" height="315" src="https://www.youtube.com/embed/GW3JPYkjeo0?rel=0&modestbranding=1&autohide=1&controls=0&autoplay=1&mute=1&playlist=GW3JPYkjeo0&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-            <div class="w-100 d-flex flex-row-reverse align-self-end mb-5">
+            <!-- <iframe class="align-self-center" id="oc-film" width="560" height="315" src="https://www.youtube.com/embed/GW3JPYkjeo0?rel=0&modestbranding=1&autohide=1&controls=0&autoplay=1&mute=1&playlist=GW3JPYkjeo0&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+            <div class="w-100 d-flex flex-row-reverse align-self-end mb-4">
                 <a class="px-3 link-white" href="./film"><h2 class="h4 text-uppercase position-relative before-arrow">Film
                             <div class="arrow arrow-sm"><div class="head"></div></div>
                 </h2></a>
             </div>
         </section>
-        <section class="container-fluid section d-flex" id="cv">
+        <section class="container-fluid section d-flex" id="oc-voices">
             <div class="row w-100 align-items-center">
                 <div class="col-6 offset-3"><a class="link-white" href="./voices">
                     <h2 class="h1 text-uppercase text-center mb-0">To Share</h2>
                     <h2 class="h1 text-uppercase text-center mt-0 mb-0">or Not</h2>
                     <h2 class="h1 text-uppercase text-center mt-0">To Share?</h2>
                 </a></div>
-                <div class="col-8 offset-2 col-md-5 offset-md-7 col-lg-4 offset-lg-8" id="cv-enter">
+                <div class="col-8 offset-2 col-md-5 offset-md-7 col-lg-4 offset-lg-8" id="voices-enter">
                     <a class="link-white" href="./voices">
                         <p class="mb-0 before-arrow">enter collective voices to contribute your opinion and learn what others think</p>
                         <div class="arrow"><div class="head"></div></div>
@@ -77,7 +86,7 @@
             </div>
             <div class="row">
                 <div class="col-10 offset-2 col-md-6 offset-md-6 col-lg-4 offset-lg-8 mt-4">
-                    <a class="link-white" href="#sect-themes">
+                    <a class="link-white" href="#oc-themes">
                         <p><em>Open Collectives</em> is an immersive installation featuring digital platforms and architectural projects that seek to leverage the power of solidarity in order to strengthen economic sovereignty, housing affordability, communal self-determination, and mutual aid.</p>
                         <p><em>Open Collectives</em> offers new perspectives on pressing issues such as the future of work, the gig economy, elder boom, affordable housing, and widening inequality. Featured projects engage with the following <span class="position-relative before-arrow">themes:
                             <span class="arrow arrow-dn"><span class="head"></span></span></span>
@@ -87,7 +96,7 @@
             </div>
             <img class="img img-center" id="img-oc" src="./img/installation.svg" alt="Open Collectives Installation">
         </section>
-        <section id="sect-themes" class="container-fluid section">
+        <section id="oc-themes" class="container-fluid section">
             <div class="align-items-middle">
             <div class="row">
                 <div class="col-8 offset-2 col-md-4 offset-md-4 col-lg-3" id="p-labor">
@@ -125,7 +134,7 @@
             <img class="img" id="img-living" src="./img/living.svg" alt="Living">
         </div>
         </section>
-        <section class="container-fluid section d-flex" id="cd">
+        <section class="container-fluid section d-flex" id="oc-dimensions">
             <div id="cd-explore" class="row w-100 align-self-center">
                 <a class="link-white h-100" href="./dimensions"><div class="col align-self-center h-100 d-flex flex-column justify-content-between">
                     <h2 class="h1 text-uppercase text-center">Explore Collectives</h2>

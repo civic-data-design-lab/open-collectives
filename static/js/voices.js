@@ -194,6 +194,19 @@ jQuery.getJSON("./responses", function(data) {
 // open and close modals
 function openModal(modalId) {
     if (modalId == "modal-thanks") {
+        $.ajax({
+            contentType : 'application/json',
+            data: {
+                labor: $('input[name="labor"]:checked').map(function() {return $(this).val()}).toArray(),
+                market: $('input[name="market"]:checked').val(),
+                care: $('input[name="care"]:checked').val(),
+                living: $('input[name="living"]:checked').map(function() {return $(this).val()}).toArray()
+            },
+            // data: JSON.stringify(answers),
+            method: 'POST',
+            url: '/survey'
+        });
+
         document.getElementById(modalId).style.display = "block";
         document.getElementById(modalId).classList.add("show");
 

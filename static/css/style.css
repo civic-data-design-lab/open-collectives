@@ -405,16 +405,55 @@ a.arrow-left {
     -webkit-transform: rotate(180deg);
 }
 
+/* scroll to section dots */
+.scroll-dots {
+    position: fixed;
+    right: 1rem;
+    bottom: 0rem;
+    z-index: 10;
+}
+.scroll-dots ul {
+    list-style: none;
+    padding-left: 0px;
+    text-align: right;
+}
+.scroll-dots .dot {
+    display: inline-block;
+    height: 0.8rem;
+    width: 0.8rem;
+    margin-left: 0.5rem;
+    border-radius: 50%;
+    border: solid 1px;
+    border-color: #fff;
+}
+.scroll-dots span {
+    display: none;
+    color: #FFF;
+    text-decoration: none;
+}
+.scroll-dots a:hover {
+    color: #FFF;
+    text-decoration: none;
+}
+.scroll-dots a:hover span {
+    display: inline;
+    /* color: #FFF; */
+    text-decoration: none;
+}
+.scroll-dots .active .dot {
+    background-color: #FFF;
+    border-color: #FFF;
+}
+
+
 body#home {
     overflow: hidden auto;
 }
-/* #sect-video {
-    height: auto;
-} */
-#vidTrailer {
+#oc-film {
     position: absolute;
-    min-width: 100%;
-    min-height: 100%;
+    min-width: 80%;
+    min-height: 80%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
     -o-transform: translateX(-50%);
@@ -433,7 +472,7 @@ div.ytp-chrome-top {
 #oc .h1 {
     margin-top: 20%;
 }
-#sect-themes .arrow {
+#oc-themes .arrow {
     display: inline-block;
     left: inherit;
     margin-left: 1rem;
@@ -447,7 +486,7 @@ div.ytp-chrome-top {
 #p-living {
     margin-top: 15%;
 }
-#cv #cv-enter {
+#oc-voices #voices-enter {
     position: absolute;
     margin-top: 70vh;
     /* margin-top: 24rem; */
@@ -731,13 +770,13 @@ div.ytp-chrome-top {
 }
 
 @media (max-width: 718px) {
-    #cd .h1 {
+    #oc-dimensions .h1 {
         height: 2em;
     }
 }
 
 @media (min-aspect-ratio: 16/9) {
-    #cv #cv-enter {
+    #oc-voices #voices-enter {
         margin-top: 90vh;
     }
 }

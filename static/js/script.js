@@ -120,6 +120,13 @@ $('#vidTrailer').on('load', function(){
   $('#vidTrailer').contents().find('.ytp-chrome-top').css('display','none!important');
 });
 
+// scroll to section dots
+$(".scroll-dots a").on("click", function() {
+    $("li").removeClass("active");
+    $(this).parent().addClass("active");
+    window.location.hash = $(this).attr("href");
+});
+
 // click to read more
 $(".read-more").on("click", function() {
     if (!$(this).hasClass("active")) {

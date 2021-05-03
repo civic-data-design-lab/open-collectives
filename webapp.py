@@ -73,37 +73,37 @@ def labor():
 
 @webapp.route("/voices", methods=["POST", "GET"])
 def voices():
-    answers = {}
-    if request.method == "GET":
-        answers['labor'] = request.args.getlist("labor")
-        answers['market'] = request.args.get("market")
-        answers['care'] = request.args.get("care")
-        answers['living'] = request.args.getlist("living")
+    # answers = {}
+    # if request.method == "GET":
+    #     answers['labor'] = request.args.getlist("labor")
+    #     answers['market'] = request.args.get("market")
+    #     answers['care'] = request.args.get("care")
+    #     answers['living'] = request.args.getlist("living")
 
-        print(answers)
+    #     print(answers)
 
-        for category in answers:
-            if answers[category]:
-                if isinstance(answers[category], str):
-                    pass
-                elif isinstance(answers[category], list):
-                    answers[category] = convert_to_csv(answers[category])
-                else:
-                    pass
+    #     for category in answers:
+    #         if answers[category]:
+    #             if isinstance(answers[category], str):
+    #                 pass
+    #             elif isinstance(answers[category], list):
+    #                 answers[category] = convert_to_csv(answers[category])
+    #             else:
+    #                 pass
 
-        sql = '''INSERT INTO responses (labor, market, care, living) VALUES (%(labor)s, %(market)s, %(care)s,  %(living)s) RETURNING response_id'''
-        cur = DB_CON.cursor()
+    #     sql = '''INSERT INTO responses (labor, market, care, living) VALUES (%(labor)s, %(market)s, %(care)s,  %(living)s) RETURNING response_id'''
+    #     cur = DB_CON.cursor()
 
-        query_data = {
-            'labor': answers['labor'],
-            'market': answers['market'],
-            'care': answers['care'],
-            'living': answers['living']
-        }
+    #     query_data = {
+    #         'labor': answers['labor'],
+    #         'market': answers['market'],
+    #         'care': answers['care'],
+    #         'living': answers['living']
+    #     }
 
-        cur.execute(sql, query_data)
+    #     cur.execute(sql, query_data)
 
-        DB_CON.commit()
+    #     DB_CON.commit()
 
     return render_template("voices.html")
 
@@ -111,7 +111,6 @@ def voices():
 @webapp.route("/about")
 def about():
     return render_template("about.html")
-
 
 @webapp.route("/responses")
 def responses():
@@ -138,6 +137,39 @@ def responses():
 
     return flask.Response(json.dumps(data), mimetype="application/json")
 
+@webapp.route("/survey", methods=["POST"])
+def survey():
+    answers = {}
+    answers['labor'] = request.args.getlist("labor")
+    answers['market'] = request.args.get("market")
+    answers['care'] = request.args.get("care")
+    answers['living'] = request.args.getlist("living")
+    
+    print(answers)
+
+    for category in answers:
+        if answers[category]:
+            if isinstance(answers[category], str):
+                pass
+            elif isinstance(answers[category], list):
+                answers[category] = convert_to_csv(answers[category])
+            else:
+                pass
+
+    sql = '''INSERT INTO responses (labor, market, care, living) VALUES (%(labor)s, %(market)s, %(care)s,  %(living)s) RETURNING response_id'''
+    cur = DB_CON.cursor()
+
+    query_data = {
+        'labor': answers['labor'],
+        'market': answers['market'],
+        'care': answers['care'],
+        'living': answers['living']
+    }
+    cur.execute(sql, query_data)
+
+    DB_CON.commit()
+
+    return flask.Response(json.dumps(answers), mimetype="application/json")
 
 @webapp.route("/dimensions")
 def home():

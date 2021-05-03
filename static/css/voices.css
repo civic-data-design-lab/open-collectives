@@ -138,9 +138,7 @@ main {
 
 /* Modal Styles for Pop-up Questions */
 .modal-content {
-    /* height: calc(100vw - 2rem);
-    max-height: 515px; */
-    max-height: calc(100vh - 6rem);
+    /* max-height: calc(100vh - 6rem); */
     border: none;
     border-radius: 0px;
     outline: none;
@@ -469,6 +467,10 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
     }
     .modal-dialog {
         max-width: 515px;
+    }
+    .modal-content {
+        height: calc(100vw - 2rem);
+        max-height: 515px;
     }
     #nav-dashboard {
         height: calc(32vh - 4rem);
