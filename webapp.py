@@ -137,7 +137,7 @@ def responses():
 
     return flask.Response(json.dumps(data), mimetype="application/json")
 
-@webapp.route('/survey', methods=['GET'])
+@webapp.route("/survey", methods=["GET"])
 def survey():
     answers = {}
     answers['labor'] = request.args.getlist("labor")

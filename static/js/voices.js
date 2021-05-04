@@ -156,7 +156,11 @@ jQuery.getJSON("./responses", function(data) {
                 item[response]++;
             }
         });
-        item.total = responseData.length - item.nullValue;
+        if (!item.nullValue) {
+            item.total = responseData.length;
+        } else {
+            item.total = responseData.length - item.nullValue;
+        }
 
         (theme == "labor") ? (laborData = item)
             : (theme == "market") ? (marketData = item)
@@ -195,35 +199,28 @@ jQuery.getJSON("./responses", function(data) {
 function openModal(modalId) {
     if (modalId == "modal-thanks") {
         const params = new URLSearchParams();
-        params.set("labor", $('input[name="labor"]:checked').map(function() {return $(this).val()}).toArray().join(","));
-        params.set("market", $('input[name="market"]:checked').val());
-        params.set("care", $('input[name="care"]:checked').val());
-        params.set("living", $('input[name="living"]:checked').map(function() {return $(this).val()}).toArray().join(","));
+
+        for (var i = 0; i < themesList.length; i++) {
+            theme = themesList[i];
+            inputName = "input[name='" + theme + "']:checked";
+
+            if ($(inputName).val() !== undefined) {
+                if (theme == "labor" || theme == "living") {
+                    checkedList = $(inputName).map(function() {return $(this).val()}).toArray();
+                    checkedList.forEach((value) => params.append(theme, value));
+                } else {
+                    params.set(theme, $(inputName).val());
+                }
+            }
+        }
 
         $.ajax({
-            // contentType : 'application/json',
-            // data: {
-            //     labor: $('input[name="labor"]:checked').map(function() {return $(this).val()}).toArray(),
-            //     market: $('input[name="market"]:checked').val(),
-            //     care: $('input[name="care"]:checked').val(),
-            //     living: $('input[name="living"]:checked').map(function() {return $(this).val()}).toArray()
-            // },
-            // data: JSON.stringify(answers),
             method: 'GET',
             url: '/survey?' + params.toString()
         });
 
         document.getElementById(modalId).style.display = "block";
         document.getElementById(modalId).classList.add("show");
-
-        // document.getElementById('form').submit(function(e) {
-        // $("#form").submit(function(e) {
-            // e.preventDefault();
-            // return false;
-        // });
-        
-        // e.preventDefault();
-        // return false;
     }
     else {
         document.getElementById(modalId).style.display = "block";
