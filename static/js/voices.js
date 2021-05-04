@@ -194,17 +194,23 @@ jQuery.getJSON("./responses", function(data) {
 // open and close modals
 function openModal(modalId) {
     if (modalId == "modal-thanks") {
+        const params = new URLSearchParams();
+        params.set("labor", $('input[name="labor"]:checked').map(function() {return $(this).val()}).toArray().join(","));
+        params.set("market", $('input[name="market"]:checked').val());
+        params.set("care", $('input[name="care"]:checked').val());
+        params.set("living", $('input[name="living"]:checked').map(function() {return $(this).val()}).toArray().join(","));
+
         $.ajax({
-            contentType : 'application/json',
-            data: {
-                labor: $('input[name="labor"]:checked').map(function() {return $(this).val()}).toArray(),
-                market: $('input[name="market"]:checked').val(),
-                care: $('input[name="care"]:checked').val(),
-                living: $('input[name="living"]:checked').map(function() {return $(this).val()}).toArray()
-            },
+            // contentType : 'application/json',
+            // data: {
+            //     labor: $('input[name="labor"]:checked').map(function() {return $(this).val()}).toArray(),
+            //     market: $('input[name="market"]:checked').val(),
+            //     care: $('input[name="care"]:checked').val(),
+            //     living: $('input[name="living"]:checked').map(function() {return $(this).val()}).toArray()
+            // },
             // data: JSON.stringify(answers),
-            method: 'POST',
-            url: '/survey'
+            method: 'GET',
+            url: '/survey?' + params.toString()
         });
 
         document.getElementById(modalId).style.display = "block";
