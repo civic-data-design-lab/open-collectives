@@ -126,6 +126,10 @@ $(".scroll-dots a").on("click", function() {
     $(this).parent().addClass("active");
     window.location.hash = $(this).attr("href");
 });
+$('body').scrollspy({ target: '#scrollspy', offset: 50 });
+// var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+//     target: '#scrollspy'
+// });
 
 // click to read more
 $(".read-more").on("click", function() {

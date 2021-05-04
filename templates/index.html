@@ -17,7 +17,7 @@
     <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
 </head>
 
-<body id="home" class="black">
+<body id="home" class="black position-relative" data-bs-spy="scroll" data-bs-target="#scrollspy" data-bs-offset="0" tabindex="0">
 
     <nav class="navbar navbar-expand navbar-dark fixed-top">
         <div class="container-fluid dropdown">
@@ -37,8 +37,8 @@
         </div>
     </nav>
 
-    <div class="scroll-dots">
-        <ul>
+    <div id="scrollspy" class="scroll-dots">
+        <ul role="tablist">
             <li class="link-white active"><a href="#oc-film"><span>Film</span><div class="dot active"></div></a></li>
             <li><a class="link-white" href="#oc-voices"><span>Voices</span><div class="dot"></div></a></li>
             <li><a class="link-white" href="#oc"><span>Open Collectives</span><div class="dot"></div></a></li>
@@ -47,7 +47,7 @@
         </ul>
     </div>
 
-    <main class="container">
+    <main class="container position-relative">
         <section id="sect-video" class="container-fluid section d-flex">
             <a href="./film"><video class="align-self-center" id="oc-film" width="560" height="315" autoplay muted playsinline loop>
                 <source src="./video/FormingMutualism_Teaser_20sec_FINAL.mp4" type="video/mp4">
@@ -103,7 +103,7 @@
                     <a class="link-white" href="./labor"><h2 class="h4 text-uppercase position-relative">Labor
                         <div class="arrow arrow-sm"><div class="head"></div></div>
                     </h2></a>
-                    <p>Working with <a class="fw-bold fst-italic text-white" href="http://mosaic.us" target="_blank">Mosaic.us</a>&mdash;a full-stack construction company developing technologies to make home-building more efficient, inclusive, sustainable, and fulfilling.</p>
+                    <p>Working with <a class="fw-bold fst-italic text-white" href="http://mosaic.us" target="_blank">Mosaic.us</a>&mdash;a <br>full-stack construction company developing technologies to make home-building more efficient, inclusive, sustainable, and fulfilling.</p>
                 </div>
             </div>
             <div class="row">
@@ -111,7 +111,7 @@
                     <a class="link-white" href="./market"><h2 class="h4 text-uppercase position-relative">Market
                         <div class="arrow arrow-sm"><div class="head"></div></div>
                     </h2></a>
-                    <p>Assisting <a class="fw-bold fst-italic text-white" href="https://www.quipumarket.com" target="_blank">Quipu</a>&mdash;a micro-currency digital platform&mdash;to establish a physical marketplace empowering members of a low-income community in Colombia.</p>
+                    <p>Assisting <a class="fw-bold fst-italic text-white" href="https://www.quipumarket.com" target="_blank">Quipu</a>&mdash;a <br>micro-currency digital platform&mdash;to establish a physical marketplace empowering members of a low-income community in Colombia.</p>
                 </div>
             </div>
             <div class="row">
@@ -119,7 +119,7 @@
                     <a class="link-white" href="./care"><h2 class="h4 text-uppercase position-relative">Care
                         <div class="arrow arrow-sm"><div class="head"></div></div>
                     </h2></a>
-                    <p>Supporting <a class="fw-bold fst-italic text-white" href="https://www.carehaus.net/" target="_blank">Carehaus</a> in developing intergenerational co-housing where caregivers live alongside and care for older adults and disabled people.</p>
+                    <p>Supporting <a class="fw-bold fst-italic text-white" href="https://www.carehaus.net/" target="_blank">Carehaus</a> in developing intergenerational <br>co-housing where caregivers live alongside and care for older adults and disabled people.</p>
                 </div>
                 <div class="col-7 offset-4 col-md-4 offset-md-3 col-lg-3 offset-lg-4" id="p-living">
                     <a class="link-white" href="./living"><h2 class="h4 text-uppercase position-relative">Living
@@ -160,6 +160,8 @@
         </section>
     </main><!-- /.container -->
 
+    <script type="text/javascript" src="./js/popper.min.js"></script>
+    <script type="text/javascript" scr="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script type="text/javascript" src="./js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./js/script.js"></script>
 </body>
