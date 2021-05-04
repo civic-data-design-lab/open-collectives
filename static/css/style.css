@@ -409,13 +409,24 @@ a.arrow-left {
 .scroll-dots {
     position: fixed;
     right: 1rem;
-    bottom: 0rem;
+    bottom: 1rem;
     z-index: 10;
 }
-.scroll-dots ul {
+.scroll-dots .list-group {
+    display: inline-block;
     list-style: none;
     padding-left: 0px;
     text-align: right;
+    border: none;
+}
+.scroll-dots .list-group-item {
+    padding: 0px;
+    background: none;
+    border: none;
+}
+.scroll-dots .list-group-item.active {
+    background: none;
+    border: none;
 }
 .scroll-dots .dot {
     display: inline-block;

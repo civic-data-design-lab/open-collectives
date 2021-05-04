@@ -17,7 +17,7 @@
     <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
 </head>
 
-<body id="home" class="black position-relative" data-bs-spy="scroll" data-bs-target="#scrollspy" data-bs-offset="0" tabindex="0">
+<body id="home" class="black position-relative" data-bs-spy="scroll" data-bs-target="#scrollspy" data-bs-offset="90" tabindex="0">
 
     <nav class="navbar navbar-expand navbar-dark fixed-top">
         <div class="container-fluid dropdown">
@@ -28,7 +28,7 @@
                 </div>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" id="dropdownMenu" aria-labelledby="dropdownMenu">
-                <li><a class="dropdown-item active" aria-current="page" href="./index">Open Collectives</a></li>
+                <li><a class="dropdown-item" aria-current="page" href="./index">Open Collectives</a></li>
                 <li><a class="dropdown-item" href="./film">Film</a></li>
                 <li><a class="dropdown-item" href="./about">About</a></li>
                 <li><a class="dropdown-item" href="./voices">Collective Voices</a></li>
@@ -38,16 +38,16 @@
     </nav>
 
     <div id="scrollspy" class="scroll-dots">
-        <ul role="tablist">
-            <li class="link-white active"><a href="#oc-film"><span>Film</span><div class="dot active"></div></a></li>
-            <li><a class="link-white" href="#oc-voices"><span>Voices</span><div class="dot"></div></a></li>
-            <li><a class="link-white" href="#oc"><span>Open Collectives</span><div class="dot"></div></a></li>
-            <li><a class="link-white" href="#oc-themes"><span>Themes</span><div class="dot"></div></a></li>
-            <li><a class="link-white" href="#oc-dimensions"><span>Dimensions</span><div class="dot"></div></a></li>
+        <ul class="list-group" role="tablist">
+            <li><a class="list-group-item link-white active" href="#oc-film"><span>Film</span><div class="dot"></div></a></li>
+            <li><a class="list-group-item link-white" href="#oc-voices"><span>Voices</span><div class="dot"></div></a></li>
+            <li><a class="list-group-item link-white" href="#oc"><span>Open Collectives</span><div class="dot"></div></a></li>
+            <li><a class="list-group-item link-white" href="#oc-themes"><span>Themes</span><div class="dot"></div></a></li>
+            <li><a class="list-group-item link-white" href="#oc-dimensions"><span>Dimensions</span><div class="dot"></div></a></li>
         </ul>
     </div>
 
-    <main class="container position-relative">
+    <main class="container">
         <section id="sect-video" class="container-fluid section d-flex">
             <a href="./film"><video class="align-self-center" id="oc-film" width="560" height="315" autoplay muted playsinline loop>
                 <source src="./video/FormingMutualism_Teaser_20sec_FINAL.mp4" type="video/mp4">

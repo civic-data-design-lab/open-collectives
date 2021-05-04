@@ -116,8 +116,8 @@ function stopVideo() {
   player.stopVideo();
 }
 
-$('#vidTrailer').on('load', function(){
-  $('#vidTrailer').contents().find('.ytp-chrome-top').css('display','none!important');
+$('#oc-film').on('load', function(){
+  $('#oc-film').contents().find('.ytp-chrome-top').css('display','none!important');
 });
 
 // scroll to section dots
@@ -126,10 +126,7 @@ $(".scroll-dots a").on("click", function() {
     $(this).parent().addClass("active");
     window.location.hash = $(this).attr("href");
 });
-$('body').scrollspy({ target: '#scrollspy', offset: 50 });
-// var scrollSpy = new bootstrap.ScrollSpy(document.body, {
-//     target: '#scrollspy'
-// });
+$('body').scrollspy({ target: '#scrollspy', offset: 90});
 
 // click to read more
 $(".read-more").on("click", function() {
