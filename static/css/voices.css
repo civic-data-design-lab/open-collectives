@@ -100,48 +100,87 @@ main {
 #questions .tile:hover .img-neg {
     opacity: 1;
 }
-#div-submit {
+#div-view-results {
     position: absolute;
-    width: 8rem;
+    width: 15rem;
     height: 1rem;
     top: 90%;
     right: 2rem;
 }
-#div-submit button {
+#div-view-results a {
     display: flex;
     align-items: center;
     background: none;
     border: none;
 }
-#btn-thanks.disable {
+#btn-view-results .before-arrow {
+    padding-right: 7rem;
+}
+#btn-view-results .arrow {
+    left: calc(100% - 7rem);
+}
+/* #btn-view-results.disable {
     color: rgba(0,0,0,0.5);
-}
-#btn-thanks.disable:hover {
+} */
+/* #btn-view-results.disable:hover {
     cursor: auto;
-}
-#btn-thanks.disable:hover .arrow {
+} */
+/* #btn-view-results.disable:hover .arrow {
     width: 4rem;
-}
-#btn-thanks.disable .arrow,
-#btn-thanks.disable .arrow .head,
-#btn-thanks.disable .arrow .head:after {
+} */
+/* #btn-view-results.disable .arrow,
+#btn-view-results.disable .arrow .head,
+#btn-view-results.disable .arrow .head:after {
     background-color: rgba(0,0,0,0.5);
-}
-#btn-thanks.ready #submit {
+} */
+#btn-view-results.ready span {
     color: #FF0000;
 }
-#btn-thanks.ready .arrow,
-#btn-thanks.ready .arrow .head,
-#btn-thanks.ready .arrow .head:after {
+#btn-view-results.ready .arrow,
+#btn-view-results.ready .arrow .head,
+#btn-view-results.ready .arrow .head:after {
     background-color: #FF0000;
 }
 
-/* Modal Styles for Pop-up Questions */
+/* Modal & Flip Card Styles for Pop-up Questions */
+.card-wrapper {
+    perspective: 1000px;
+}
+.card {
+    position: relative;
+    flex-direction: unset;
+    background: none;
+    border: none;
+    transform-style: preserve-3d;
+}
+.card-rotating.flipped {
+    -webkit-transform: rotateY(180deg)!important;
+    -moz-transform: rotateY(180deg)!important;
+    -ms-transform: rotateY(180deg)!important;
+    -o-transform: rotateY(180deg)!important;
+    transform: rotateY(180deg)!important;
+}
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.card-front {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
 .modal-content {
     /* max-height: calc(100vh - 6rem); */
     border: none;
     border-radius: 0px;
     outline: none;
+}
+.card-front {
     /* background-color: rgba(255,255,255,0) */
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -150,16 +189,24 @@ main {
     -o-background-size: cover;
     background-size: cover;
 }
-#modal-labor .modal-content {
+.card-back {
+    background-color: #FEF8DD;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+#modal-labor .card-front {
     background-image: url("../img/labor-quest.svg");
 }
-#modal-market .modal-content {
+#modal-market .card-front {
     background-image: url("../img/market-quest.svg");
 }
-#modal-care .modal-content {
+#modal-care .card-front {
     background-image: url("../img/care-quest.svg");
 }
-#modal-living .modal-content {
+#modal-living .card-front {
     background-image: url("../img/living-quest.svg");
 }
 .img-quest {
@@ -188,24 +235,40 @@ main {
 .modal-header .close span {
     font-size: 2rem!important;
 }
-.modal-body {
+.card-front .modal-body {
     overflow: hidden auto;
 }
-.modal-footer .continue {
+.card-back .modal-body {
+    overflow: hidden;
+}
+.modal-footer button {
     background: none;
     border: none;
+}
+.modal-footer .btn-submit, .modal-footer .btn-continue {
     margin: 0rem 1rem 0rem 0rem;
 }
-.modal-footer .continue span {
-    margin-right: 1rem;
-    padding-right: 5rem;
+.modal-footer .btn-back span {
+    margin-left: 1rem!important;
+    padding-left: 6rem!important;
+}
+.modal-footer .btn-submit span, .modal-footer .btn-continue span {
+    margin-right: 1rem!important;
+    padding-right: 5rem!important;
+}
+/* mini chart styles */
+.mini-chart {
+    height: 100%;
+}
+.mini-chart svg {
+    max-height: 100%;
 }
 
 /* Modal Styles for Thank You */
 /* #modal-thanks {
     background-color: rgba(0,0,0,0.5);
 } */
-#modal-thanks .modal-content {
+/* #modal-thanks .modal-content {
     background-color: #fff;
 }
 #modal-thanks .h4 {
@@ -223,7 +286,7 @@ main {
     max-width: 150px;
     width: calc(50% - 2rem);
     height: calc(100% - 1rem);
-}
+} */
 
 /* Form Input Styles */
 .modal-body .form-check-input:focus {

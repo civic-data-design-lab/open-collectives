@@ -2,8 +2,8 @@
 var modalLabor = document.getElementById("modal-labor"),
     modalMarket = document.getElementById("modal-market"),
     modalCare = document.getElementById("modal-care"),
-    modalLiving = document.getElementById("modal-living"),
-    modalThanks = document.getElementById("modal-thanks");
+    modalLiving = document.getElementById("modal-living");
+    // modalThanks = document.getElementById("modal-thanks");
 
 var questionsData = [],
     responsesData = [],
@@ -195,10 +195,91 @@ jQuery.getJSON("./responses", function(data) {
 });
 
 // FUNCTIONS
+// generate modals and form inputs for each theme question
+function createModals(questionsData) {
+    var modalTemplate = $(".modal.template");
+    questionsData.forEach((question) => {
+        var modal = modalTemplate.clone();
+        var theme = question.theme,
+            modalId = "modal-" + question.theme,
+            cardId = "card-" + question.theme,
+            questionText = question.question,
+            responses = question.responses,
+            qType = question.type,
+            miniChartId = "mini-chart-" + question.theme;
+
+        modal.attr("id", modalId).attr("aria-labelledby", theme);
+        modal.find(".card").attr("id", cardId);
+        modal.find(".h5").html(questionText);
+        modal.find(".btn-rotate").attr("data-card", cardId);
+        // modal.find(".continue").attr("onclick", closeModal(modalID));
+        responses.forEach((response) => {
+            var rID = response.rID,
+                rLong = response.long;
+
+            var responseString = "<input class='form-check-input' type='" + qType + "' name='" + theme + "' id='" + rID + "' value='" + rID + "'><label class='form-check-label' for='" + rID + "'>" + rLong + "</label>";
+
+            modal.find(".card-front .modal-body").append(responseString);
+        });
+        modal.find(".mini-chart").attr("id", miniChartId);
+
+        modal.removeClass("template").appendTo(modalTemplate.parent());
+    });
+};
 // open and close modals
 function openModal(modalId) {
-    if (modalId == "modal-thanks") {
-        const params = new URLSearchParams();
+    document.getElementById(modalId).style.display = "block";
+    document.getElementById(modalId).classList.add("show");
+
+    var theme = modalId.slice(6),
+        modalSelectorId = "#form #modal-" + theme,
+        miniChartId = "#" + $(modalSelectorId).find(".mini-chart").attr("id");
+    
+    if ($(miniChartId).children().length == 0) {
+        if (theme == "labor") {
+            const svgMiniLabor = d3.select("#form #mini-chart-labor")
+                .append("svg")
+                .attr("class", "bar-horz")
+                .attr("viewBox", [0, 0, width, height]);
+            plotHorizontalBar(svgMiniLabor, laborChartData);
+        }
+        else if (theme == "market") {
+            const svgMiniMarket = d3.select("#form #mini-chart-market")
+                .append("svg")
+                .attr("class", "donut")
+                .attr("viewBox", [-width/2, -height/2, width, height]);
+            plotDonutChart(svgMiniMarket, marketChartData);
+        }
+        else if (theme == "care") {
+            const svgMiniCare = d3.select("#form #mini-chart-care")
+                .append("svg")
+                .attr("class", "donut")
+                .attr("viewBox", [-width/2, -height/2, width, height]);
+            plotDonutChart(svgMiniCare, careChartData);
+        }
+        else if (theme == "living") {
+            const svgMiniLiving = d3.select("#form #mini-chart-living")
+                .append("svg")
+                .attr("class", "bar-horz")
+                .attr("viewBox", [0, 0, width, height]);
+            plotHorizontalBar(svgMiniLiving, livingChartData);
+        }
+    };
+}
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = "none";
+    document.getElementById(modalId).classList.remove("show");
+
+    // if (modalId == "modal-thanks") {
+    //     window.location.hash = "#results";
+    //     $("html, body").animate({ scrollTop: winHeight });
+        // console.log("continue to results");
+    // }
+}
+
+// submit form data
+function submitForm() {
+    const params = new URLSearchParams();
 
         for (var i = 0; i < themesList.length; i++) {
             theme = themesList[i];
@@ -218,65 +299,7 @@ function openModal(modalId) {
             method: 'GET',
             url: '/survey?' + params.toString()
         });
-
-        document.getElementById(modalId).style.display = "block";
-        document.getElementById(modalId).classList.add("show");
-    }
-    else {
-        document.getElementById(modalId).style.display = "block";
-        document.getElementById(modalId).classList.add("show");
-    }
-}
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = "none";
-    document.getElementById(modalId).classList.remove("show");
-
-    if (modalId == "modal-thanks") {
-        window.location.hash = "#results";
-        $("html, body").animate({ scrollTop: winHeight });
-        // console.log("continue to results");
-    }
-}
-
-// generate modals and form inputs for each theme question
-function createModals(questionsData) {
-    // var modalTemplate = $(".modal.template");
-    for (i = 0; i < questionsData.length; i++) {
-    //     var modal = modalTemplate.clone();
-        var theme = questionsData[i].theme,
-            modalID = 'modal-' + theme,
-            question = questionsData[i].question,
-            responses = questionsData[i].responses,
-            qType = questionsData[i].type;
-
-    //     modal.find(".modal.template")
-    //         .attr("id", modalID)
-    //         .attr("aria-labelledby", theme);
-    //     modal.find(".h5").html(question);
-    //     modal.find(".close").attr("onclick", closeModal(modalID));
-    //     modal.find(".continue").attr("onclick", closeModal(modalID));
-
-        var htmlString = "<div class='modal fade' id='" + modalID + "' tabindex='-1' role='dialog' aria-labelledby='" + theme + "' aria-hidden='true'><div class='modal-dialog modal-dialog-centered modal-fullscreen-sm-down' role='document'><div class='modal-content'><div class='modal-header'><h3 class='h5 mb-0'>" + question + "</h3><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div><div class='modal-body'>";
-        var modalStringEnd = "</div><div class='modal-footer'><button type='button' class='continue link-black' data-dismiss='modal' aria-label='Continue'><span aria-hidden='true' class='position-relative before-arrow'><b>Continue</b><div class='arrow'><div class='head'></div></div></span></button></div></div></div></div>";
-
-        for (j = 0; j < responses.length; j++) {
-            var rID = responses[j].rID,
-                rLong = responses[j].long;
-            var responseString = "<input class='form-check-input' type='" + qType + "' name='" + theme + "' id='" + rID + "' value='" + rID + "'><label class='form-check-label' for='" + rID + "'>" + rLong + "</label>";
-
-            htmlString += responseString;
-            // modal.find(".modal-body").append(responseString);
-        };
-
-        // modal.find(".modal-body").html(responseString);
-        // modal.removeClass("template").appendTo(modalTemplate.parent());
-
-        htmlString += modalStringEnd;
-        $('#form').append(htmlString);
-    }
-
-
-}
+};
 
 // change results theme content
 function changeTheme(lastTheme, currentTheme) {
@@ -293,7 +316,6 @@ function changeTheme(lastTheme, currentTheme) {
     $("#theme-learn").html(questionsData[currentIndex].learn);
     $("#theme-link").attr("href", "./" + currentTheme);
     $("#theme-link > span").text(currentTheme + "-based collectives");
-
     // console.log(currentTheme);
 };
 function changeThemeData(currentTheme) {
@@ -315,7 +337,6 @@ function changeThemeData(currentTheme) {
     $("path").removeClass("active");
     $("text").removeClass("active");
     $("." + topResponse).addClass("active");
-
 }
 
 // CREATE D3 CHARTS
@@ -582,9 +603,9 @@ window.onclick = function (event) {
     else if (event.target == modalLiving) {
         closeModal('modal-living')
     }
-    else if (event.target == modalThanks) {
-        closeModal('modal-thanks');
-    }
+    // else if (event.target == modalThanks) {
+    //     closeModal('modal-thanks');
+    // }
 };
 // keep results section at top when resizing window
 $(window).resize(function () {
@@ -657,7 +678,7 @@ $(document).ready(function () {
     // if input checked
     $("#form").on("click", ".form-check-input", function() {
         var themeName = $(this).attr("name");
-
+        // tile colored images if input checked
         if ($(this).is(":checked")) {
             $("#btn-" + themeName + " .img-pos").css("opacity", 0);
             $("#btn-" + themeName + " .img-neg").css("opacity", 0);
@@ -669,21 +690,50 @@ $(document).ready(function () {
             $("#btn-" + themeName + " .img-pos").css("opacity", 1);
         }
         // if all items checked
-        if ($("input[name*='labor']").is(":checked") && $("input[name*='market']").is(":checked") && $("input[name*='care']").is(":checked") && $("input[name*='living']").is(":checked")) {
-            $("#btn-thanks").addClass("ready");
-        }
+        // if ($("input[name*='labor']").is(":checked") && $("input[name*='market']").is(":checked") && $("input[name*='care']").is(":checked") && $("input[name*='living']").is(":checked")) {
+        //     $("#btn-view-results").addClass("ready");
+        // }
         // if all items checked
-        else if ($(".form-check-input").is(":checked")) {
-            $("#btn-thanks").removeClass("disable");
-        }
+        // else if ($(".form-check-input").is(":checked")) {
+        //     $("#btn-view-results").removeClass("disable");
+        // }
     });
+    // flip card on input submit
+    $("#form").on("click", ".btn-rotate", function() {
+        var cardId = "#" + $(this).attr("data-card"),
+            theme = cardId.slice(6);
 
-    // on submit form
-    $("#form").on('submit', "#btn-thanks", function(e) {
-        console.log("thank you");
-        // document.getElementById('modal-thanks').style.display = "block";
-        // document.getElementById('modal-thanks').classList.add("show");
-        // e.preventDefault();
+        if ($(this).hasClass("btn-submit")) {
+            $(cardId).addClass("flipped");
+
+            if ($(cardId).find("input").is(":checked")) {
+                if ($(cardId).find("input").attr("type") == "checkbox") {
+                    checkedResponses = $(cardId).find("input:checked").map(function() {return $(this).val()}).toArray();
+                    checkedResponses.forEach(response => {
+                        hightlightResponse = "#form " + cardId + " ." + response;
+                        $(hightlightResponse).addClass("active");
+                    })
+                }
+                else if ($(cardId).find("input").attr("type") == "radio") {
+                    hightlightResponse = "#form " + cardId + " ." + $(cardId).find("input:checked").val();
+                    $(hightlightResponse).addClass("active");
+                }
+            }
+            else {
+                (theme == "labor") ? (topResponse = laborTopResponse)
+                    : (theme == "market") ? (topResponse = marketTopResponse)
+                        : (theme == "care") ? (topResponse = careTopResponse)
+                            : (theme == "living") ? (topResponse = livingTopResponse)
+                                : (topResponse = undefined);
+                hightlightResponse = "#form " + cardId + " ." + topResponse;
+                $(hightlightResponse).addClass("active");
+            }
+        }
+        else if ($(this).hasClass("btn-back")) {
+            $(cardId).removeClass("flipped");
+        };
+        
+        // console.log($(this).attr("data-card"));
     });
     // console.log("ready!");
 })

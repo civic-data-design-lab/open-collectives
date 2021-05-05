@@ -59,6 +59,10 @@ a:hover {
     text-decoration: underline;
     cursor: pointer;
 }
+a:hover, a:focus {
+    box-shadow: none!important;
+    outline: none!important;
+}
 .text-prophet {
     font-family: 'Prophet-Regular';
 }
@@ -677,11 +681,11 @@ div.ytp-chrome-top {
 #nav-back span {
     padding-left: 6rem;
 }
-#nav-back .arrow-left .arrow {
+#nav-back .arrow-left .arrow, .btn-back.arrow-left .arrow {
     left: auto;
     right: calc(100% - 5rem);
 }
-#nav-back .arrow-left .arrow {
+#nav-back .arrow-left .arrow, .btn-back.arrow-left .arrow {
     transform: rotate(180deg);
     -o-transform: rotate(180deg);
     -ms-transform: rotate(180deg);

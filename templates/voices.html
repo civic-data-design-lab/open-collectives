@@ -97,20 +97,19 @@
                     </figure></a>
                 </div>
             </div>
-            <div id="div-submit">
-                <!-- <button id="btn-thanks" data-toggle="modal" data-target="#modal-thanks" class="link-black disable" onclick="document.getElementById('form').submit()"> -->
-                <button type="submit" id="btn-thanks" data-toggle="modal" data-target="#modal-thanks" class="link-black" onclick="openModal('modal-thanks')">
-                    <span class="before-arrow" id="submit"><b>Submit</b></span>
-                    <div class="arrow disable"><div class="head"></div></div>
-                </button>
+            <div id="div-view-results">
+                <!-- <button type="submit" id="btn-thanks" data-toggle="modal" data-target="#modal-thanks" class="link-black" onclick="openModal('modal-thanks')"> -->
+                <a id="btn-view-results" class="link-black" href="#results">
+                    <span class="before-arrow" id="view-results"><b>View the results</b></span>
+                    <div class="arrow"><div class="head"></div></div>
+                </a>
             </div>
  
             <form id="form">
                 <!-- theme survey questions modal template -->
-                <div class='modal fade template' id='' tabindex='-1' role='dialog' aria-labelledby='' aria-hidden='true'>
-                    <div class='modal-dialog modal-dialog-centered' role='document'>
-                        <div class='modal-content'>
-                            <!-- <img class='img-quest' src='" + imgSrc + "' alt='" + titleCase(theme) + " Question Background'> -->
+                <div class='modal fade card-wrapper template' id='' tabindex='-1' role='dialog' aria-labelledby='' aria-hidden='true'>
+                    <div id="card-1" class='modal-dialog modal-dialog-centered card card-rotating' role='document'>
+                        <div class="modal-content card-face card-front">
                             <div class='modal-header'>
                                 <h3 class='h5 mb-0'>Question</h3>
                                 <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
@@ -120,29 +119,55 @@
                             <div class='modal-body'>
                                 <!-- insert questions here -->
                             </div>
-                            <div class='modal-footer'>
-                                <button type='button' class='continue link-black' data-dismiss='modal' aria-label='Continue'>
+                            <div class='modal-footer justify-content-end'>
+                                <button type='button' class='btn-rotate btn-submit link-black' data-card='' aria-label='Submit'>
+                                    <span aria-hidden='true' class='position-relative before-arrow'>
+                                        <b>Submit</b>
+                                        <div class='arrow'><div class='head'></div></div>
+                                    </span>
+                                </button>
+                            </div>
+                        </div><!-- close front side -->
+                        <div class="card-face card-back modal-content">
+                            <div class='modal-header'>
+                                <h3 class='h5 mb-0'>Question</h3>
+                                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                    <span aria-hidden='true'>&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- insert chart here -->
+                                <div class="mini-chart"></div>
+                            </div>
+                            <div class='modal-footer justify-content-between'>
+                                <button type='button' class='btn-rotate btn-back link-black arrow-left' data-card='' aria-label='Back'>
+                                    <span aria-hidden='true' class='position-relative before-arrow'>
+                                        <b>Back</b>
+                                        <div class='arrow'><div class='head'></div></div>
+                                    </span>
+                                </button>
+                                <button type='button' class='btn-continue link-black' data-card='' aria-label='Continue'>
                                     <span aria-hidden='true' class='position-relative before-arrow'>
                                         <b>Continue</b>
                                         <div class='arrow'><div class='head'></div></div>
                                     </span>
                                 </button>
                             </div>
-                        </div>
+                        </div><!-- close back side -->
                     </div>
                 </div><!-- close modal -->
             </form>
             
             <!-- thank you modal -->
-            <div class='modal fade' id='modal-thanks' tabindex='-1' role='dialog' aria-labelledby='thanks' aria-hidden='true'>
+            <!-- <div class='modal fade' id='modal-thanks' tabindex='-1' role='dialog' aria-labelledby='thanks' aria-hidden='true'>
                 <div class='modal-dialog modal-dialog-centered modal-fullscreen-sm-down' role='document'>
                     <div class='modal-content'>
                         <div class='modal-header'>
-                            <span class='h4 w-100 text-center m-0'>Thank you for your input!</span>
+                            <span class='h4 w-100 text-center m-0'>Thank you for your input!</span> -->
                             <!-- <button type='button' class='close' data-dismiss='modal' aria-label='Close' onclick="closeModal('modal-thanks')">
                                 <span aria-hidden='true'>&times;</span>
                             </button> -->
-                        </div>
+                        <!-- </div>
                         <div class='modal-body d-flex flex-column align-items-center'>
                             <div class="row h-50 mb-2 mb-sm-0 justify-content-center align-items-sm-end position-relative">
                                 <img class="img-thanks mx-2 p-0" src="./img/labor-color.svg" alt="Labor Form">
@@ -163,7 +188,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --><!-- close thank you modal -->
         </section>
         <section class="container-fluid section labor" id="results">
             <div class="w-100 d-flex flex-column flex-md-row-reverse" id="nav-dashboard">
@@ -172,7 +197,7 @@
                         <h3 id="headline-percent" class="h1 mb-0"></h3>
                         <span class="position-relative text-prophet">of respondents...</span>
                     </div>
-                    <p id="headline-description" class="h4 position-relative mb-md-3"></p>
+                    <p id="headline-description" class="h4 position-relative mb-md-2"></p>
                 </div>
                 <div id="nav-results" class="h-50 col col-md-6 col-md-7 d-flex align-items-end position-relative">
                     <a id="arrow-prev" class="arrow-left">
