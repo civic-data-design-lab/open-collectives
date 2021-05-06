@@ -399,18 +399,16 @@ p {
     background-repeat:no-repeat;
 }
   
-  
-  
+.modal-image {
+    max-width: 100%;
+    filter: grayscale(1);
+}
 .modal-right {
     /* max-width: 40%;
     padding: 15px 10px 15px 15px;  */
     position: sticky;
     top: -10px;
     right: 0;
-}
-.modal-right .modal-image {
-    max-width: 100%;
-    filter: grayscale(1);
 }
 
 .modal-header .h3 {
@@ -791,7 +789,7 @@ input[type="range"]:focus::-ms-fill-upper {
 .radar-chart svg {
     display: block;
     margin: 0 auto;
-    background-image: url(/static/img/ticks.png);
+    /* background-image: url(/static/img/ticks.png); */
     background-size: 100%;
 }
   

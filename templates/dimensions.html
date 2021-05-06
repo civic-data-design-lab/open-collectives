@@ -17,6 +17,7 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script type="text/javascript" src="./js/d3.v6.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="./css/nav.css">
@@ -345,10 +346,13 @@
 
                     <div class="modal-body">
                       <div class="row mx-0">
-                        <p class="item-longDescription col-12 col-md-7"></p>
-                        <div class="modal-right col-12 col-md-5">
-                          <img class="modal-image" />
+                          <div class="col-12 col-md-6">
+                            <img class="modal-image mb-3" />
+                            <p class="item-longDescription"></p>
+                          </div>
+                        <div class="modal-right col-12 col-md-6">
                           <div class="radar-chart"></div>
+                          <div class="slider-chart"></div>
                         </div>
                       </div>
                     </div>

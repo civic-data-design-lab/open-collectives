@@ -38,7 +38,8 @@ var RadarChart = {
           return d3.max(d.axes, function(o){ return o.value; });
         }));
 
-        var allAxis = data[0].axes.map(function(i, j){ return i.axis; });
+        // var allAxis = data[0].axes.map(function(i, j){ return i.axis; });
+        var allAxis = ["economics", "governance", "platform", "porosity", "size"];
         var total = allAxis.length;
         var radius = cfg.factor * Math.min(cfg.w / 2, cfg.h / 2);
 
@@ -46,7 +47,12 @@ var RadarChart = {
 
         function getPosition(i, range, factor, func){
           factor = typeof factor !== 'undefined' ? factor : 1;
-          return range * (1 - factor * func(i * cfg.radians / total));
+          if (func == Math.sin) {
+              return range * (1 + factor * func(i * cfg.radians / total));
+          }
+          else {
+            return range * (1 - factor * func(i * cfg.radians / total));
+          }
         }
         function getHorizontalPosition(i, range, factor){
           return getPosition(i, range, factor, Math.sin);
@@ -54,6 +60,26 @@ var RadarChart = {
         function getVerticalPosition(i, range, factor){
           return getPosition(i, range, factor, Math.cos);
         }
+
+        // radial scale
+        var radialScale = d3.scale.linear()
+            .domain([0,cfg.radius])
+            .range([0,(cfg.w/4 * cfg.factor * 6/5)]);
+        const radialTicks = [1,2,3,4,5];
+
+        // radial gridlines
+        var radialGrid = container.append("g")
+            .attr("class", "grid-radial")
+            .selectAll("circle")
+            .data(radialTicks)
+            .enter()
+            .append("circle")
+                .attr("cx", cfg.w/2)
+                .attr("cy", cfg.h/2)
+                .attr("r", (t) => radialScale(t))
+                .attr("fill", "none")
+                .attr("stroke", "#ccc")
+                .attr("stroke-width", 1);
 
         // levels && axises
         var levelFactors = d3.range(0, cfg.levels).map(function(level) {
@@ -103,10 +129,12 @@ var RadarChart = {
 
           if(cfg.axisLine) {
             axis.select('line')
-              .attr('x1', cfg.w/2)
-              .attr('y1', cfg.h/2)
-              .attr('x2', function(d, i) { return getHorizontalPosition(i, cfg.w / 2, cfg.factor); })
-              .attr('y2', function(d, i) { return getVerticalPosition(i, cfg.h / 2, cfg.factor); });
+            //   .attr('x1', cfg.w/2)
+            //   .attr('y1', cfg.h/2)
+                .attr('x1', function(d, i) { return getHorizontalPosition(i, cfg.w / 2, 0.2)})
+                .attr('y1', function(d, i) { return getVerticalPosition(i, cfg.h / 2, 0.2)})
+                .attr('x2', function(d, i) { return getHorizontalPosition(i, cfg.w / 2, cfg.factor); })
+                .attr('y2', function(d, i) { return getVerticalPosition(i, cfg.h / 2, cfg.factor); });
           }
 
           if(cfg.axisText) {
@@ -191,7 +219,7 @@ var RadarChart = {
           var tooltip = container.selectAll('.tooltip').data([1]);
           tooltip.enter().append('text').attr('class', 'tooltip');
 
-          var circleGroups = container.selectAll('g.circle-group').data(data, cfg.axisJoin);
+          var circleGroups = container.selectAll('g.circle-group').data(data.filter(d => d.className != "average"), cfg.axisJoin);
 
           circleGroups.enter().append('g').classed({'circle-group': 1, 'd3-enter': 1});
           circleGroups.exit()

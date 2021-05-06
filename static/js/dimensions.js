@@ -333,8 +333,9 @@ $(".card-list").on("click", ".button-expand", function() {
   modal.find('.radar-chart').html('');
   var svg = d3.select('.radar-chart').append('svg')
     .attr('width', cfg.w + 50)
-    .attr('height', cfg.h + 50);
+    .attr('height', cfg.h + 20);
   svg.append('g').classed('single', 1).datum(data).call(chart);
+//   modal.find(".circle-group.average").remove();
   // modal.find(".item-image").css("background-image", `url('data/image/${item.itemImage}')`);
   modal.find(".modal-image").attr("src", `./data/image/${item.image}`);
   modal.modal("show");
