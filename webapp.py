@@ -140,11 +140,12 @@ def responses():
 @webapp.route("/survey", methods=["GET"])
 def survey():
     answers = {}
+    answers['responseID'] = request.args.get("responseID")
     answers['labor'] = request.args.getlist("labor")
     answers['market'] = request.args.get("market")
     answers['care'] = request.args.get("care")
     answers['living'] = request.args.getlist("living")
-    
+
     print(answers)
 
     for category in answers:
@@ -155,19 +156,41 @@ def survey():
                 answers[category] = convert_to_csv(answers[category])
             else:
                 pass
+    
+    try:
+        id = int(answers['responseID'])
+        sql = '''UPDATE responses SET labor = %(labor)s, market = %(market)s, care = %(care)s, living = %(living)s WHERE responseID = %(id)s'''
 
-    sql = '''INSERT INTO responses (labor, market, care, living) VALUES (%(labor)s, %(market)s, %(care)s,  %(living)s) RETURNING response_id'''
-    cur = DB_CON.cursor()
+        cur = DB_CON.cursor()
 
-    query_data = {
-        'labor': answers['labor'],
-        'market': answers['market'],
-        'care': answers['care'],
-        'living': answers['living']
-    }
+        query_data = {
+            'responseID': id,
+            'labor': answers['labor'],
+            'market': answers['market'],
+            'care': answers['care'],
+            'living': answers['living']
+        }
+
+        # cur.execute(sql, query_data)
+        # DB_CON.commit()
+        
+    except:
+        sql = '''INSERT INTO responses (labor, market, care, living) VALUES (%(labor)s, %(market)s, %(care)s, %(living)s) RETURNING response_id'''
+
+        cur = DB_CON.cursor()
+
+        query_data = {
+            'labor': answers['labor'],
+            'market': answers['market'],
+            'care': answers['care'],
+            'living': answers['living']
+        }
+
     cur.execute(sql, query_data)
-
     DB_CON.commit()
+
+    answers['responseID'] = cur.fetchone()
+    # answers['responseID'] = cur.lastrowid
 
     return flask.Response(json.dumps(answers), mimetype="application/json")
 

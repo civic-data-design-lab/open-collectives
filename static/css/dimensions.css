@@ -196,7 +196,7 @@ p {
     font-weight: 100;
     font-variation-settings: 'wght' 100;
     font-size: 4em;
-    line-height: 3rem;
+    line-height: 3rem!important;
     color: #FF0000;
 }
   

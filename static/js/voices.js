@@ -25,6 +25,7 @@ var laborTopResponse = "",
     marketTopResponse = "",
     careTopResponse = "",
     livingTopResponse = "";
+var responseID = null;
 
 // D3 CHART VARIABLES
 const width = 400;
@@ -297,7 +298,11 @@ function submitForm() {
 
         $.ajax({
             method: 'GET',
-            url: '/survey?' + params.toString()
+            url: '/survey?' + params.toString(),
+            success: function(result) {
+                responseID = result;
+                console.log(result);
+            }
         });
 };
 
@@ -683,11 +688,13 @@ $(document).ready(function () {
             $("#btn-" + themeName + " .img-pos").css("opacity", 0);
             $("#btn-" + themeName + " .img-neg").css("opacity", 0);
             $("#btn-" + themeName + " .img-color").css("opacity", 1);
+            $("#form #modal-" + themeName + " .btn-submit").removeAttr("disabled");
             // console.log(themeName + " checked");
         }
         else if (!$(".form-check-input[name*=" + themeName + "]").is(":checked")) {
             $("#btn-" + themeName + " .img-color").css("opacity", 0);
             $("#btn-" + themeName + " .img-pos").css("opacity", 1);
+            $("#form #modal-" + themeName + " .btn-submit").attr("disabled", true);
         }
         // if all items checked
         // if ($("input[name*='labor']").is(":checked") && $("input[name*='market']").is(":checked") && $("input[name*='care']").is(":checked") && $("input[name*='living']").is(":checked")) {
@@ -703,15 +710,23 @@ $(document).ready(function () {
         var cardId = "#" + $(this).attr("data-card"),
             theme = cardId.slice(6);
 
-        if ($(this).hasClass("btn-submit")) {
-            $(cardId).addClass("flipped");
+        if (!$(this).hasClass("btn-back")) { // card flip forward
+            if ($(this).hasClass("btn-submit")) {
+                submitForm();
 
+                $(cardId + " .btn-submit").remove();
+                $(cardId + " .btn-flip").removeClass("hidden");
+            }
+            // show highlighed response on chart
             if ($(cardId).find("input").is(":checked")) {
+                $("#form " + cardId + " rect").removeClass("active");
+                $("#form " + cardId + " path").removeClass("active");
+                $("#form " + cardId + " text").removeClass("active");
+
                 if ($(cardId).find("input").attr("type") == "checkbox") {
                     checkedResponses = $(cardId).find("input:checked").map(function() {return $(this).val()}).toArray();
                     checkedResponses.forEach(response => {
-                        hightlightResponse = "#form " + cardId + " ." + response;
-                        $(hightlightResponse).addClass("active");
+                        $("#form " + cardId + " ." + response).addClass("active");
                     })
                 }
                 else if ($(cardId).find("input").attr("type") == "radio") {
@@ -725,11 +740,15 @@ $(document).ready(function () {
                         : (theme == "care") ? (topResponse = careTopResponse)
                             : (theme == "living") ? (topResponse = livingTopResponse)
                                 : (topResponse = undefined);
-                hightlightResponse = "#form " + cardId + " ." + topResponse;
-                $(hightlightResponse).addClass("active");
+
+                $("#form " + cardId + " rect").removeClass("active");
+                $("#form " + cardId + " path").removeClass("active");
+                $("#form " + cardId + " text").removeClass("active");
+                $("#form " + cardId + " ." + topResponse).addClass("active");
             }
+            $(cardId).addClass("flipped");
         }
-        else if ($(this).hasClass("btn-back")) {
+        else if ($(this).hasClass("btn-back")) { // card flip back
             $(cardId).removeClass("flipped");
         };
         

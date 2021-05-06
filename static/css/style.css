@@ -275,7 +275,8 @@ a:hover .arrow, button:hover .arrow {
     height: 1px;
     background-color: #000;
 }
-.arrow .head, .arrow .head:after {
+.arrow .head, 
+.arrow .head:after {
     position: absolute;
     width: 1rem;
     height: 1px;
@@ -308,18 +309,24 @@ a .arrow-sm {
 a:hover .arrow-sm {
     width: 4rem;
 }
-.arrow-sm .head, .arrow-sm .head:after, .arrow-dn .head, .arrow-dn .head:after {
+.arrow-sm .head, 
+.arrow-sm .head:after, 
+.arrow-dn .head, 
+.arrow-dn .head:after {
     width: 0.5rem;
 }
-.arrow-sm .head, .arrow-dn .head {
+.arrow-sm .head, 
+.arrow-dn .head {
     top: 0.16rem;
     right: -0.1rem;
 }
-.arrow-sm .head:after, .arrow-dn .head:after {
+.arrow-sm .head:after, 
+.arrow-dn .head:after {
     top: -0.25rem;
     right: -0.25rem;
 }
-a .arrow-dn, button .arrow-dn {
+a .arrow-dn, 
+button .arrow-dn {
     width: 0.75rem;
     margin-left: 1rem;
     transform: rotate(90deg);
@@ -328,7 +335,8 @@ a .arrow-dn, button .arrow-dn {
     -moz-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
 }
-a:hover .arrow-dn, button:hover .arrow-dn {
+a:hover .arrow-dn, 
+button:hover .arrow-dn {
     width: 0.75rem;
     transform: rotate(90deg) translateX(0.5rem);
     -o-transform: rotate(90deg) translateX(0.5rem);
@@ -336,17 +344,33 @@ a:hover .arrow-dn, button:hover .arrow-dn {
     -moz-transform: rotate(90deg) translateX(0.5rem);
     -webkit-transform: rotate(90deg) translateX(0.5rem);
 }
-.arrow.red, .arrow.red .head, .arrow.red .head:after {
+.arrow.red, 
+.arrow.red .head, 
+.arrow.red .head:after {
     background-color: #FF0000;
 }
-.arrow.lt-red, .arrow.lt-red .head, .arrow.lt-red .head:after {
+.arrow.lt-red, 
+.arrow.lt-red .head, 
+.arrow.lt-red .head:after {
     background-color: #D96B6D;
 }
-.arrow.pink, .arrow.pink .head, .arrow.pink .head:after {
+.arrow.pink, 
+.arrow.pink .head, 
+.arrow.pink .head:after {
     background-color: #F8C5D7;
 }
-.arrow.yellow, .arrow.yellow .head, .arrow.yellow .head:after {
+.arrow.yellow, 
+.arrow.yellow .head, 
+.arrow.yellow .head:after {
     background-color: #FDF4C4;
+}
+button:disabled .arrow, 
+button:disabled .arrow .head, 
+button:disabled .arrow .head:after {
+    background-color: rgba(0,0,0,0.3);
+}
+button:disabled:hover .arrow {
+    width: 4rem;
 }
 
 /* arrow wide */

@@ -245,16 +245,23 @@ main {
     background: none;
     border: none;
 }
-.modal-footer .btn-submit, .modal-footer .btn-continue {
+.modal-footer .btn-submit, 
+.modal-footer .btn-flip,
+.modal-footer .btn-continue {
     margin: 0rem 1rem 0rem 0rem;
 }
 .modal-footer .btn-back span {
     margin-left: 1rem!important;
     padding-left: 6rem!important;
 }
-.modal-footer .btn-submit span, .modal-footer .btn-continue span {
+.modal-footer .btn-submit span, 
+.modal-footer .btn-flip span,
+.modal-footer .btn-continue span {
     margin-right: 1rem!important;
     padding-right: 5rem!important;
+}
+.modal-footer button.hidden {
+    display: none;
 }
 /* mini chart styles */
 .mini-chart {

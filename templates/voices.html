@@ -50,7 +50,7 @@
                 <div class="arrow arrow-sm"><div class="head"></div></div>
             </a><br>
             <a class="position-relative close-sidebar" id="link-results" href="#results">
-                <span class="before-arrow">View the results</span>
+                <span class="before-arrow">View all results</span>
                 <div class="arrow arrow-sm"><div class="head"></div></div>
             </a>
         </p>
@@ -100,7 +100,7 @@
             <div id="div-view-results">
                 <!-- <button type="submit" id="btn-thanks" data-toggle="modal" data-target="#modal-thanks" class="link-black" onclick="openModal('modal-thanks')"> -->
                 <a id="btn-view-results" class="link-black" href="#results">
-                    <span class="before-arrow" id="view-results"><b>View the results</b></span>
+                    <span class="before-arrow" id="view-results"><b>View all results</b></span>
                     <div class="arrow"><div class="head"></div></div>
                 </a>
             </div>
@@ -120,9 +120,15 @@
                                 <!-- insert questions here -->
                             </div>
                             <div class='modal-footer justify-content-end'>
-                                <button type='button' class='btn-rotate btn-submit link-black' data-card='' aria-label='Submit'>
+                                <button type='button' class='btn-rotate btn-submit link-black' data-card='' aria-label='Submit' disabled>
                                     <span aria-hidden='true' class='position-relative before-arrow'>
                                         <b>Submit</b>
+                                        <div class='arrow'><div class='head'></div></div>
+                                    </span>
+                                </button>
+                                <button type='button' class='btn-rotate btn-flip link-black hidden' data-card='' aria-label='Flip'>
+                                    <span aria-hidden='true' class='position-relative before-arrow'>
+                                        <b>View result</b>
                                         <div class='arrow'><div class='head'></div></div>
                                     </span>
                                 </button>
@@ -146,7 +152,7 @@
                                         <div class='arrow'><div class='head'></div></div>
                                     </span>
                                 </button>
-                                <button type='button' class='btn-continue link-black' data-card='' aria-label='Continue'>
+                                <button type='button' class='btn-continue link-black' data-dismiss='modal' aria-label='Continue'>
                                     <span aria-hidden='true' class='position-relative before-arrow'>
                                         <b>Continue</b>
                                         <div class='arrow'><div class='head'></div></div>
@@ -181,7 +187,7 @@
                         <div class='modal-footer'>
                             <button type='button' class='continue link-black' data-dismiss='modal' aria-label='Continue' onclick="closeModal('modal-thanks')">
                                 <span aria-hidden='true' class='position-relative before-arrow'>
-                                    <b>View the results</b>
+                                    <b>View all results</b>
                                     <div class='arrow'><div class='head'></div></div>
                                 </span>
                             </button>
