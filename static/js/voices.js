@@ -25,7 +25,7 @@ var laborTopResponse = "",
     marketTopResponse = "",
     careTopResponse = "",
     livingTopResponse = "";
-var responseID = null;
+var rowID = null;
 
 // D3 CHART VARIABLES
 const width = 400;
@@ -241,7 +241,7 @@ function openModal(modalId) {
             const svgMiniLabor = d3.select("#form #mini-chart-labor")
                 .append("svg")
                 .attr("class", "bar-horz")
-                .attr("viewBox", [0, 0, width, height]);
+                .attr("viewBox", [-10, 0, width, height]);
             plotHorizontalBar(svgMiniLabor, laborChartData);
         }
         else if (theme == "market") {
@@ -262,7 +262,7 @@ function openModal(modalId) {
             const svgMiniLiving = d3.select("#form #mini-chart-living")
                 .append("svg")
                 .attr("class", "bar-horz")
-                .attr("viewBox", [0, 0, width, height]);
+                .attr("viewBox", [-10, 0, width, height]);
             plotHorizontalBar(svgMiniLiving, livingChartData);
         }
     };
@@ -294,14 +294,24 @@ function submitForm() {
                     params.set(theme, $(inputName).val());
                 }
             }
+        };
+        
+        if (rowID == null) {
+            console.log("first submit, insert new data row. rowID = ", rowID);
         }
+        else {
+            params.set("rowID", rowID);
+            console.log("not first submit, update last data row. rowID = ", rowID);
+        };
 
         $.ajax({
             method: 'GET',
             url: '/survey?' + params.toString(),
             success: function(result) {
-                responseID = result;
+                rowID = result.rowID[0];
                 console.log(result);
+                // params.delete(theme);
+                // console.log(params);
             }
         });
 };
@@ -467,12 +477,15 @@ function plotHorizontalBar(svg, barData) {
         .append("text")
             .attr("class", d => d.rID)
             .attr("x", d => x(0) - 10)
-            .attr("y", (d, i) => y(i) + y.bandwidth() / 2)
+            .attr("y", (d, i) => {
+                return (d.rID == "teamwork" || d.rID == "agency" || d.rID == "robots" || d.rID == "community" || d.rID == "privacy") ? y(i) + y.bandwidth() / 2 - 5
+                : y(i) + y.bandwidth() / 2;
+            })
             .attr("dy", "0.35em")
             // .attr("dx", "0")
             .attr("opacity", 0.5)
             .text(d => d.short)
-        .call(wrapText, 80);
+        .call(wrapText, 100);
 };
 
 // plot donut chart
@@ -550,7 +563,7 @@ function plotDonutChart(svg, donutData) {
                 : (7/12 * 2 * Math.PI < midAngle && midAngle <= 8/12 * 2 * Math.PI) ? `translate( ${centroid[0] - donutWidth * 1/2} , ${centroid[1] + donutWidth * 1/2} )`
                 : (8/12 * 2 * Math.PI < midAngle && midAngle <= 10/12 * 2 * Math.PI) ? `translate( ${centroid[0] - donutWidth * 2/3} , ${centroid[1]} )`
                 : (10/12 * 2 * Math.PI < midAngle && midAngle <= 11/12 * 2 * Math.PI) ? `translate( ${centroid[0] - donutWidth * 1/2} , ${centroid[1] - donutWidth * 4/5} )`
-                : `translate( ${centroid[0] - donutWidth} , ${centroid[1] - donutWidth/2} )`
+                : `translate( ${centroid[0] - donutWidth/6} , ${centroid[1] - donutWidth*4/5} )`
             })
             .text(d => d.data.short)
         .call(wrapText, 80);
