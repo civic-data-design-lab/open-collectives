@@ -412,6 +412,7 @@ p {
 }
 
 .modal-header .h3 {
+    width: calc(100% - 3rem);
     font-size: 3em;
 }
   
@@ -772,7 +773,7 @@ input[type="range"]:focus::-ms-fill-upper {
   
 /* Radar chart css */
 .single.radar-chart {
-    transform: translate(1.2rem, 1.2rem) scale(0.9);
+    transform: translate(1.4rem, 1.2rem) scale(0.9);
 }
 .radar-chart .area {
     fill-opacity: 0.7;
@@ -790,7 +791,44 @@ input[type="range"]:focus::-ms-fill-upper {
     display: block;
     margin: 0 auto;
     /* background-image: url(/static/img/ticks.png); */
-    background-size: 100%;
+    /* background-size: 100%; */
+}
+/* Slider chart styles */
+.slider-chart svg {
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+}
+.slider-chart .axes-text {
+    font-weight: 500;
+    font-variation-settings: 'wght' 500;
+    font-size: 0.8rem;
+    line-height: 1.2em;
+}
+.slider-chart .label-property {
+    font-weight: 300;
+    font-variation-settings: 'wght' 300;
+    font-size: 0.8rem;
+    line-height: 1.2em;
+    font-style: italic;
+}
+.slider-chart .label-values {
+    font-weight: 300;
+    font-variation-settings: 'wght' 300;
+    font-size: 0.6rem;
+    line-height: 1.2em;
+}
+.slider-chart .label-values text {
+    opacity: 0;
+}
+.slider-chart .label-values text.active {
+    opacity: 1;
+}
+.slider-chart .label-values.avg {
+    fill: #333;
+}
+.slider-chart .label-values.item {
+    fill: #FF0000;
 }
   
 .area,

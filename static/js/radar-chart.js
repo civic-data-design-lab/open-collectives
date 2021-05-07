@@ -141,9 +141,9 @@ var RadarChart = {
             axis.select('text')
               .attr('class', function(d, i){
                 var p = getHorizontalPosition(i, 0.5);
-
-                return 'legend ' +
-                  ((p < 0.4) ? 'left' : ((p > 0.6) ? 'right' : 'middle'));
+                return 'legend';
+                // return 'legend ' +
+                //   ((p < 0.4) ? 'left' : ((p > 0.6) ? 'right' : 'middle'));
               })
               .attr('dy', function(d, i) {
                 var p = getVerticalPosition(i, 0.5);
@@ -152,6 +152,11 @@ var RadarChart = {
               .attr('dx', function(d, i) {
                 var p = getHorizontalPosition(i, 0.5);
                 return ((p < 0.5) ? '-1.2rem' : '0');
+              })
+              .attr("text-anchor", d => {
+                  return (d == "economics" || d == "size") ? "middle"
+                  : (d == "porosity") ? "middle"
+                  : "start";
               })
               .text(function(d) { return d; })
               .attr('x', function(d, i){ return getHorizontalPosition(i, cfg.w / 2, cfg.factorLegend); })
@@ -324,3 +329,133 @@ var RadarChart = {
       .call(chart);
   }
 };
+
+// sliders chart
+function plotSlidersChart(svg, data, cfg, FormText) {
+    var axisData = data[0].axes.map(d => d.axis),
+        avgData = data[0],
+        itemData = data[1],
+        sliderWidth = cfg.w + 50,
+        dotRadius = 6;
+    
+    function formTextLookUp(property, value) {
+        var axisIndex = axisData.indexOf(property);
+        (property == "economics") ? formProperty = "FormEcon"
+        : (property == "governance") ? formProperty = "FormGovern"
+        : (property == "platform") ? formProperty = "FormPlatform"
+        : (property == "porosity") ? formProperty = "FormPorous"
+        : (property == "size") ? formProperty = "FormSize"
+        : formProperty = undefined;
+
+        return FormText[formProperty][value].toLowerCase();
+    };
+
+    // text labels for axes
+    svg.append("g")
+        .attr("class", "axes-text")
+        .selectAll("text")
+        .data(axisData)
+        .enter()
+        .append("text")
+            .attr("class", d => d)
+            .attr("x", 0)
+            .attr("y", (d, i) => 10 + i * 50)
+            .attr("dy", "0.2em")
+            .text(d => d);
+    // text labels for axes
+    svg.append("g")
+        .attr("class", "label-property")
+        .selectAll("text")
+        .data(itemData.axes)
+        .enter()
+        .append("text")
+            .attr("class", d => d.axis)
+            .attr("x", d => {
+                return (d.axis == "size") ? 35
+                : (d.axis == "porosity" || d.axis == "platform") ? 60
+                : (d.axis == "economics") ? 70
+                : 75
+            })
+            .attr("y", (d, i) => 10 + i * 50)
+            .attr("dy", "0.2em")
+            .text(d => formTextLookUp(d.axis, d.value));
+    // horizontal axis lines
+    svg.append("g")
+        .attr("class", "slider-lines")
+        .selectAll("line")
+        .data(axisData)
+        .enter()
+        .append("line")
+            .attr("class", d => d)
+            .attr("x1", 0)
+            .attr("y1", (d, i) => 30 + i * 50)
+            .attr("x2", sliderWidth)
+            .attr("y2", (d, i) => 30 + i * 50)
+            .attr("stroke", "#ccc")
+            .attr("stroke-width", 1);
+    // tick lines for averages
+    svg.append("g")
+        .attr("class", avgData.className)
+        .selectAll("line")
+        .data(avgData.axes)
+        .enter()
+        .append("line")
+            .attr("class", d => d.axis)
+            .attr("x1", d => (d.value - 1) * (sliderWidth - 2 * dotRadius)/4 + dotRadius)
+            .attr("y1", (d, i) => 24 + i * 50)
+            .attr("x2", d => (d.value - 1) * (sliderWidth - 2 * dotRadius)/4 + dotRadius)
+            .attr("y2", (d, i) => 36 + i * 50)
+            .attr("stroke", "#ccc")
+            .attr("stroke-width", 1);
+    // label tooltip for avg ticks
+    svg.append("g")
+        .attr("class", "label-values avg")
+        .selectAll("text")
+        .data(avgData.axes)
+        .enter()
+        .append("text")
+            .attr("class", d => d.axis)
+            .attr("x", sliderWidth)
+            .attr("y", (d, i) => 10 + i * 50)
+            .attr("dy", "0.2em")
+            .attr("text-anchor", "end")
+            .text(d => "avg: " + roundAccurately(d.value, 1));
+
+    // circles for data points
+    svg.append("g")
+        .attr("class", itemData.className)
+        .selectAll("circle")
+        .data(itemData.axes)
+        .enter()
+        .append("circle")
+            .attr("class", d => d.axis)
+            .attr("cx", d => (d.value - 1) * (sliderWidth - 2 * dotRadius)/4 + dotRadius)
+            .attr("cy", (d, i) => 30 + i * 50)
+            .attr("r", dotRadius)
+            .attr("fill", "#FF0000")
+            .attr("stroke", "none")
+        .on("mouseover", function(d) {
+            $(".slider-chart .label-values ." + d.axes).addClass("active");
+        })
+        .on("mouseout", function(d) {
+            $(".slider-chart .label-values ." + d.axes).removeClass("active");
+        });
+    // label tooltip for data points
+    svg.append("g")
+        .attr("class", "label-values item")
+        .selectAll("text")
+        .data(itemData.axes)
+        .enter()
+        .append("text")
+            .attr("class", d => d.axis)
+            .attr("x", d => (d.value - 1) * (sliderWidth - 2 * dotRadius)/4 + dotRadius)
+            .attr("y", (d, i) => 45 + i * 50)
+            .attr("dy", "0.2em")
+            .attr("text-anchor", d => {
+                return (d.value == 1) ? "start"
+                : (d.value == 5) ? "end"
+                : "middle"
+            })
+            .text((d, i) => d.value);
+}
+    
