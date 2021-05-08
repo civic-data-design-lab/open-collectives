@@ -8,7 +8,7 @@ import os
 import json
 import subprocess
 
-from flask import request, redirect, url_for, flash, render_template
+from flask import request, redirect, url_for, flash, render_template, session
 from utils import *
 
 CURRENT_FILE = os.path.abspath(__file__)
@@ -156,18 +156,26 @@ def survey():
                 answers[category] = convert_to_csv(answers[category])
             else:
                 pass
-    
+
+    already_entered = False
     try:
         id = int(answers['rowID'])
-        sql = '''UPDATE responses SET labor = %(labor)s, market = %(market)s, care = %(care)s, living = %(living)s WHERE responseID = %(id)s'''
+        if session['response_id']:
+            id = int(session['response_id'])
+            print(id, 'session')
+        print(id, "rowID")
+
+        sql = '''UPDATE responses SET labor = %(labor)s, market = %(market)s, care = %(care)s, living = %(living)s WHERE response_id = %(id)s'''
         cur = DB_CON.cursor()
         query_data = {
-            'rowID': id,
+            'id': id,
             'labor': answers['labor'],
             'market': answers['market'],
             'care': answers['care'],
             'living': answers['living']
         }
+        already_entered = True
+
     except:
         sql = '''INSERT INTO responses (labor, market, care, living) VALUES (%(labor)s, %(market)s, %(care)s, %(living)s) RETURNING response_id'''
         cur = DB_CON.cursor()
@@ -193,7 +201,9 @@ def survey():
 
     DB_CON.commit()
 
+
     answers['rowID'] = cur.fetchone()
+    session['response_id'] = answers['rowID']
     # answers['rowID'] = cur.lastrowid
 
     return flask.Response(json.dumps(answers), mimetype="application/json")

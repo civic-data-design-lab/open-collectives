@@ -19,8 +19,8 @@ def convert_to_array(string):
 def all_false(iterable):
 
     for i in iterable[1:]:
-        if i is not None and i != '{}':
-            return True
+        if i is None or i == '{}':
+            return False
 
-    return False
+    return True
 
