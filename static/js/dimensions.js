@@ -12,20 +12,12 @@ var dimensions = {
       10: "PRIVATE GOOD"
     }
   },
-  "size": {
+  "governance": {
     description:
-      "Size refers to the number of members in a collective; it is a way to evaluate quantity.",
-      range: {
-      0: "100 to 1,000",
-      10: "LARGE"
-    }
-  },
-  "porosity": {
-    description:
-      "Porosity refers to the ability of members to join and leave the collective n terms of process, time cycle, qualifications, etc. The two main factors include the (a) ease in which to join and leave and (b) the collective’s anticipation to changes in membership.",
+      "Governance assesses how a collective is managed.",
     range: {
-      0: "invitation required",
-      10: "CLOSED"
+      0: "mixed or federated",
+      10: "CENTRALIZED"
     }
   },
   "platform": {
@@ -36,12 +28,20 @@ var dimensions = {
       10: "DIGITAL"
     }
   },
-  "governance": {
+  "porosity": {
     description:
-      "Governance assesses how a collective is managed.",
+      "Porosity refers to the ability of members to join and leave the collective n terms of process, time cycle, qualifications, etc. The two main factors include the (a) ease in which to join and leave and (b) the collective’s anticipation to changes in membership.",
     range: {
-      0: "mixed or federated",
-      10: "CENTRALIZED"
+      0: "invitation required",
+      10: "CLOSED"
+    }
+  },
+  "size": {
+    description:
+      "Size refers to the number of members in a collective; it is a way to evaluate quantity.",
+    range: {
+      0: "100 to 1,000",
+      10: "LARGE"
     }
   }
 };
@@ -54,19 +54,12 @@ var FormText = {
     4:"Mostly private goods",
     5:"Private goods"
   },
-  "FormSize": {
-    1:"<50",
-    2:"50 to 100",
-    3:"100 to 1,000",
-    4:"1,000 to 5,000",
-    5:">5,000"
-  },
-  "FormPorous": {
-    1:"Open to anyone",
-    2:"Mostly open",
-    3:"Invitation required",
-    4:"Mostly closed",
-    5:"Closed"
+  "FormGovern": {
+    1:"Decentralized",
+    2:"Mostly decentralized",
+    3:"Mixed or federated",
+    4:"Mostly centralized",
+    5:"Centralized"
   },
   "FormPlatform": {
     1:"Physical only",
@@ -75,12 +68,19 @@ var FormText = {
     4:"Mostly digital",
     5:"Digital"
   },
-  "FormGovern": {
-    1:"Decentralized",
-    2:"Mostly decentralized",
-    3:"Mixed or federated",
-    4:"Mostly centralized",
-    5:"Centralized"
+  "FormPorous": {
+    1:"Open to anyone",
+    2:"Mostly open",
+    3:"Invitation required",
+    4:"Mostly closed",
+    5:"Closed"
+  },
+  "FormSize": {
+    1:"<50",
+    2:"50 to 100",
+    3:"100 to 1,000",
+    4:"1,000 to 5,000",
+    5:">5,000"
   }
 }
 
@@ -335,7 +335,13 @@ $(".card-list").on("click", ".button-expand", function() {
     .attr('width', cfg.w + 50)
     .attr('height', cfg.h + 20);
   svg.append('g').classed('single', 1).datum(data).call(chart);
-//   modal.find(".circle-group.average").remove();
+    modal.find('.slider-chart').html('');
+    var svgSliders = d3.select(".slider-chart")
+        .append("svg")
+        .attr("viewBox", [0,0,cfg.w + 50, cfg.h + 100]);
+    // var sliders = SlidersChart.sliders(data, cfg);
+    // svgSliders.append("g").classed('single', 1).datum(data).call(sliders);
+    plotSlidersChart(svgSliders, data, cfg, FormText);
   // modal.find(".item-image").css("background-image", `url('data/image/${item.itemImage}')`);
   modal.find(".modal-image").attr("src", `./data/image/${item.image}`);
   modal.modal("show");
@@ -486,3 +492,28 @@ $('#primary > .overlay').click(function() {
     $('.dropdown-menu').removeClass('active-side');
     $('.arrow-wide').removeClass('active').removeClass('open');
 });
+
+$(".slider-chart").on("mouseover", "circle", function() {
+    if ($(this).hasClass("economics") || $(this).hasClass("governance") || $(this).hasClass("platform") || $(this).hasClass("porosity") || $(this).hasClass("size")) {
+        var property = $(this).attr("class")
+        $(".slider-chart .label-values ." + property).addClass("active");
+    }
+});
+$(".slider-chart").on("mouseout", "circle", function() {
+    if ($(this).hasClass("economics") || $(this).hasClass("governance") || $(this).hasClass("platform") || $(this).hasClass("porosity") || $(this).hasClass("size")) {
+        var property = $(this).attr("class")
+        $(".slider-chart .label-values ." + property).removeClass("active");
+    }
+});
+$(".slider-chart").on("mouseover", "text", function() {
+    if ($(this).hasClass("economics") || $(this).hasClass("governance") || $(this).hasClass("platform") || $(this).hasClass("porosity") || $(this).hasClass("size")) {
+        var property = $(this).attr("class")
+        $(".slider-chart .label-values ." + property).addClass("active");
+    }
+});
+$(".slider-chart").on("mouseout", "text", function() {
+    if ($(this).hasClass("economics") || $(this).hasClass("governance") || $(this).hasClass("platform") || $(this).hasClass("porosity") || $(this).hasClass("size")) {
+        var property = $(this).attr("class")
+        $(".slider-chart .label-values ." + property).removeClass("active");
+    }
+})

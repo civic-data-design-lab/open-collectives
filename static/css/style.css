@@ -470,11 +470,11 @@ a.arrow-left {
     color: #FFF;
     text-decoration: none;
 }
-.scroll-dots a:hover {
+.scroll-dots li:hover {
     color: #FFF;
     text-decoration: none;
 }
-.scroll-dots a:hover span {
+.scroll-dots li:hover span {
     display: inline;
     /* color: #FFF; */
     text-decoration: none;
