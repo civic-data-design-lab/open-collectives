@@ -549,6 +549,10 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
         height: 68h;
         top: 32vh;
     }
+    .modal-body label {
+        font-size: 0.9rem;
+        line-height: 1.2em;
+    }
 }
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {

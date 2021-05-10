@@ -94,32 +94,31 @@ function getJsonObject(jsonFileName, callback) {
 
 // QUESTIONS DATA
 // get questions json data and generate modals and form inputs for each theme
-getJsonObject("questions", function (data) {
-    questionsData = data;
-
-    themesList = data.map(d => d.theme);
-    currentIndex = themesList.indexOf(currentTheme);
-
-    // response list
-    for (var i = 0; i < themesList.length; i++) {
-        let theme = themesList[i];
-        responseList = data[i].responses.map(d => d.rID);
-
-        (theme == "labor") ? (laborResponses = responseList)
-            : (theme == "market") ? (marketResponses = responseList)
-                : (theme == "care") ? (careResponses = responseList)
-                    : (theme == "living") ? (livingResponses = responseList)
-                        : responseList = undefined;
-    };
-
-    // load on start up
-    createModals(questionsData);
-    changeTheme("", currentTheme);
-    // console.log(data);
-});
-
-// FETCH RESULTS DATA
-
+if (questionsData == 0) {
+    getJsonObject("questions", function (data) {
+        questionsData = data;
+    
+        themesList = data.map(d => d.theme);
+        currentIndex = themesList.indexOf(currentTheme);
+    
+        // response list
+        for (var i = 0; i < themesList.length; i++) {
+            let theme = themesList[i];
+            responseList = data[i].responses.map(d => d.rID);
+    
+            (theme == "labor") ? (laborResponses = responseList)
+                : (theme == "market") ? (marketResponses = responseList)
+                    : (theme == "care") ? (careResponses = responseList)
+                        : (theme == "living") ? (livingResponses = responseList)
+                            : responseList = undefined;
+        };
+    
+        // load on start up
+        createModals(questionsData);
+        changeTheme("", currentTheme);
+        // console.log(data);
+    });
+}
 
 // RESULTS DATA
 // get results json data and visualize data
