@@ -296,21 +296,21 @@ function submitForm() {
             }
         };
         
-        if (rowID == null) {
-            console.log("first submit, insert new data row. rowID = ", rowID);
-        }
-        else {
-            params.set("rowID", rowID);
-            console.log("not first submit, update last data row. rowID = ", rowID);
-        };
+        // if (rowID == null) {
+        //     console.log("first submit, insert new data row. rowID = ", rowID);
+        // }
+        // else {
+        //     params.set("rowID", rowID);
+        //     console.log("not first submit, update last data row. rowID = ", rowID);
+        // };
 
         $.ajax({
             method: 'GET',
             url: '/survey?' + params.toString(),
             success: function(result) {
-                rowID = result.rowID[0];
-                console.log(result);
-                // params.delete(theme);
+                // rowID = result.rowID[0];
+                // console.log(result);
+                params.delete(theme);
                 // console.log(params);
             }
         });
