@@ -40,6 +40,8 @@ webapp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(webapp)
 webapp.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+cur = DB_CON.cursor()
+
 
 @webapp.route("/")
 def index():
@@ -114,12 +116,10 @@ def about():
 
 @webapp.route("/responses")
 def responses():
-    cur = DB_CON.cursor()
-
     cur.execute('''SELECT response_id, labor, market, care, living FROM responses''')
     response = cur.fetchall()
 
-    DB_CON.commit()
+    # DB_CON.commit()
 
     count = 0
     data = []
@@ -157,54 +157,19 @@ def survey():
             else:
                 pass
 
-    already_entered = False
-    try:
-        id = int(answers['rowID'])
-        if session['response_id']:
-            id = int(session['response_id'])
-            print(id, 'session')
-        print(id, "rowID")
+    sql = '''INSERT INTO responses (labor, market, care, living) VALUES (%(labor)s, %(market)s, %(care)s, %(living)s) RETURNING response_id'''
 
-        sql = '''UPDATE responses SET labor = %(labor)s, market = %(market)s, care = %(care)s, living = %(living)s WHERE response_id = %(id)s'''
-        cur = DB_CON.cursor()
-        query_data = {
-            'id': id,
+    query_data = {
             'labor': answers['labor'],
             'market': answers['market'],
             'care': answers['care'],
             'living': answers['living']
         }
-        already_entered = True
-
-    except:
-        sql = '''INSERT INTO responses (labor, market, care, living) VALUES (%(labor)s, %(market)s, %(care)s, %(living)s) RETURNING response_id'''
-        cur = DB_CON.cursor()
-
-        query_data = {
-            'labor': answers['labor'],
-            'market': answers['market'],
-            'care': answers['care'],
-            'living': answers['living']
-        }
-
-    # sql = '''INSERT INTO responses (labor, market, care, living) VALUES (%(labor)s, %(market)s, %(care)s, %(living)s) RETURNING response_id'''
-    # cur = DB_CON.cursor()
-
-    # query_data = {
-    #     'labor': answers['labor'],
-    #     'market': answers['market'],
-    #     'care': answers['care'],
-    #     'living': answers['living']
-    # }
 
     cur.execute(sql, query_data)
-
     DB_CON.commit()
 
-
     answers['rowID'] = cur.fetchone()
-    session['response_id'] = answers['rowID']
-    # answers['rowID'] = cur.lastrowid
 
     return flask.Response(json.dumps(answers), mimetype="application/json")
 
