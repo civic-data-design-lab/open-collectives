@@ -279,22 +279,22 @@ function closeModal(modalId) {
 }
 
 // submit form data
-function submitForm() {
+function submitForm(theme) {
     const params = new URLSearchParams();
 
-        for (var i = 0; i < themesList.length; i++) {
-            theme = themesList[i];
-            inputName = "input[name='" + theme + "']:checked";
+        // for (var i = 0; i < themesList.length; i++) {
+        //     theme = themesList[i];
+        inputName = "input[name='" + theme + "']:checked";
 
-            if ($(inputName).val() !== undefined) {
-                if (theme == "labor" || theme == "living") {
-                    checkedList = $(inputName).map(function() {return $(this).val()}).toArray();
-                    checkedList.forEach((value) => params.append(theme, value));
-                } else {
-                    params.set(theme, $(inputName).val());
-                }
+        if ($(inputName).val() !== undefined) {
+            if (theme == "labor" || theme == "living") {
+                checkedList = $(inputName).map(function() {return $(this).val()}).toArray();
+                checkedList.forEach((value) => params.append(theme, value));
+            } else {
+                params.set(theme, $(inputName).val());
             }
         };
+        // };
         
         // if (rowID == null) {
         //     console.log("first submit, insert new data row. rowID = ", rowID);
@@ -725,7 +725,7 @@ $(document).ready(function () {
 
         if (!$(this).hasClass("btn-back")) { // card flip forward
             if ($(this).hasClass("btn-submit")) {
-                submitForm();
+                submitForm(theme);
 
                 $(cardId + " .btn-submit").remove();
                 $(cardId + " .btn-flip").removeClass("hidden");

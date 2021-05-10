@@ -38,10 +38,10 @@ body {
 .h2, .h3, .h4, .h5 {
     font-family: 'Prophet-Regular'
 }
-p, span {
+/* p, span {
     font-size: 0.9rem;
     line-height: 1.2em;
-}
+} */
 b, .fw-bold, a.fw-bold, a.font-weight-bold {
     font-weight: 600;
     font-variation-settings: 'wght' 500;
@@ -509,7 +509,15 @@ div.ytp-chrome-top {
     height: 45vh;
 }
 #oc .h1 {
-    margin-top: 20%;
+    display: inline-block;
+    margin-top: 20%;;
+}
+#oc .h1.before-arrow {
+    padding-right: 5rem!important;
+}
+#oc .arrow-dn {
+    position: absolute;
+    left: 100%;
 }
 #oc-themes .arrow {
     display: inline-block;
@@ -693,6 +701,10 @@ div.ytp-chrome-top {
 }
 .img-logo {
     width: 100%;
+}
+#support {
+    padding-left: 0;
+    list-style: none;
 }
 
 /* Theme Pages */
