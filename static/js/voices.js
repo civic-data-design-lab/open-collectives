@@ -25,7 +25,10 @@ var laborTopResponse = "",
     marketTopResponse = "",
     careTopResponse = "",
     livingTopResponse = "";
-var rowID = null;
+var rowID = null,
+    country = null,
+    admin1 = null,
+    city = null;
 
 // D3 CHART VARIABLES
 const width = 400;
@@ -94,7 +97,7 @@ function getJsonObject(jsonFileName, callback) {
 
 // QUESTIONS DATA
 // get questions json data and generate modals and form inputs for each theme
-if (questionsData == 0) {
+if (questionsData.length == 0) {
     getJsonObject("questions", function (data) {
         questionsData = data;
     
@@ -171,22 +174,56 @@ jQuery.getJSON("./responses", function(data) {
         surveyData.push(item);
     };
 
-    laborChartData = getSortedChartData(laborData);
-    marketChartData = getSortedChartData(marketData);
-    careChartData = getSortedChartData(careData);
-    livingChartData = getSortedChartData(livingData);
+    try {
+        laborChartData = getSortedChartData(laborData);
+        marketChartData = getSortedChartData(marketData);
+        careChartData = getSortedChartData(careData);
+        livingChartData = getSortedChartData(livingData);
+    }
+    catch {
+        console.error(error);
 
-    // laborData = getSortedChartData(surveyData[0]);
+        getJsonObject("questions", function (qdata) {
+            questionsData = qdata;
+            console.log(questionsData);
 
-    plotHorizontalBar(svgLabor, laborChartData);
-    plotHorizontalBar(svgLiving, livingChartData);
-    plotDonutChart(svgMarket, marketChartData);
-    plotDonutChart(svgCare, careChartData);
+            themesList = qdata.map(d => d.theme);
+            currentIndex = themesList.indexOf(currentTheme);
+        
+            // response list
+            for (var i = 0; i < themesList.length; i++) {
+                let theme = themesList[i];
+                responseList = qdata[i].responses.map(d => d.rID);
+        
+                (theme == "labor") ? (laborResponses = responseList)
+                    : (theme == "market") ? (marketResponses = responseList)
+                        : (theme == "care") ? (careResponses = responseList)
+                            : (theme == "living") ? (livingResponses = responseList)
+                                : responseList = undefined;
+            };
+        
+            // load on start up
+            createModals(questionsData);
+            changeTheme("", currentTheme);
+            // console.log(data);
 
-    $(".chart").addClass("inactive");
-    $("." + laborTopResponse).removeClass("inactive").addClass("active");
-    percentTooltip(laborChartData);
-    headlineTooltip(laborChartData);
+            laborChartData = getSortedChartData(laborData);
+            marketChartData = getSortedChartData(marketData);
+            careChartData = getSortedChartData(careData);
+            livingChartData = getSortedChartData(livingData);
+        });
+    }
+    finally {
+        plotHorizontalBar(svgLabor, laborChartData);
+        plotHorizontalBar(svgLiving, livingChartData);
+        plotDonutChart(svgMarket, marketChartData);
+        plotDonutChart(svgCare, careChartData);
+
+        $(".chart").addClass("inactive");
+        $("." + laborTopResponse).removeClass("inactive").addClass("active");
+        percentTooltip(laborChartData);
+        headlineTooltip(laborChartData);
+    }
 
     // console.log(surveyData);
     // console.log(responsesData);
@@ -210,7 +247,7 @@ function createModals(questionsData) {
 
         modal.attr("id", modalId).attr("aria-labelledby", theme);
         modal.find(".card").attr("id", cardId);
-        modal.find(".h5").html(questionText);
+        modal.find(".h5:not(#location-question)").html(questionText);
         modal.find(".btn-rotate").attr("data-card", cardId);
         // modal.find(".continue").attr("onclick", closeModal(modalID));
         responses.forEach((response) => {
@@ -280,9 +317,15 @@ function closeModal(modalId) {
 // submit form data
 function submitForm(theme) {
     const params = new URLSearchParams();
+        if (country == null) {
+            country = $("#modal-" + theme + " .form-select").val();
+            admin1 = $("#modal-" + theme + " #admin1").val();
+            city = $("#modal-" + theme + " #city").val();
+        }
+        params.set("country", country);
+        params.set("admin1", admin1);
+        params.set("city", city);
 
-        // for (var i = 0; i < themesList.length; i++) {
-        //     theme = themesList[i];
         inputName = "input[name='" + theme + "']:checked";
 
         if ($(inputName).val() !== undefined) {
@@ -293,7 +336,6 @@ function submitForm(theme) {
                 params.set(theme, $(inputName).val());
             }
         };
-        // };
         
         // if (rowID == null) {
         //     console.log("first submit, insert new data row. rowID = ", rowID);
@@ -700,7 +742,8 @@ $(document).ready(function () {
             $("#btn-" + themeName + " .img-pos").css("opacity", 0);
             $("#btn-" + themeName + " .img-neg").css("opacity", 0);
             $("#btn-" + themeName + " .img-color").css("opacity", 1);
-            $("#form #modal-" + themeName + " .btn-submit").removeAttr("disabled");
+            $("#form #modal-" + themeName + " .btn-next").removeAttr("disabled");
+            $("#form #modal-" + themeName + " .card-front .btn-submit").removeAttr("disabled");
             // console.log(themeName + " checked");
         }
         else if (!$(".form-check-input[name*=" + themeName + "]").is(":checked")) {
@@ -717,6 +760,14 @@ $(document).ready(function () {
         //     $("#btn-view-results").removeClass("disable");
         // }
     });
+    // first submit with location & remove/hide other location questions
+    $("#form").on("change", ".form-location", function() {
+        var themeName = $(this).closest(".modal").attr("id").slice(6);
+
+        if ($("#form #modal-" + themeName + " .form-select").val() != "Select country" && $("#form #modal-" + themeName + " #city").val() != "") {
+            $("#form #modal-" + themeName + " .location-content .btn-submit").removeAttr("disabled");
+        }
+    });
     // flip card on input submit
     $("#form").on("click", ".btn-rotate", function() {
         var cardId = "#" + $(this).attr("data-card"),
@@ -725,8 +776,14 @@ $(document).ready(function () {
         if (!$(this).hasClass("btn-back")) { // card flip forward
             if ($(this).hasClass("btn-submit")) {
                 submitForm(theme);
+                if ($(this).hasClass("location-submit")) {
+                    $("#form .card-front .btn-submit").removeClass("hidden");
+                    $("#form .card-front .btn-next").remove();
+                    $("#form .location-content").addClass("hidden");
+                    $("#form .results-content").removeClass("hidden");
+                }
 
-                $(cardId + " .btn-submit").remove();
+                $(cardId + " .card-front .btn-submit").remove();
                 $(cardId + " .btn-flip").removeClass("hidden");
             }
             // show highlighed response on chart

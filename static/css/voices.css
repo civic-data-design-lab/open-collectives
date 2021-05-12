@@ -245,6 +245,7 @@ main {
     background: none;
     border: none;
 }
+.modal-footer .btn-next, 
 .modal-footer .btn-submit, 
 .modal-footer .btn-flip,
 .modal-footer .btn-continue {
@@ -254,14 +255,17 @@ main {
     margin-left: 1rem!important;
     padding-left: 6rem!important;
 }
+.modal-footer .btn-next span, 
 .modal-footer .btn-submit span, 
 .modal-footer .btn-flip span,
 .modal-footer .btn-continue span {
     margin-right: 1rem!important;
     padding-right: 5rem!important;
 }
-.modal-footer button.hidden {
-    display: none;
+.modal-footer button.hidden,
+.location-content.hidden,
+.results-content.hidden {
+    display: none!important;
 }
 /* mini chart styles */
 .mini-chart {
