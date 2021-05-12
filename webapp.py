@@ -23,7 +23,7 @@ DB_CON = psycopg2.connect(database="open-collectives", user="postgres",
                           host="daraja-test.cclr5pzf7wtq.us-east-1.rds.amazonaws.com",
                           port=5432)
 
-
+# DB_CON.rollback()
 webapp = flask.Flask(
     __name__,
     static_url_path="",
@@ -116,7 +116,7 @@ def about():
 
 @webapp.route("/responses")
 def responses():
-    cur.execute('''SELECT response_id, labor, market, care, living FROM responses''')
+    cur.execute('''SELECT response_id, labor, market, care, living, country, admin1, city FROM responses_final''')
     response = cur.fetchall()
 
     # DB_CON.commit()
@@ -133,7 +133,10 @@ def responses():
                          "labor": convert_to_array(res[1]),
                          "market": res[2],
                          'care': res[3],
-                         'living': convert_to_array(res[4])})
+                         'living': convert_to_array(res[4]),
+                         'country': res[5],
+                         'admin1': res[6],
+                         'city': res[7]})
 
     return flask.Response(json.dumps(data), mimetype="application/json")
 
@@ -160,7 +163,7 @@ def survey():
             else:
                 pass
 
-    sql = '''INSERT INTO responses (labor, market, care, living, country, admin1, city) 
+    sql = '''INSERT INTO responses_final (labor, market, care, living, country, admin1, city) 
             VALUES (%(labor)s, %(market)s, %(care)s, %(living)s, %(country)s, %(admin1)s, %(city)s) 
             RETURNING response_id'''
 
