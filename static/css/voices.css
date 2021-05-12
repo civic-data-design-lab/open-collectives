@@ -300,7 +300,9 @@ main {
 } */
 
 /* Form Input Styles */
-.modal-body .form-check-input:focus {
+.modal-body .form-check-input:focus,
+.modal-body .form-select:focus,
+.modal-body .form-control:focus {
     box-shadow: 0 0 0 0.25rem rgb(225 0 0 / 25%);
 }
 .modal-body .form-check-input, .modal-body .form-check-input:checked {
@@ -317,12 +319,33 @@ main {
 .modal-body .form-check-input:checked[type=checkbox] {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-2 -2 10 10'%3e%3crect height='6' width='6' fill='000'/%3e%3c/svg%3e");
 }
-.modal-body label {
+.card-front .modal-body label {
     width: calc(100% - 2rem);
     margin-left: 0.5rem;
     margin-bottom: 1rem;
     /* font-size: 0.9rem; */
     line-height: 1.2em;
+}
+.modal-body .form-select,
+.modal-body .form-control {
+    border-radius: 0;
+    color: #000;
+    background-color: rgba(255,255,255,0.6);
+    border: 1px solid #000;
+    /* border: 1px solid #F8C5D7; */
+}
+.modal-body .form-select,
+.modal-body .form-floating input {
+    font-weight: 500;
+    font-variation-settings: 'wght' 500;
+}
+.modal-body .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+}
+.modal-body .form-floating label {
+    margin: 0px;
+    color: #333;
+    /* color: #F8C5D7; */
 }
 
 /* Results Section Dashboard */
