@@ -749,6 +749,18 @@ div.ytp-chrome-top {
 .img-project:hover {
     opacity: 1.0;
 }
+.img-multiply {
+    position: relative;
+    width: 100%;
+    mix-blend-mode: multiply;
+    /* background-blend-mode: multiply!important;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100% auto; */
+}
+/* #img-care-1 {
+    background-image: url(../img/care-1.jpg);
+} */
 .next-theme {
     text-align: right;
     padding-right: 5rem!important;
