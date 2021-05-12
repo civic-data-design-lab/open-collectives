@@ -141,6 +141,9 @@ def responses():
 def survey():
     answers = {}
     answers['rowID'] = request.args.get("rowID")
+    answers['country'] = request.args.get("country")
+    answers['admin1'] = request.args.get("admin1")
+    answers['city'] = request.args.get("city")
     answers['labor'] = request.args.getlist("labor")
     answers['market'] = request.args.get("market")
     answers['care'] = request.args.get("care")
@@ -157,13 +160,18 @@ def survey():
             else:
                 pass
 
-    sql = '''INSERT INTO responses (labor, market, care, living) VALUES (%(labor)s, %(market)s, %(care)s, %(living)s) RETURNING response_id'''
+    sql = '''INSERT INTO responses (labor, market, care, living, country, admin1, city) 
+            VALUES (%(labor)s, %(market)s, %(care)s, %(living)s, %(country)s, %(admin1)s, %(city)s) 
+            RETURNING response_id'''
 
     query_data = {
             'labor': answers['labor'],
             'market': answers['market'],
             'care': answers['care'],
-            'living': answers['living']
+            'living': answers['living'],
+            'country': answers['country'],
+            'admin1': answers['admin1'],
+            'city': answers['city']
         }
 
     cur.execute(sql, query_data)
