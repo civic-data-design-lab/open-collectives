@@ -15,6 +15,9 @@
     src: url(../fonts/AcuminVariableConcept.otf);
 }
 
+html {
+    scroll-behavior: smooth!important;
+}
 body {
     padding-top: 0px;
     font-family: 'Acumin';
@@ -45,7 +48,7 @@ body {
 b, .fw-bold, a.fw-bold, a.font-weight-bold {
     font-weight: 600;
     font-variation-settings: 'wght' 500;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.1px;
 }
 .fs-6 {
     font-size: 1rem;
@@ -491,15 +494,14 @@ body#home {
 #oc-film {
     position: absolute;
     min-width: 80%;
-    min-height: 80%;
-    top: 10%;
+    min-height: 60%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    /* top: 50%; */
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 div.ytp-chrome-top {
     display: none!important;
@@ -668,6 +670,39 @@ div.ytp-chrome-top {
     }
 }
 
+/* morphing shapes */
+#div-morph {
+    position: relative;
+}
+#svg-morph {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -10;
+    display: none;
+}
+.f-cream {
+    fill: #FBE9CF;
+}
+.f-pink {
+    fill: #F8C5D7;
+}
+.f-red {
+    fill: #FF0000;
+}
+.f-lt-red {
+    fill: #FF6666;
+}
+.f-yellow {
+    fill: #FDF4C4;
+}
+
+
 /* Film Page */
 #sect-film {
     min-height: calc(100vh - 60px);
@@ -817,6 +852,12 @@ div.ytp-chrome-top {
     #img-living {
         top: 55%;
         left: 45%;
+    }
+    .img-static {
+        display: none;
+    }
+    #svg-morph {
+        display: block;
     }
     .mt-md-5up {
         margin-top: -3rem!important;

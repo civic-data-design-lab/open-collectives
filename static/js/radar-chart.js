@@ -372,9 +372,9 @@ function plotSlidersChart(svg, data, cfg, FormText) {
             .attr("class", d => d.axis)
             .attr("x", d => {
                 return (d.axis == "size") ? 35
-                : (d.axis == "porosity" || d.axis == "platform") ? 60
-                : (d.axis == "economics") ? 70
-                : 75
+                : (d.axis == "porosity" || d.axis == "platform") ? 65
+                : (d.axis == "economics") ? 80
+                : 85
             })
             .attr("y", (d, i) => 10 + i * 50)
             .attr("dy", "0.2em")

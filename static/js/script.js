@@ -70,60 +70,10 @@ $(window).resize(function() {
 	winWidth = $(window).width();
 });
 
-// embed trailer video
-// 2. This code loads the IFrame Player API code asynchronously.
-var tag = document.createElement('script');
-
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-// 3. This function creates an <iframe> (and YouTube player)
-//    after the API code downloads.
-var player;
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    height: '960',
-    width: '540',
-    controls: 0,
-    autoplay: 1,
-    videoId: 'GW3JPYkjeo0',
-    playlist: 'GW3JPYkjeo0',
-    loop: 1, 
-    events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
-    }
-  });
-}
-
-// 4. The API will call this function when the video player is ready.
-function onPlayerReady(event) {
-  event.target.playVideo();
-}
-
-// 5. The API calls this function when the player's state changes.
-//    The function indicates that when playing a video (state=1),
-//    the player should play for six seconds and then stop.
-var done = false;
-function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.PLAYING && !done) {
-    // setTimeout(stopVideo, 6000);
-    done = true;
-  }
-}
-function stopVideo() {
-  player.stopVideo();
-}
-
-$('#oc-film').on('load', function(){
-  $('#oc-film').contents().find('.ytp-chrome-top').css('display','none!important');
-});
-
 // scroll to section dots
 $(".scroll-dots a").on("click", function() {
-    $("li").removeClass("active");
-    $(this).parent().addClass("active");
+    // $("li").removeClass("active");
+    // $(this).parent().addClass("active");
     window.location.hash = $(this).attr("href");
 });
 $('body').scrollspy({ target: '#scrollspy', offset: 90});

@@ -338,7 +338,7 @@ $(".card-list").on("click", ".button-expand", function() {
     modal.find('.slider-chart').html('');
     var svgSliders = d3.select(".slider-chart")
         .append("svg")
-        .attr("viewBox", [0,0,cfg.w + 50, cfg.h + 100]);
+        .attr("viewBox", [0,0,cfg.w + 50, cfg.h + 50]);
     // var sliders = SlidersChart.sliders(data, cfg);
     // svgSliders.append("g").classed('single', 1).datum(data).call(sliders);
     plotSlidersChart(svgSliders, data, cfg, FormText);
@@ -493,6 +493,14 @@ $('#primary > .overlay').click(function() {
     $('.arrow-wide').removeClass('active').removeClass('open');
 });
 
+// click inactive input slider to toggle active state
+$(".sliders-wrapper").on("click", ".btn-toggle", function() {
+    if (!$(this).closest(".slider").hasClass("active")) {
+        $(this).closest(".slider").addClass("active");
+    }
+});
+
+// hover on chart sliders
 $(".slider-chart").on("mouseover", "circle", function() {
     if ($(this).hasClass("economics") || $(this).hasClass("governance") || $(this).hasClass("platform") || $(this).hasClass("porosity") || $(this).hasClass("size")) {
         var property = $(this).attr("class")

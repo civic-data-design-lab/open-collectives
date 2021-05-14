@@ -223,7 +223,7 @@ p {
 .slider .iconLabel {
     margin-bottom: 10px;
     width: 100%;
-    font-size: 1.25em;
+    font-size: 1.1em;
     color:#000;
     text-align: left;
     font-weight: 600;
@@ -235,7 +235,6 @@ p {
 .slider.active .iconLabel:hover {
     color: #D96B6D!important;
 }
-  
 .slider.active .iconLabel {
     color:#FF0000;
 }
@@ -243,8 +242,9 @@ p {
     color:  #FF0000;
 }
 .slider .range-label {
+    position: relative;
     display: inline;
-    margin: 0;
+    margin: 0 auto 0 1rem;
 }
 .slider input[type=range], .slider .range-label {
     opacity:0.25;
@@ -364,7 +364,17 @@ p {
   
 /* Slider styling */
 .slider {
+    position: relative;
     margin-bottom: 15px;
+}
+.slider .btn-toggle {
+    position: absolute;
+    width: 100%;
+    height: 2rem;
+    top: calc(100% - 2rem);
+}
+.slider.active .btn-toggle {
+    display: none;
 }
   
 /* Slider text styling */
@@ -373,9 +383,8 @@ p {
 }
 .range-label {
     text-align: left;
-    margin: 0 auto;
     text-transform: lowercase;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     line-height: 1.2em;
     font-weight: 300;
     font-variation-settings: 'wght' 300;
@@ -407,7 +416,7 @@ p {
     /* max-width: 40%;
     padding: 15px 10px 15px 15px;  */
     position: sticky;
-    top: -10px;
+    top: 0px;
     right: 0;
 }
 
@@ -802,7 +811,7 @@ input[type="range"]:focus::-ms-fill-upper {
 .slider-chart .axes-text {
     font-weight: 500;
     font-variation-settings: 'wght' 500;
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.2em;
 }
 .slider-chart .label-property {

@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     
     <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./js/anime.min.js"></script>
 </head>
 
 <body id="home" class="black position-relative" data-bs-spy="scroll" data-bs-target="#scrollspy" data-bs-offset="90" tabindex="0">
@@ -60,80 +61,91 @@
                 </h2></a>
             </div>
         </section>
-        <section class="container-fluid section d-flex" id="oc-voices">
-            <div class="row w-100 align-items-center">
-                <div class="col-6 offset-3"><a class="link-white" href="./voices">
-                    <h2 class="h1 text-uppercase text-center mb-0">To Share</h2>
-                    <h2 class="h1 text-uppercase text-center mt-0 mb-0"><em>or</em> Not</h2>
-                    <h2 class="h1 text-uppercase text-center mt-0">To Share?</h2>
-                </a></div>
-                <div class="col-8 offset-2 col-md-5 offset-md-7 col-lg-4 offset-lg-8" id="voices-enter">
-                    <a class="link-white" href="./voices">
-                        <p class="mb-0 before-arrow">enter collective voices to contribute your opinion and learn what others think</p>
-                        <div class="arrow"><div class="head"></div></div>
-                    </a>
+        <div id="div-morph">
+            <section class="container-fluid section d-flex" id="oc-voices">
+                <div class="row w-100 align-items-center">
+                    <div class="col-6 offset-3"><a class="link-white" href="./voices">
+                        <h2 class="h1 text-uppercase text-center mb-0">To Share</h2>
+                        <h2 class="h1 text-uppercase text-center mt-0 mb-0"><em>or</em> Not</h2>
+                        <h2 class="h1 text-uppercase text-center mt-0">To Share?</h2>
+                    </a></div>
+                    <div class="col-8 offset-2 col-md-5 offset-md-7 col-lg-4 offset-lg-8" id="voices-enter">
+                        <a class="link-white" href="./voices">
+                            <p class="mb-0 before-arrow">enter collective voices to contribute your opinion and learn what others think</p>
+                            <div class="arrow"><div class="head"></div></div>
+                        </a>
+                    </div>
                 </div>
+                <img class="img img-static img-center" id="img-voices" src="./img/voices.svg" alt="Collective Voices">
+            </section>
+            <section id="oc" class="container-fluid section">
+                <div class="row align-items-end">
+                    <div class="col col-md-10 offset-md-2">
+                        <a class="link-white" href="./about"><h1 class="h1 text-uppercase position-relative before-arrow">Open Collectives
+                            <div class="arrow"><div class="head"></div></div>
+                        </h1></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-2 col-md-6 offset-md-6 col-lg-4 offset-lg-8 mt-4">
+                        <a class="link-white" href="#oc-themes">
+                            <p><em>Open Collectives</em> is an immersive installation featuring digital platforms and architectural projects that seek to leverage the power of solidarity in order to strengthen economic sovereignty, housing affordability, communal self-determination, and mutual aid.</p>
+                            <p><em>Open Collectives</em> offers new perspectives on pressing issues such as the future of work, the gig economy, elder boom, affordable housing, and widening inequality. Featured projects engage with the following <span class="position-relative">themes:
+                                <span class="arrow arrow-dn"><span class="head"></span></span></span>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <img class="img img-static img-center" id="img-oc" src="./img/installation.svg" alt="Open Collectives Installation">
+            </section>
+            <section id="oc-themes" class="container-fluid section">
+                <div class="align-items-middle">
+                <div class="row">
+                    <div class="col-8 offset-2 col-md-4 offset-md-4 col-lg-3" id="p-labor">
+                        <a class="link-white" href="./labor"><h2 class="h4 text-uppercase position-relative">Labor
+                            <div class="arrow arrow-sm"><div class="head"></div></div>
+                        </h2></a>
+                        <p>Working with <a class="fw-bold fst-italic text-white" href="http://mosaic.us" target="_blank">Mosaic.us</a>&mdash;a <br>full-stack construction company developing technologies to make home-building more efficient, inclusive, sustainable, and fulfilling.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-7 offset-5 col-md-4 offset-md-8 col-lg-3 offset-lg-9 mt-3">
+                        <a class="link-white" href="./market"><h2 class="h4 text-uppercase position-relative">Market
+                            <div class="arrow arrow-sm"><div class="head"></div></div>
+                        </h2></a>
+                        <p>Assisting <a class="fw-bold fst-italic text-white" href="https://www.quipumarket.com" target="_blank">Quipu</a>&mdash;a <br>micro-currency digital platform&mdash;to establish a physical marketplace empowering members of a low-income community in Colombia.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-9 offset-3 col-md-4 offset-md-1 col-lg-3" id="p-care">
+                        <a class="link-white" href="./care"><h2 class="h4 text-uppercase position-relative">Care
+                            <div class="arrow arrow-sm"><div class="head"></div></div>
+                        </h2></a>
+                        <p>Supporting <a class="fw-bold fst-italic text-white" href="https://www.carehaus.net/" target="_blank">Carehaus</a> in developing intergenerational <br>co-housing where caregivers live alongside and care for older adults and disabled people.</p>
+                    </div>
+                    <div class="col-7 offset-4 col-md-4 offset-md-3 col-lg-3 offset-lg-4" id="p-living">
+                        <a class="link-white" href="./living"><h2 class="h4 text-uppercase position-relative">Living
+                            <div class="arrow arrow-sm"><div class="head"></div></div>
+                        </h2></a>
+                        <p>Developing new collective living models with <a class="fw-bold fst-italic text-white" href="https://www.communit.co/" target="_blank">Communit</a> in retrofitted buildings and neighborhood-scale co-housing.</p>
+                    </div>
+                </div>
+                <img id="img-labor" class="img img-static" src="./img/labor.svg" alt="Labor">
+                <img id="img-market" class="img img-static" src="./img/market.svg" alt="Market">
+                <img id="img-care" class="img img-static" src="./img/care.svg" alt="Care">
+                <img id="img-living" class="img img-static" src="./img/living.svg" alt="Living">
             </div>
-            <img class="img img-center" id="img-voices" src="./img/voices.svg" alt="Collective Voices">
-        </section>
-        <section id="oc" class="container-fluid section">
-            <div class="row align-items-end">
-                <div class="col col-md-10 offset-md-2">
-                    <a class="link-white" href="./about"><h1 class="h1 text-uppercase position-relative before-arrow">Open Collectives
-                        <div class="arrow"><div class="head"></div></div>
-                    </h1></a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-10 offset-2 col-md-6 offset-md-6 col-lg-4 offset-lg-8 mt-4">
-                    <a class="link-white" href="#oc-themes">
-                        <p><em>Open Collectives</em> is an immersive installation featuring digital platforms and architectural projects that seek to leverage the power of solidarity in order to strengthen economic sovereignty, housing affordability, communal self-determination, and mutual aid.</p>
-                        <p><em>Open Collectives</em> offers new perspectives on pressing issues such as the future of work, the gig economy, elder boom, affordable housing, and widening inequality. Featured projects engage with the following <span class="position-relative">themes:
-                            <span class="arrow arrow-dn"><span class="head"></span></span></span>
-                        </p>
-                    </a>
-                </div>
-            </div>
-            <img class="img img-center" id="img-oc" src="./img/installation.svg" alt="Open Collectives Installation">
-        </section>
-        <section id="oc-themes" class="container-fluid section">
-            <div class="align-items-middle">
-            <div class="row">
-                <div class="col-8 offset-2 col-md-4 offset-md-4 col-lg-3" id="p-labor">
-                    <a class="link-white" href="./labor"><h2 class="h4 text-uppercase position-relative">Labor
-                        <div class="arrow arrow-sm"><div class="head"></div></div>
-                    </h2></a>
-                    <p>Working with <a class="fw-bold fst-italic text-white" href="http://mosaic.us" target="_blank">Mosaic.us</a>&mdash;a <br>full-stack construction company developing technologies to make home-building more efficient, inclusive, sustainable, and fulfilling.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-7 offset-5 col-md-4 offset-md-8 col-lg-3 offset-lg-9 mt-3">
-                    <a class="link-white" href="./market"><h2 class="h4 text-uppercase position-relative">Market
-                        <div class="arrow arrow-sm"><div class="head"></div></div>
-                    </h2></a>
-                    <p>Assisting <a class="fw-bold fst-italic text-white" href="https://www.quipumarket.com" target="_blank">Quipu</a>&mdash;a <br>micro-currency digital platform&mdash;to establish a physical marketplace empowering members of a low-income community in Colombia.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-9 offset-3 col-md-4 offset-md-1 col-lg-3" id="p-care">
-                    <a class="link-white" href="./care"><h2 class="h4 text-uppercase position-relative">Care
-                        <div class="arrow arrow-sm"><div class="head"></div></div>
-                    </h2></a>
-                    <p>Supporting <a class="fw-bold fst-italic text-white" href="https://www.carehaus.net/" target="_blank">Carehaus</a> in developing intergenerational <br>co-housing where caregivers live alongside and care for older adults and disabled people.</p>
-                </div>
-                <div class="col-7 offset-4 col-md-4 offset-md-3 col-lg-3 offset-lg-4" id="p-living">
-                    <a class="link-white" href="./living"><h2 class="h4 text-uppercase position-relative">Living
-                        <div class="arrow arrow-sm"><div class="head"></div></div>
-                    </h2></a>
-                    <p>Developing new collective living models with <a class="fw-bold fst-italic text-white" href="https://www.communit.co/" target="_blank">Communit</a> in retrofitted buildings and neighborhood-scale co-housing.</p>
-                </div>
-            </div>
-            <img class="img" id="img-labor" src="./img/labor.svg" alt="Labor">
-            <img class="img" id="img-market" src="./img/market.svg" alt="Market">
-            <img class="img" id="img-care" src="./img/care.svg" alt="Care">
-            <img class="img" id="img-living" src="./img/living.svg" alt="Living">
-        </div>
-        </section>
+            </section>
+            <svg id="svg-morph" data-name="1-voices" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+                <path id="shape1" class="f-cream" d="M159.45,624.48L227.11,450.48L297.76,268.77L592.24,322.92L887.11,582.24L995.69,608.89C990.24,624.59,969.12,681.15,962.89,696.94L897.27,873L454.4,723.84Z"/>
+                <!-- <path id="shape2" class="f-pink" d="M493.61,187L669.56,199.2L680.23,54C712.08,56,880.55,68.16,899.23,69.48C921.23,71.04,1096.23,82.78,1117.08,84.88000000000001L1100.51,307.32L895.8299999999999,292.32L883.5,460.39L787.84,453.39L758.7,864.57L748.41,1009.7L435.26,986L454.4,723.84L469.62,515.4300000000001L485.12,303.21000000000004Z"/> -->
+                <path id="shape2a" class="f-pink" d="M787.84,453.36c-54.2,-28,-130.1,-139.34,-122.29,-168.63l4,-85.49l-175.94,-12.24l-58.35,799l313.15,23.7l10.29,-145.13z"/>
+                <path id="shape2b" class="f-pink" d="M883.5,460.39l12.34,-168.1l204.68,15l16.57,-222.44l-436.86,-30.85l-10.67,145.24c-7.29,34.31,-10.72,83,-9.46,123.16l-10.89,118.89l48.27,7l90.36,5.11z"/>
+                <path id="shape3" class="f-red" d="M1259.17,291.13L1220.99,176.6L1186.33,72.61L1067.23,112.3L982.5,140.54L879.36,174.91L772.19,210.63L671.05,244.34L563.87,280.06L811.84,1024L1044.71,946.38L1044.82,876.71L1253.78,876.69L1434.3,816.52L1401.38,717.77L1367.22,615.3L1332.17,510.14L1294.78,397.96L1259.17,291.13"/>
+                <path id="shape4" class="f-lt-red" d="M1457.28,696.94L935.89,696.94L935.89,490.25L1079.27,296.48L1348.54,258.77L1512.23,258.77L1512.23,528.77L1457.28,696.94"/>
+                <path id="shape5" class="f-yellow" d="M1570.22,664.68l190.31,109.82l0,65.91c-8.78,5.17,-70.71,41,-84.57,48.85l-190.3,-109.81v-65.92z"/>
+            </svg>
+        </div><!-- close morphing shapes div -->
         <section class="container-fluid section d-flex" id="oc-dimensions">
             <div id="cd-explore" class="row w-100 align-self-center">
                 <a class="link-white h-100" href="./dimensions"><div class="col align-self-center h-100 d-flex flex-column justify-content-between">
@@ -164,6 +176,7 @@
     <script type="text/javascript" scr="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script type="text/javascript" src="./js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./js/script.js"></script>
+    <script type="text/javascript" src="./js/morph-shapes.js"></script>
 </body>
 
 </html>
