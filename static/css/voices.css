@@ -105,7 +105,6 @@ main {
     width: 15rem;
     height: 1rem;
     top: 90%;
-    right: 2rem;
 }
 #div-view-results a {
     display: flex;
@@ -358,8 +357,8 @@ main {
     float: left;
 }
 #headline-figure {
-    width: 130px;
-    margin-right: 1rem;
+    width: 80px;
+    margin-right: 0.5rem;
 }
 #headline-percent {
     font-family: 'Prophet-Bold';
@@ -371,10 +370,13 @@ main {
 }
 #headline-figure span {
     top: -0.5em;
+    font-size: 0.6rem;
+    line-height: 1.2em;
 }
 #headline-description {
     display: block;
-    width: calc(100% - 130px - 1rem);
+    width: calc(100% - 80px - 0.5rem);
+    font-size: 0.7rem;
 }
 #nav-results {
     padding-right: 1rem;
@@ -444,6 +446,13 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
     position: relative;
     border-radius: 2rem;
     border-bottom-left-radius: 0px;
+    width: calc(100% + 4rem);
+    left: -2rem;
+    font-size: 0.7rem;
+    line-height: 1.2em;
+}
+#learn a {
+    font-size: 0.7rem;
 }
 #learn:after {
     content: "";
@@ -569,6 +578,13 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
         height: calc(100vw - 2rem);
         max-height: 515px;
     }
+    .modal-body label {
+        font-size: 0.9rem;
+        line-height: 1.2em;
+    }
+    #div-view-results {
+        right: 2rem;
+    }
     #nav-dashboard {
         height: calc(32vh - 4rem);
     }
@@ -576,9 +592,25 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
         height: 68h;
         top: 32vh;
     }
-    .modal-body label {
-        font-size: 0.9rem;
-        line-height: 1.2em;
+    #headline-figure {
+        width: 130px;
+        margin-right: 1rem;
+    }
+    #headline-description {
+        width: calc(100% - 130px - 1rem);
+        font-size: calc(0.8rem + .3vw);
+    }
+    #headline-figure span {
+        font-size: unset;
+    }
+    #learn {
+        width: 100%;
+        left: unset;
+        font-size: unset;
+        line-height: unset;
+    }
+    #learn a {
+        font-size: unset;
     }
 }
 /* Medium devices (tablets, 768px and up) */

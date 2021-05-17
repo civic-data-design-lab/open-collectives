@@ -65,9 +65,21 @@ $('.navTrigger').click(function(){
 var winHeight = $(window).height();
 var winWidth = $(window).width();
 
+// small portrait screens view film in landscape
+function viewLandscape() {
+    if (winWidth < winHeight && winWidth < 576) {
+        $("#sm-screen").addClass("active");
+    }
+    else {
+        $("#sm-screen").removeClass("active");
+    }
+}
+viewLandscape();
+
 $(window).resize(function() {
 	winHeight = $(window).height();
 	winWidth = $(window).width();
+    viewLandscape();
 });
 
 // scroll to section dots

@@ -46,7 +46,7 @@ const radius = Math.min(width, (height - donutWidth * 2/3)) / 2;
 const svgLabor = d3.select("#chart-labor")
     .append("svg")
     .attr("class", "bar-horz")
-    .attr("viewBox", [0, 0, width, height]);
+    .attr("viewBox", [-8, 0, width, height]);
 const svgMarket = d3.select("#chart-market")
     .append("svg")
     .attr("class", "donut")
@@ -58,7 +58,7 @@ const svgCare = d3.select("#chart-care")
 const svgLiving = d3.select("#chart-living")
     .append("svg")
     .attr("class", "bar-horz")
-    .attr("viewBox", [0, 0, width, height]);
+    .attr("viewBox", [-8, 0, width, height]);
 
 // tooltip
 var divPercent = d3.select("#headline-percent")

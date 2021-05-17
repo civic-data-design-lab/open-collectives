@@ -717,9 +717,9 @@ input[type="range"]:focus::-ms-fill-upper {
         font-size: 5px;
         padding-right: 1px;
     }
-    .modal-image{
+    /* .modal-image{
         max-width: 30%;
-    }
+    } */
 }
   
 /* @media (max-width: 575.9px) { */

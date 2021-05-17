@@ -503,8 +503,20 @@ body#home {
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-div.ytp-chrome-top {
-    display: none!important;
+#sm-screen {
+    position: absolute;
+    top: -10vh;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    text-align: center;
+    display: none;
+}
+#sm-screen.active {
+    display: block;
 }
 
 #oc {
@@ -712,10 +724,6 @@ div.ytp-chrome-top {
 /* About Page */
 #what-are {
     margin-top: 15%;
-}
-#featured {
-    position: absolute;
-    top: 22%;
 }
 #img-about {
     width: 65%;
