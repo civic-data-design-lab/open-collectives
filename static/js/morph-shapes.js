@@ -96,17 +96,30 @@ var morphShape5 = anime({
     easing: 'easeInOutSine',
     autoplay: false
 });
+var themesTop = $("#oc-themes").position().top;
+
+function seekAnimation(height) {
+    morphSvg.seek((window.pageYOffset - height) / (2 * height) * 1000);
+    morphShape1.seek((window.pageYOffset - height) / (2 * height) * 1000);
+    morphShape2a.seek((window.pageYOffset - height) / (2 * height) * 1000);
+    morphShape2b.seek((window.pageYOffset - height) / (2 * height) * 1000);
+    morphShape3.seek((window.pageYOffset - height) / (2 * height) * 1000);
+    morphShape4.seek((window.pageYOffset - height) / (2 * height) * 1000);
+    morphShape5.seek((window.pageYOffset - height) / (2 * height) * 1000);
+};
+
+$(window).resize(function() {
+    seekAnimation(winHeight);
+});
 
 $(window).on("scroll", function(e) {
     // console.log("pageYOffset: " + window.pageYOffset);
     // console.log("winHeight: " + winHeight);
     // console.log((window.pageYOffset - winHeight) / (2 * winHeight) * 1000);
 
-    morphSvg.seek((window.pageYOffset - winHeight) / (2 * winHeight) * 1000);
-    morphShape1.seek((window.pageYOffset - winHeight) / (2 * winHeight) * 1000);
-    morphShape2a.seek((window.pageYOffset - winHeight) / (2 * winHeight) * 1000);
-    morphShape2b.seek((window.pageYOffset - winHeight) / (2 * winHeight) * 1000);
-    morphShape3.seek((window.pageYOffset - winHeight) / (2 * winHeight) * 1000);
-    morphShape4.seek((window.pageYOffset - winHeight) / (2 * winHeight) * 1000);
-    morphShape5.seek((window.pageYOffset - winHeight) / (2 * winHeight) * 1000);
+    seekAnimation(winHeight);
 });
+
+$(document).ready(function() {
+    seekAnimation(winHeight);
+})

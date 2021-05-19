@@ -25,6 +25,9 @@ var laborTopResponse = "",
     marketTopResponse = "",
     careTopResponse = "",
     livingTopResponse = "";
+var countryData = [],
+    adminData = [],
+    cityData = [];
 var rowID = null,
     country = null,
     admin1 = null,
@@ -94,6 +97,46 @@ function getJsonObject(jsonFileName, callback) {
         }
     }
 }
+
+// LOCATION COUNTRY ADMIN DATA
+function txtToJsonObject(txtFileName, callback) {
+    var request = new XMLHttpRequest();
+    var txtPath = './data/' + txtFileName + '.txt';
+    request.open('GET', txtPath, true);
+    request.send(null);
+    request.onreadystatechange = function() {
+        if (request.readyState === 4 && request.status === 200) {
+            var type = request.getResponseHeader('Content-Type');
+            try {
+                callback(
+                    request.responseText.split('\n').map(row => row.split('\t'))
+                    // var keys = rows[0];
+                    // var dataArray = rows.split(1);
+                    // console.log(keys);
+                    // console.log(dataArray);
+                    );
+            } catch (err) {
+                callback(err);
+            }
+        }
+    }
+}
+function formatTxtObject(dataArray) {
+    var keys = dataArray[0];
+    var rows = dataArray.slice(1);
+};
+
+// if (countryData.length == 0) {
+//     txtToJsonObject("countryInfo", function(data) {
+//         var keys = data[0];
+//         var rows = data.slice(1);
+//         console.log(keys);
+//         console.log(rows);
+//         // countryData = data;
+
+//         // console.log(data);
+//     })
+// }
 
 // QUESTIONS DATA
 // get questions json data and generate modals and form inputs for each theme

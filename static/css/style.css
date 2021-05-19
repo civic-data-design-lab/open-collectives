@@ -491,6 +491,9 @@ a.arrow-left {
 body#home {
     overflow: hidden auto;
 }
+#home main {
+    overflow: hidden auto;
+}
 #oc-film {
     position: absolute;
     min-width: 80%;
@@ -519,9 +522,6 @@ body#home {
     display: block;
 }
 
-#oc {
-    height: 45vh;
-}
 #oc .h1 {
     display: inline-block;
     margin-top: 20%;;
@@ -547,10 +547,9 @@ body#home {
 #p-living {
     margin-top: 15%;
 }
-#oc-voices #voices-enter {
-    position: absolute;
-    margin-top: 70vh;
-    /* margin-top: 24rem; */
+#voices-share, 
+#voices-enter {
+    margin-top: 15vh;
 }
 #cd-explore {
     height: 50vh;
@@ -652,8 +651,6 @@ body#home {
 }
 .marquee-wall {
     height: 100%;
-    /* width: 262%; */
-    /* background: #fff; */
     position: relative;
     left: 0%;
     -webkit-animation: wall-scrolling 48s linear infinite;
@@ -727,8 +724,12 @@ body#home {
 }
 #img-about {
     width: 65%;
-    top: 15%;
+    top: 12%;
     left: 24%;
+}
+.img-station {
+    position: relative;
+    width: 100%;
 }
 #wall {
     position: absolute;
@@ -796,14 +797,7 @@ body#home {
     position: relative;
     width: 100%;
     mix-blend-mode: multiply;
-    /* background-blend-mode: multiply!important;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: 100% auto; */
 }
-/* #img-care-1 {
-    background-image: url(../img/care-1.jpg);
-} */
 .next-theme {
     text-align: right;
     padding-right: 5rem!important;
@@ -884,11 +878,5 @@ body#home {
 @media (max-width: 718px) {
     #oc-dimensions .h1 {
         height: 2em;
-    }
-}
-
-@media (min-aspect-ratio: 16/9) {
-    #oc-voices #voices-enter {
-        margin-top: 90vh;
     }
 }
