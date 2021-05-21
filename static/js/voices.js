@@ -817,6 +817,7 @@ $(document).ready(function () {
             theme = cardId.slice(6);
 
         if (!$(this).hasClass("btn-back")) { // card flip forward
+            $(cardId).addClass("flipped");
             if ($(this).hasClass("btn-submit")) {
                 submitForm(theme);
                 if ($(this).hasClass("location-submit")) {
@@ -825,9 +826,15 @@ $(document).ready(function () {
                     $("#form .location-content").addClass("hidden");
                     $("#form .results-content").removeClass("hidden");
                 }
-
                 $(cardId + " .card-front .btn-submit").remove();
                 $(cardId + " .btn-flip").removeClass("hidden");
+
+                if ($(cardId).find("input").attr("type") == "checkbox") {
+                    svgId = "#mini-chart-" + theme;
+                    d3.select(svgId).select(".chart-short")
+                        .selectAll("text")
+                        .call(wrapText, 90);
+                }
             }
             // show highlighed response on chart
             if ($(cardId).find("input").is(":checked")) {
@@ -858,7 +865,6 @@ $(document).ready(function () {
                 $("#form " + cardId + " text").removeClass("active");
                 $("#form " + cardId + " ." + topResponse).addClass("active");
             }
-            $(cardId).addClass("flipped");
         }
         else if ($(this).hasClass("btn-back")) { // card flip back
             $(cardId).removeClass("flipped");

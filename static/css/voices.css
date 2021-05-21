@@ -211,7 +211,9 @@ main {
 .img-quest {
     position: absolute;
 }
-.modal-header, .modal-body, .modal-footer {
+.modal-header, 
+.modal-body, 
+.modal-footer {
     border: none;
     z-index: 1;
 }
@@ -243,6 +245,8 @@ main {
 .modal-footer button {
     background: none;
     border: none;
+    width: 100%;
+    height: calc(50% + 0.25rem);
 }
 .modal-footer .btn-next, 
 .modal-footer .btn-submit, 
@@ -272,6 +276,7 @@ main {
 }
 .mini-chart svg {
     max-height: 100%;
+    align-self: center;
 }
 
 /* Modal Styles for Thank You */
@@ -582,6 +587,10 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
         font-size: 0.9rem;
         line-height: 1.2em;
     }
+    .modal-footer button {
+        width: unset;
+        height: unset;
+    }
     #div-view-results {
         right: 2rem;
     }
@@ -607,7 +616,7 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
         width: 100%;
         left: unset;
         font-size: unset;
-        line-height: unset;
+        line-height: 1.2em;
     }
     #learn a {
         font-size: unset;
@@ -706,8 +715,9 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
 /* Landscape screen orientation (short height) */
 /* @media (min-width: 768px) and (max-height: 680px) { */
 @media (max-height: 680px) and (min-aspect-ratio: 1/1) {
-    p, span {
+    p:not(.sidebar p, #select) {
         font-size: 0.7rem;
+        line-height: 1.2em;
     }
     .h3 {
         font-size: calc(1rem + .3vw);
@@ -725,6 +735,10 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
     #theme-learn, #nav-headline {
         margin-bottom: 1rem!important;
     }
+    #learn span {
+        font-size: 0.7rem;
+        line-height: 1.2em;
+    }
     #nav-headline {
         padding-bottom: 0.5rem!important;
     }
@@ -740,8 +754,9 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
 }
 /* Landscape screen orientation and small screen */
 @media (max-width: 767px) and (min-aspect-ratio: 1/1) {
-    p, span {
+    p:not(.sidebar p, #select) {
         font-size: 0.6rem;
+        line-height: 1.2em;
     }
     .h3 {
         font-size: calc(0.8rem + .3vw);
@@ -790,11 +805,30 @@ a#arrow-prev:hover .arrow, a#arrow-next:hover .arrow {
         width: 41.6666666667%;
         padding: 1rem!important;
     }
+    #learn span {
+        font-size: 0.6rem;
+        line-height: 1.2em;
+    }
     .chart svg {
         max-height: none;
     }
 }
 /* Landscape screen orientation and x-small screen */
-@media (max-width: 575px) and (min-aspect-ratio: 1/1) {
-
+@media (max-height: 575px) and (min-aspect-ratio: 1/1) {
+    #select {
+        top: 4rem;
+    }
+    .modal-fullscreen-sm-down {
+        height: 100%;
+        border: 0;
+        border-radius: 0;
+    }
+    .modal-dialog {
+        max-width: none;
+        margin: auto;
+        height: 100%;
+    }
+    .modal-content {
+        height: 100%;
+    }
 }
