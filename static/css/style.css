@@ -30,8 +30,11 @@ body {
 }
 .section {
     position: relative;
-    min-height: 60vh;
+    min-height: 100vh;
     /* border-bottom: solid 1px; */
+}
+#home .section {
+    min-height: 60vh;
 }
 
 .h1 {
