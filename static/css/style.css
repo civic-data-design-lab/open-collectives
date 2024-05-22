@@ -25,6 +25,13 @@ body {
     font-variation-settings: 'wght' 300;
     line-height: 1.2em;
 }
+
+#accessibility-link {
+    color: white;
+    display: block;
+    margin-top: 10px;
+}
+
 .container {
     max-width: calc(100% - 120px);
 }
