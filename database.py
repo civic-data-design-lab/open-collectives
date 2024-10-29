@@ -6,7 +6,6 @@ import os
 from werkzeug.utils import secure_filename
 import requests
 from flask_sqlalchemy import SQLAlchemy
-from apiKey import reCaptcha
 
 
 CURRENT_FILE = os.path.abspath(__file__)
@@ -91,12 +90,6 @@ def upload_json_to_db():
 
 #Have to add new collective to the database
 def post_collective():
-	#Make sure both are not null (required to upload a pic in some way)
-    captcha = requests.post('https://www.google.com/recaptcha/api/siteverify', data = {'secret':reCaptcha, 'response':request.form['FormCaptcha']})
-    response = json.loads(captcha.content)
-    if not response['success'] or response['hostname'] not in request.url_root:
-        print ("Something")
-        return False
     if (request.form['FormPicUrl'] != ''):
         url = request.form['FormPicUrl']
         filename = secure_filename(url.split('/')[-1].split('?')[0])
@@ -108,19 +101,32 @@ def post_collective():
         file = request.files['FormPic']
         filename = secure_filename(file.filename)
         file.save(os.path.join(webapp.webapp.config['UPLOAD_FOLDER'], filename))
-    collective = Collective(request.form['FormName'],request.form['FormDescription'],filename,request.form['FormPorous'],request.form['FormEcon'],request.form['FormSize'],request.form['FormPlatform'],request.form['FormGovern'])
-    #Add object to the database
+    
+    collective = Collective(
+        request.form['FormName'],
+        request.form['FormDescription'],
+        filename,
+        request.form['FormPorous'],
+        request.form['FormEcon'],
+        request.form['FormSize'],
+        request.form['FormPlatform'],
+        request.form['FormGovern']
+    )
+    
+    # Add object to the database
     db.session.add(collective)
-    #Save the object
+    
+    # Save the object
     try:
         db.session.commit()
         success = True
     except Exception as e:
-        print (e)
+        print(e)
         db.session.rollback()
-        print ("other thing")
+        print("other thing")
         success = False
     finally:
         pass
         # db.session.close()
+    
     return success
